@@ -71,6 +71,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-认识flyway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" class="article-date">
+  <time class="dt-published" datetime="2021-03-14T12:53:21.000Z" itemprop="datePublished">2021-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/">认识flyway</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Flyway简介和SpringBoot集成Flyway"><a href="#Flyway简介和SpringBoot集成Flyway" class="headerlink" title="Flyway简介和SpringBoot集成Flyway"></a>Flyway简介和SpringBoot集成Flyway</h1><h2 id="Flayway简介"><a href="#Flayway简介" class="headerlink" title="Flayway简介"></a>Flayway简介</h2><p>FLYway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway_schema_history</p>
+<p>2、紧接着flyway将开始扫描文件系统或引用程序的类路径进行迁移。然后，flyway的数据将基于对sql脚本的版本号进行排序，并按顺序应用：可以看到执行数据库表后在checksum中储存一个数值，用于在之后运行过程中对比sql文件执行是否有变化。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>flyway在执行脚本时，会在源数据表中检查checksum值，并确定上次运行到哪一个脚本文件，本次执行时从下一条脚本文件开始执行。所以编写脚本的时候不要去修改原有的脚本内容，并且新的脚本号要继续。</p>
+<h2 id="集成SpringBoot"><a href="#集成SpringBoot" class="headerlink" title="集成SpringBoot"></a>集成SpringBoot</h2><p>1.添加依赖和插件<br><red><br>注意：spring boot 2.2.x supplies flyway version 6. This version does not support mysql 5.5. You could try to override the flyway version to 5.2.4<br></red>  </p>
+<p>2.命名规范<br>sql脚本存放目录：src/main/resources/db/migration<br>对应一个程序版本的多个脚本，从1开始，比如1.0.9版本，有多个任务：张三负责a任务（tapd号为1111111），李四负责b任务（tapd号为222222），他们的任务都涉及到db更新他们会分别创建两个脚本：<br>V1.0.9.0.1__1111111.sql<br>V1.0.9.0.2__222222.sql<br>说明：V大写，中间是两个下划线（__)</p>
+<p>常见问题<br>1、可以基于环境变量，实现不同的环境，做不同的初始化脚本吗？<br> 基于我们的配置中 心，可以对flyway.locations配置进行修改，不同环境的初始化脚本可以放到不同的目录下。</p>
+<p>2、初始化数据过程会发生错误回滚？<br> 每 一个sql 文件会有 一个单独的事物，如果单个文件中发 生错误，单个文件的操作会回滚， 比如有1、2、3个 文件，第 二个文件发生错误，第二个文件所有操作将会回滚，第三个文件不会执行。但： Unfortunately, today only DB2, PostgreSQL, Derby, EnterpriseDB and to a certain extent SQL Server support DDL statements  inside a transaction。 所以，建议不要把ddl 文件和dml语句句放到同 一个文件 里，避免不必要的麻烦。</p>
+<p>3、多个节点能够并行执行migration吗？<br> 当然可以！Flyway使用数据库锁机制（locking technology of your database）来协调多个节点，从而保证多套应用程序可同时执行migration，而且集群控制也可做配置。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="ckm96q71w00052cvg68li2f43" data-title="认识flyway" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-My-Birthday-Gifts" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/05/My-Birthday-Gifts/" class="article-date">
@@ -100,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/05/My-Birthday-Gifts/" data-id="ckksd01vs0000lwvg8xlufpu8" data-title="My Birthday Gifts" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/05/My-Birthday-Gifts/" data-id="ckm96q6zl00002cvg1lpz04wu" data-title="My Birthday Gifts" class="article-share-link">Share</a>
       
       
       
@@ -134,12 +181,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="仙女出场，热烈鼓掌"><a href="#仙女出场，热烈鼓掌" class="headerlink" title="仙女出场，热烈鼓掌"></a><center>仙女出场，热烈鼓掌</center></h1><p><img src="Aili.PNG" alt="这是谁呀？"></p>
+        <h1 id="仙女出场，热烈鼓掌"><a href="#仙女出场，热烈鼓掌" class="headerlink" title="仙女出场，热烈鼓掌"></a><center>仙女出场，热烈鼓掌</center></h1><p><img src="/2021/02/04/testIMG/Aili.PNG" alt="这是谁呀？"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/testIMG/" data-id="ckkqclei90000ukvg73wv7cgk" data-title="testIMG" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/testIMG/" data-id="ckm96q71v00042cvg0btq335q" data-title="testIMG" class="article-share-link">Share</a>
       
       
       
@@ -282,40 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="ckkqbafyh0000lkvgashk2j0f" data-title="startMarkdown" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-first-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/29/first-blog/" class="article-date">
-  <time class="dt-published" datetime="2020-12-29T07:00:26.277Z" itemprop="datePublished">2020-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: first blog<br>date: 2020-12-29 15:00:26<br>tags:</p>
-<h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p>第一章：万事开头难</p>
-<p>第二章：越是艰险越向前</p>
-<p>第三章：do not give up!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2020/12/29/first-blog/" data-id="ckkpkgmyj0000rsvg804n4f0v" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="ckm96q71u00022cvg9g8acdla" data-title="startMarkdown" class="article-share-link">Share</a>
       
       
       
@@ -329,8 +343,8 @@
   
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/12/29/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2020-12-29T04:47:15.411Z" itemprop="datePublished">2020-12-29</time>
+    <a href="/2021/02/04/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2021-02-04T03:28:55.394Z" itemprop="datePublished">2021-02-04</time>
 </a>
     
   </div>
@@ -341,7 +355,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/29/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/02/04/hello-world/">Hello World</a>
     </h1>
   
 
@@ -362,7 +376,40 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2020/12/29/hello-world/" data-id="ckkpkgn2n0001rsvgfv2sa8sw" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/hello-world/" data-id="ckm96q71v00032cvg1w6rcyhl" data-title="Hello World" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-first-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/04/first-blog/" class="article-date">
+  <time class="dt-published" datetime="2021-02-04T03:28:55.392Z" itemprop="datePublished">2021-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: first blog<br>date: 2020-12-29 15:00:26<br>tags:</p>
+<h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p>第一章：万事开头难</p>
+<p>第二章：越是艰险越向前</p>
+<p>第三章：do not give up!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2021/02/04/first-blog/" data-id="ckm96q71q00012cvg9f9p71gs" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -392,7 +439,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
     </div>
   </div>
 
@@ -403,6 +450,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/">认识flyway</a>
+          </li>
         
           <li>
             <a href="/2021/02/05/My-Birthday-Gifts/">My Birthday Gifts</a>
@@ -417,11 +468,7 @@
           </li>
         
           <li>
-            <a href="/2020/12/29/first-blog/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/29/hello-world/">Hello World</a>
+            <a href="/2021/02/04/hello-world/">Hello World</a>
           </li>
         
       </ul>
