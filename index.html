@@ -97,7 +97,7 @@
 <h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway_schema_history</p>
 <p>2、紧接着flyway将开始扫描文件系统或引用程序的类路径进行迁移。然后，flyway的数据将基于对sql脚本的版本号进行排序，并按顺序应用：可以看到执行数据库表后在checksum中储存一个数值，用于在之后运行过程中对比sql文件执行是否有变化。</p>
 <h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>flyway在执行脚本时，会在源数据表中检查checksum值，并确定上次运行到哪一个脚本文件，本次执行时从下一条脚本文件开始执行。所以编写脚本的时候不要去修改原有的脚本内容，并且新的脚本号要继续。</p>
-<h2 id="集成SpringBoot"><a href="#集成SpringBoot" class="headerlink" title="集成SpringBoot"></a>集成SpringBoot</h2><p>1.添加依赖和插件<br><red><br>注意：spring boot 2.2.x supplies flyway version 6. This version does not support mysql 5.5. You could try to override the flyway version to 5.2.4<br></red>  </p>
+<h2 id="集成SpringBoot"><a href="#集成SpringBoot" class="headerlink" title="集成SpringBoot"></a>集成SpringBoot</h2><p>1.添加依赖和插件<br><a><font color="red"><br>注意：spring boot 2.2.x supplies flyway version 6. This version does not support mysql 5.5. You could try to override the flyway version to 5.2.4<br></font></a></p>
 <p>2.命名规范<br>sql脚本存放目录：src/main/resources/db/migration<br>对应一个程序版本的多个脚本，从1开始，比如1.0.9版本，有多个任务：张三负责a任务（tapd号为1111111），李四负责b任务（tapd号为222222），他们的任务都涉及到db更新他们会分别创建两个脚本：<br>V1.0.9.0.1__1111111.sql<br>V1.0.9.0.2__222222.sql<br>说明：V大写，中间是两个下划线（__)</p>
 <p>常见问题<br>1、可以基于环境变量，实现不同的环境，做不同的初始化脚本吗？<br> 基于我们的配置中 心，可以对flyway.locations配置进行修改，不同环境的初始化脚本可以放到不同的目录下。</p>
 <p>2、初始化数据过程会发生错误回滚？<br> 每 一个sql 文件会有 一个单独的事物，如果单个文件中发 生错误，单个文件的操作会回滚， 比如有1、2、3个 文件，第 二个文件发生错误，第二个文件所有操作将会回滚，第三个文件不会执行。但： Unfortunately, today only DB2, PostgreSQL, Derby, EnterpriseDB and to a certain extent SQL Server support DDL statements  inside a transaction。 所以，建议不要把ddl 文件和dml语句句放到同 一个文件 里，避免不必要的麻烦。</p>
@@ -106,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="ckm96q71w00052cvg68li2f43" data-title="认识flyway" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="ckm9740qf0005hkvg1vnb6lm7" data-title="认识flyway" class="article-share-link">Share</a>
       
       
       
@@ -147,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/05/My-Birthday-Gifts/" data-id="ckm96q6zl00002cvg1lpz04wu" data-title="My Birthday Gifts" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/05/My-Birthday-Gifts/" data-id="ckm9740q90001hkvg4nvteoll" data-title="My Birthday Gifts" class="article-share-link">Share</a>
       
       
       
@@ -186,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/testIMG/" data-id="ckm96q71v00042cvg0btq335q" data-title="testIMG" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/testIMG/" data-id="ckm9740qc0004hkvg6tmm5bj2" data-title="testIMG" class="article-share-link">Share</a>
       
       
       
@@ -329,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="ckm96q71u00022cvg9g8acdla" data-title="startMarkdown" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="ckm9740qb0003hkvg477gbhto" data-title="startMarkdown" class="article-share-link">Share</a>
       
       
       
@@ -376,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/hello-world/" data-id="ckm96q71v00032cvg1w6rcyhl" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/hello-world/" data-id="ckm9740qa0002hkvg9kz8d84c" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -409,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/first-blog/" data-id="ckm96q71q00012cvg9f9p71gs" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/first-blog/" data-id="ckm9740q40000hkvg4p6ug4c7" data-title="" class="article-share-link">Share</a>
       
       
       
