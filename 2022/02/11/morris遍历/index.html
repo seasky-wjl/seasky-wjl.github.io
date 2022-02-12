@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="morris遍历前序遍历核心思想是利用大量空闲指针，实现空间开销的极限缩减。其前序遍历规则总结如下：1.新建临时节点，另该节点为root;2.如果当前节点的左子节点为空，将当前节点加入答案，并遍历当前节点的右子节点。3.如果当前节点的左子节点不为空，在当前节点的左子树中找到当前节点在中序遍历中的前驱节点：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1）.如果前驱节点的右子节点为空，将前驱节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example/2022/02/11/morris%E9%81%8D%E5%8E%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="morris遍历前序遍历核心思想是利用大量空闲指针，实现空间开销的极限缩减。其前序遍历规则总结如下：1.新建临时节点，另该节点为root;2.如果当前节点的左子节点为空，将当前节点加入答案，并遍历当前节点的右子节点。3.如果当前节点的左子节点不为空，在当前节点的左子树中找到当前节点在中序遍历中的前驱节点：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1）.如果前驱节点的右子节点为空，将前驱节点">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-11T08:48:20.734Z">
+<meta property="article:modified_time" content="2022-02-11T07:12:42.431Z">
+<meta property="article:author" content="ma dudu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-morris遍历" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/11/morris%E9%81%8D%E5%8E%86/" class="article-date">
+  <time class="dt-published" datetime="2022-02-11T08:48:20.734Z" itemprop="datePublished">2022-02-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="morris遍历"><a href="#morris遍历" class="headerlink" title="morris遍历"></a><center>morris遍历</center></h1><h2 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h2><p>核心思想是利用大量空闲指针，实现空间开销的极限缩减。其前序遍历规则总结如下：<br>1.新建临时节点，另该节点为root;<br>2.如果当前节点的左子节点为空，将当前节点加入答案，并遍历当前节点的右子节点。<br>3.如果当前节点的左子节点不为空，在当前节点的左子树中找到当前节点在中序遍历中的前驱节点：<br>&nbsp;&nbsp;&nbsp;&nbsp; 1）.如果前驱节点的右子节点为空，将前驱节点设置为当前节点。然后将当前节点加入答案，并将前驱节点的右子节点更新为当前节点。当前节点更新为当前节点的左子节点。<br>&nbsp;&nbsp;&nbsp;&nbsp; 2）.如果前驱节点的右子节点为当前节点，将他的右边子节点重新设为空。当前节点更新为当前节点的右子节点。<br>4.重复步骤2和3，直到遍历结束。<br>Java代码为：</p>
+<pre><code>public List&lt;Integer&gt; preorderTraverse(TreeNode root)&#123;
+
+    List&lt;Integer&gt; res=new ArrayList&lt;&gt;();
+    TreeNode p1=root,p2=null;
+    while(p1!=null)&#123;
+        p2=p1.left;
+        if(p2!=null)&#123;
+            while(p2.right!=null &amp;&amp; p2.right!=p1)&#123;
+                p2=p2.right;                        //去找p1的中序遍历前驱节点
+            &#125;
+            if(p2.right==null)&#123;                     //前驱找到且还没把p1链接到右孩子
+                res.add(p1.val);
+                p2.right=p1;
+                p1=p1.left;                         //p1向左子树走
+                continue;
+            &#125;else&#123;
+                p1=p2.right;
+            &#125;
+        &#125;else&#123;
+            add(p1.val);
+        &#125;
+        p1=p1.right;
+    &#125;
+
+    return res;
+&#125;</code></pre>
+<p>复杂度分析：  </p>
+<ul>
+<li>时间：O(n),其中n是二叉树的节点数。没有左子树的节点制备访问一次，有左子树的节点被访问两次。  </li>
+<li>空间：O(1),只需常数的额外空间。  </li>
+</ul>
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><p>其后序遍历规则总结如下：<br>1.新建临时节点，令该节点为 root；<br>2.如果当前节点的左子节点为空，则遍历当前节点的右子节点；<br>3.如果当前节点的左子节点不为空，在当前节点的左子树中找到当前节点在中序遍历下的前驱节点；<br>&nbsp;&nbsp;&nbsp;&nbsp; 1）.如果前驱节点的右子节点为空，将前驱节点的右子节点设置为当前节点，当前节点更新为当前节点的左子节点。<br>&nbsp;&nbsp;&nbsp;&nbsp; 2).如果前驱节点的右子节点为当前节点，将它的右子节点重新设为空。倒序输出从当前节点的左子节点到该前驱节点这条路径上的所有节点。当前节点更新为当前节点的右子节点。<br>4.重复步骤 2 和步骤 3，直到遍历结束。 </p>
+<p>Java代码为：</p>
+<pre><code>public List&lt;Integer&gt; postorderTraversal(TreeNode root) &#123;
+    List&lt;Integer&gt; res = new ArrayList&lt;Integer&gt;();
+    if (root == null) &#123;
+        return res;
+    &#125;
+
+    TreeNode p1 = root, p2 = null;
+
+    while (p1 != null) &#123;
+        p2 = p1.left;
+        if (p2 != null) &#123;
+            while (p2.right != null &amp;&amp; p2.right != p1) &#123;
+                p2 = p2.right;
+            &#125;
+            if (p2.right == null) &#123;
+                p2.right = p1;
+                p1 = p1.left;
+                continue;
+            &#125; else &#123;
+                p2.right = null;
+                addPath(res, p1.left);
+            &#125;
+        &#125;
+        p1 = p1.right;
+    &#125;
+    addPath(res, root);
+    return res;
+&#125;
+
+public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
+    int count = 0;
+    while (node != null) &#123;
+        ++count;
+        res.add(node.val);
+        node = node.right;
+    &#125;
+    int left = res.size() - count, right = res.size() - 1;
+    while (left &lt; right) &#123;
+        int temp = res.get(left);
+        res.set(left, res.get(right));
+        res.set(right, temp);
+        left++;
+        right--;
+    &#125;
+&#125;</code></pre>
+<p>复杂度分析：  </p>
+<ul>
+<li>时间复杂度：O(n)O(n)，其中 nn 是二叉树的节点数。没有左子树的节点只被访问一次，有左子树的节点被访*问两次。    </li>
+<li>空间复杂度：O(1)O(1)。只操作已经存在的指针（树的空闲指针），因此只需要常数的额外空间。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/02/11/morris%E9%81%8D%E5%8E%86/" data-id="ckzj88ji10000bcvgeoombv8o" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">认识flyway</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/02/11/morris%E9%81%8D%E5%8E%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/">认识flyway</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/05/My-Birthday-Gifts/">My Birthday Gifts</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/testIMG/">testIMG</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/startMarkdown/">startMarkdown</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 ma dudu<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
