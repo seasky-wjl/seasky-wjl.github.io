@@ -71,6 +71,111 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-二分搜索升天词" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" class="article-date">
+  <time class="dt-published" datetime="2022-02-14T07:51:34.000Z" itemprop="datePublished">2022-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/">二分搜索升天词</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="二分搜索升天词"><a href="#二分搜索升天词" class="headerlink" title="二分搜索升天词"></a>二分搜索升天词</h1><pre><code> * dong哥   </code></pre>
+<p>二分搜索不好记，左右边界让人迷。<br>小于等于变小于，mid加一又减一。<br>就算这样还没完，return应否再-1？<br>信心慢慢刷力扣，AC比率二十一。<br>我本将心向明月，奈何明月照沟渠！<br>问君能有几多愁？恰似情深喂了狗。</p>
+<p>labuladong从天降，一同手撕算法题。<br>增君一法写二分，不用拜佛与念经。<br>管他左侧还右侧，搜索区间定乾坤。 </p>
+<p>搜索一个元素时，搜索区间两端闭。<br>while条件带等号，否则需要打补丁。<br>if相等就返回，其他的事甭操心。<br>mid必须加减一，因为区间两端闭。<br>while结束就凉了，凄凄惨惨返-1。  </p>
+<p>搜索左右边界时，搜索区间要阐明。<br>左闭右开最常见，其余逻辑便自明。<br>while要用小于号，这样才能不漏掉。<br>if相等别返回，利用mid锁边界。<br>mid加一或减一？要看区间开或闭。<br>while结束不算完，因为你还没返回。<br>索引可能出边界，if检查保平安。  </p>
+<p>左闭右开最常见，难道常见就合理？<br>labuladong不信邪，偏要改成两端闭。<br>搜索区间记于心，或开或闭有何异？<br>二分搜索三变体，逻辑统一容易记。<br>一套框架改两行，胜过千言和万语。  </p>
+<p>附上Java代码</p>
+<p> //搜索中间值，左边界，右边界，都用的[left,right]两端都闭的区间<br> //注意每搜索一次边界的变换，返回之前检查边界的越界情况，看给定序列中是否有target。</p>
+<pre><code>int binary_search(int[] nums, int target) &#123; 
+    int left = 0, right = nums.length - 1; 
+    while(left &lt;= right) &#123; 
+        int mid = left + (right - left) / 2; 
+        if (nums[mid] &lt; target) &#123; 
+            left = mid + 1; 
+        &#125; else if (nums[mid] &gt; target) &#123; 
+            right = mid - 1; 
+        &#125; else if(nums[mid] == target) &#123; 
+            // 直接返回 
+            return mid; 
+        &#125; 
+    &#125;
+
+    // 直接返回
+    return -1;
+
+&#125;
+
+
+int left_bound(int[] nums, int target) &#123; 
+    int left = 0, right = nums.length - 1; 
+    while (left &lt;= right) &#123;                 
+        int mid = left + (right - left) / 2; 
+        if (nums[mid] &lt; target) &#123; 
+            left = mid + 1; 
+        &#125; else if (nums[mid] &gt; target) &#123; 
+            right = mid - 1; 
+        &#125; else if (nums[mid] == target) &#123;
+             // 别返回，锁定左侧边界 
+             right = mid - 1; 
+        &#125; 
+    &#125;
+
+    // 最后要检查 left 越界的情况 
+    if (left &gt;= nums.length || nums[left] != target) 
+        return -1; 
+    return left; 
+&#125;
+
+int right_bound(int[] nums, int target) &#123; 
+    int left = 0, right = nums.length - 1; 
+    while (left &lt;= right) &#123; 
+        int mid = left + (right - left) / 2; 
+        if (nums[mid] &lt; target) &#123; 
+            left = mid + 1; 
+        &#125; else if (nums[mid] &gt; target) &#123; 
+            right = mid - 1; 
+        &#125; else if (nums[mid] == target) &#123; 
+            // 别返回，锁定右侧边界 
+            left = mid + 1; 
+        &#125; 
+    &#125;
+
+    // 最后要检查 right 越界的情况 
+    if (right &lt; 0 || nums[right] != target) 
+        return -1; 
+    return right; 
+&#125;</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="ckzme22wz00002ovg1v5gffik" data-title="二分搜索升天词" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-morris遍历" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/02/11/morris%E9%81%8D%E5%8E%86/" class="article-date">
@@ -564,6 +669,10 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       <ul>
         
           <li>
+            <a href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/">二分搜索升天词</a>
+          </li>
+        
+          <li>
             <a href="/2022/02/11/morris%E9%81%8D%E5%8E%86/">(no title)</a>
           </li>
         
@@ -577,10 +686,6 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
         
           <li>
             <a href="/2021/02/04/testIMG/">testIMG</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/04/startMarkdown/">startMarkdown</a>
           </li>
         
       </ul>
