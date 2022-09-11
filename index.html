@@ -73,6 +73,176 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-第6章过滤数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-09-11T13:44:02.965Z" itemprop="datePublished">2022-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 第6章过滤数据<br>date: 2022-09-11 21:44:02<br>tags：MySQL必知必会<br> –&gt;</p>
+<h1 id="第6章：过滤数据"><a href="#第6章：过滤数据" class="headerlink" title="第6章：过滤数据"></a><center>第6章：过滤数据</center></h1><h2 id="6-1-使用WHERE子句"><a href="#6-1-使用WHERE子句" class="headerlink" title="6.1 使用WHERE子句"></a>6.1 使用WHERE子句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;数据库表中包含大量的数据，通常只会根据特定操作或报告的需要提取表数据的子集。只检索所需数据需要指定搜索条件（search criteria），搜索条件也称为过滤条件（filter condition）。<br>&nbsp; &nbsp;&nbsp; &nbsp;在SELECT语句中，数据根据WHERE子句中指定的搜索条件进行过滤。WHERE子句在表名（FROM子句）之后给出。  </p>
+<blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE prod_price =2.50;<br>分析：这条语句从表poducts中检索两个列,但不返回所有行，只返回prod_price值为2.50的行。  </p>
+</blockquote>
+<pre><code>    SQL过滤与应用过滤：数据也可以在应用层过滤。为此目的，SQL的SELECT语句为客户机应用检索出超过实际所需的数据，然后客户机代码对所返回数据进行循环，已提取所需要的行。  
+    通常，这种实现并不令人满意。因此，对数据库进行了优化，一遍快速有效地对数据进行过滤。让客户机应用(或开发语言)处理数据库的工作将会极大的影响应用的性能，并且使创建的应用完全不具备可伸缩性。此外，如果在客户机上过滤数据，服务器不得不通过网络发送多余的数据，这将导致网络带宽的浪费。  
+
+    WHERE子句的位置：在同时使用ORDER BY和WHERE子句时，应该让ORDER BY位于WHERE之后，否则将会产生错误。 </code></pre>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<h2 id="6-2-WHERE子句操作符"><a href="#6-2-WHERE子句操作符" class="headerlink" title="6.2 WHERE子句操作符"></a>6.2 WHERE子句操作符</h2><p>WHERE子句操作符  </p>
+<table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">=</td>
+<td align="center">等于</td>
+</tr>
+<tr>
+<td align="center">&lt;&gt;</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">between</td>
+<td align="center">在指定的两个值之间</td>
+</tr>
+</tbody></table>
+<h2 id="6-2-1-检查单个值"><a href="#6-2-1-检查单个值" class="headerlink" title="6.2.1 检查单个值"></a>6.2.1 检查单个值</h2><blockquote>
+<p>输入：SELECT prod_name,prod_price FROM roducts WHERE prod_name=’fuses’;<br>分析：检查WHERE prod_name=’fuses’语句，它返回prod_name的值为FUses的一行。MySQL在执行匹配时默认不区分大小写，所以fuses与Fuses匹配。</p>
+</blockquote>
+<h2 id="6-2-2-不匹配检查"><a href="#6-2-2-不匹配检查" class="headerlink" title="6.2.2 不匹配检查"></a>6.2.2 不匹配检查</h2><pre><code>    何时使用引号：如果仔细观察尚需WHERE子句中使用的条件，会看到有的值括在单引号内（如前面使用的‘fuses’），而有的值未括起来。单引号用来限定字符串。如果将值与穿类型的列进行比较，则需要限定引号。用来与数值列进行比较的值不用引号。</code></pre>
+<h2 id="6-2-3-范围值检查"><a href="#6-2-3-范围值检查" class="headerlink" title="6.2.3 范围值检查"></a>6.2.3 范围值检查</h2><blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE prod_price BETWEEM 5 AND 10;<br>输出：在使用BETWEEN时，必须指定两个值————所需范围的低端值和高端值。这两个必须用AND关键字分隔。BETWEEN匹配范围中所有的值，包括指定的开始值和结束值。  </p>
+</blockquote>
+<h2 id="6-2-4-空值检查"><a href="#6-2-4-空值检查" class="headerlink" title="6.2.4 空值检查"></a>6.2.4 空值检查</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;在创建表时，表设计人员可以指定其中得咧是否可以不包含值。在一个列不包含值时，称其为包含空值NULL。  </p>
+<pre><code>    NULL：无值（no value），它与字段包含0、空字符串或仅仅包含不同。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句有一个特殊的WHERE子句可用来检查具有NULL值得列，这个WHERE子句就是IS NULL子句。其语法如下：</p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE pro_price IS NULL;<br>分析： 这条语句返回没有价格（空prod_price字段，不是价格为0）的所有产品，由于表中没有这样的行，所以没有返回数据。</p>
+</blockquote>
+<pre><code>    NULL与不匹配：在通过过滤选择出不具有特定值得行时，你希望返回具有NULL值得行。但是，不行。因为未知具有特殊的含义，数据库不知道他们是否匹配，所以在匹配过滤或不匹配过滤时不返回它们。  
+    因此，在过滤时，一定要验证返回数据中确实给出了被过滤列具有NULL的行。        </code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/" data-id="cl7xe1pl80009os7ea24ebdem" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第5章排序检索数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-09-11T13:42:57.449Z" itemprop="datePublished">2022-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 第5章排序检索数据<br>date: 2022-09-11 21:42:57<br>tags：MySQL必知必会<br> –&gt;</p>
+<h1 id="第5章：排序检索数据"><a href="#第5章：排序检索数据" class="headerlink" title="第5章：排序检索数据"></a><center>第5章：排序检索数据</center></h1><h2 id="5-1-排序数据"><a href="#5-1-排序数据" class="headerlink" title="5.1 排序数据"></a>5.1 排序数据</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;关系数据库设计理论认为，如果不明确规定排序顺序，则不应该嘉定检索出的数据的顺序有意义。  </p>
+<pre><code>    子句（clause）：SQL语句由子句构成，有些子句是必需的，而有的是可选的。一个子句通常由一个关键字和所提供的数据组成。子句的例子有SELECT语句的FROM子句。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;为了明确地拍用SELECT语句检索出的数据，可使用ORDER BY子句。ORDER BY子句取一个或多个列的名字，据此对输出进行排序。  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROm products ORDER BY prod_name;<br>分析：这条语句除了指示MySQL对prod_name列以字母顺序排序数据的ORDER BY子句外，与前面的语句相同。  </p>
+</blockquote>
+<pre><code>    通过非选择列进行排序：通常，ORDER BY子句中使用的列将是为显示所选择的列。但是，实际上并不是一定要这样，用非检索的列排序数据是完全合法的。</code></pre>
+<h2 id="5-2-按多个列排序"><a href="#5-2-按多个列排序" class="headerlink" title="5.2 按多个列排序"></a>5.2 按多个列排序</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;经常需要按不止一个列进行数据排序。为了按多个列进行排序，只要指定列名，列名之间用逗号分隔开即可（就像选择多个列时所做的那样）。  </p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price,prod_name;<br>分析：重要的是理解在按多个列排序时，排序完全按所规定的顺序进行。换句话说，对于上述例子中的输出，仅在多个行具有相同的prod_id值时才对产品按prod_name进行排序。如果prod_price列中所有的值都是唯一的，则不会按prod_name排序。</p>
+</blockquote>
+<h2 id="5-3-指定排序方向"><a href="#5-3-指定排序方向" class="headerlink" title="5.3 指定排序方向"></a>5.3 指定排序方向</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;数据排序不限于升序排序（从A到Z）。这知识默认的排序顺序，还可以使用ORDER BY子句以降序（从Z到A）顺序排序。为了进行降序排序必须指定DESC关键字。                  descend—–下降，下来  </p>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子铵价格以降序排序产品（最贵的排在最前面）：</p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FORM products ORDER BY prod_price DESC;  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;但是，如果打算用多个列排序怎么办？下面的例子以降序排序产品（最贵的在前面），然后再对产品排序：</p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FROM prducts ORDER BY prod_price DESC,prod_name;<br>分析：DESC关键字只应用到直接位于其前面的列名。在上例中，支队prod_price列指定DESC，对prod_name列不指定。因此，prod_price列以降序排序，而prod_name列（在每个价格内）仍然按照标准的升序排序。  </p>
+</blockquote>
+<pre><code>    在多个列上降序排序：如果想在多个列上进行降序排序，必须对每个列指定DESC关键字。这一点要与DISTINCT关键字区别。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;与DESC相反的关键字是ASC（ASCENDING），在肾虚时可以指定它。但时间上，ASC没多大用处，因为升序是默认的（如果既不指定ASC也不指定DESC，则假定为ASC）。</p>
+<pre><code>    区分大小写和排序顺序：在对文本型的数据进行排序时，A与a相同吗？a位于B之前还是位于Z之后？这些问题不是理论问题，其答案取决于数据库如何设置。  
+    在字典（dictionary）排序顺序中，A被视为与a相同，这是MySQL（和大多数数据库管理系统）的默认行为（如果你的数据库包含大量外语字符，可能必须这样做）。  
+    这里，关键的问题是，如果确实需要改变这种排序顺序，用简单的ORDER BY子句做不到。你必须请求数据库管理员的帮助。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;使用ORDER BY和LIMIT的组合，能够找出一个列中最高和最低的值。如何找出最昂贵物品的值：  </p>
+<blockquote>
+<p>输入:SELECT prod_price FROM products ORDER BY prod_price DESC LIMIT 1;<br>分析：prod_price DESC保证行是按照由最昂贵到最便宜检索的，而LIMIT 1告诉MySQL仅返回一行。  </p>
+</blockquote>
+<pre><code>    ORDER BY子句的位置：再给出ORDDER BY子句时，应该保证它位于FROm子句之后。如果使用LIMIT，它必须位于ORDER BY之后。使用子句的次序不对将产生错误消息。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7xe1pl9000aos7e2vj695e7" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-第4章检索数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
@@ -146,7 +316,7 @@ tags：MySQL必知必会
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7xd9ikg0008oo7eds1s7giy" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7xe1pl50007os7efbea0n5u" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -221,7 +391,7 @@ tags：MySQL必知必会
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/09/11/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" data-id="cl7xd9ike0007oo7e57yvengh" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/09/11/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" data-id="cl7xe1pl70008os7e6e4dduum" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -288,7 +458,7 @@ tags：MySQL必知必会
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/09/11/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" data-id="cl7xd9ikh000aoo7ebthl4wfe" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/09/11/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" data-id="cl7xe1plb000cos7e2a8r2cgl" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -364,7 +534,7 @@ avatar: /images/Okizi.png<pre><code></code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/03/19/SetNexTThemes/" data-id="cl7xd9ik70001oo7eercs1nfw" data-title="SetNexTThemes" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/03/19/SetNexTThemes/" data-id="cl7xe1pkz0001os7e59x9cotk" data-title="SetNexTThemes" class="article-share-link">Share</a>
       
       
       
@@ -469,7 +639,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="cl7xd9ikd0006oo7ecn6v7etz" data-title="二分搜索升天词" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="cl7xe1pl30005os7eavk7ftpo" data-title="二分搜索升天词" class="article-share-link">Share</a>
       
       
       
@@ -581,7 +751,7 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/02/11/morris%E9%81%8D%E5%8E%86/" data-id="cl7xd9ika0003oo7egt2l3xc5" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/02/11/morris%E9%81%8D%E5%8E%86/" data-id="cl7xe1pl20003os7ee0jy5ani" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -628,7 +798,7 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="cl7xd9ikh0009oo7e2rhe8uqt" data-title="认识flyway" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="cl7xe1pl9000bos7e64v4ektu" data-title="认识flyway" class="article-share-link">Share</a>
       
       
       
@@ -667,197 +837,7 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/testIMG/" data-id="cl7xd9ikc0005oo7e1grdge1z" data-title="testIMG" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-startMarkdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/04/startMarkdown/" class="article-date">
-  <time class="dt-published" datetime="2021-02-04T03:36:38.000Z" itemprop="datePublished">2021-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/04/startMarkdown/">startMarkdown</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="菜鸟教程"><a href="#菜鸟教程" class="headerlink" title="菜鸟教程"></a><center>菜鸟教程</center></h1><h2 id="Markdown是支持HTML的，可以用HTML语法来写"><a href="#Markdown是支持HTML的，可以用HTML语法来写" class="headerlink" title="Markdown是支持HTML的，可以用HTML语法来写!!!"></a><center>Markdown是支持HTML的，可以用HTML语法来写!!!</center></h2><html>
-<!--在这里插入内容-->
-    <a><font color="red">sss</font></a>
-</html>
-
-
-
-<h1 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><h4 id="四级"><a href="#四级" class="headerlink" title="四级"></a>四级</h4><h5 id="五级"><a href="#五级" class="headerlink" title="五级"></a>五级</h5><h1 id="我展示的是一级标题"><a href="#我展示的是一级标题" class="headerlink" title="我展示的是一级标题"></a>我展示的是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>Markdown段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>这又是一段。</p>
-<p>也可以用空行来重开一段。</p>
-<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><h2 id="斜体文本"><a href="#斜体文本" class="headerlink" title="斜体文本"></a><em>斜体文本</em></h2><h2 id="斜体文本-1"><a href="#斜体文本-1" class="headerlink" title="斜体文本"></a><em>斜体文本</em></h2><h2 id="粗体文本"><a href="#粗体文本" class="headerlink" title="粗体文本"></a><strong>粗体文本</strong></h2><h2 id="粗体文本-1"><a href="#粗体文本-1" class="headerlink" title="粗体文本"></a><strong>粗体文本</strong></h2><h2 id="粗斜体文本"><a href="#粗斜体文本" class="headerlink" title="粗斜体文本"></a><strong><em>粗斜体文本</em></strong></h2><h2 id="粗斜体文本-1"><a href="#粗斜体文本-1" class="headerlink" title="粗斜体文本"></a><strong><em>粗斜体文本</em></strong></h2><h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下:<br>这段文字不用删除。<br><del>这段文字要删除。</del></p>
-<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><p>下划线可以通过 HTML 的 <u>u</u> 标签来实现：<br><u>这个文本会带下划线</u>  </p>
-<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>脚注是对文本的补充说明。<br>Markdown 脚注的格式如下:<br>[^要注明的文本]<br>以下实例演示了脚注的用法：<br>创建脚注格式 <a href="ta%E5%B0%B1%E6%98%AFwjl%E3%80%82">^sss</a>  </p>
-<p>创建脚注格式类似这样 [^RUNOOB]<br>[^RUNOOB]:菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
-<h1 id="Markdown列表"><a href="#Markdown列表" class="headerlink" title="Markdown列表"></a>Markdown列表</h1><p>Markdown支持有序列表和无序列表。<br>无序列表使用*、+或者是-作为列表标记，这些标记后面添加一个空格然后再填写内容。  </p>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
-<p>有序列表使用数字并加上.号来表示，注意.后面要加上空格如:</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素  </li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-<h1 id="Markdown区块"><a href="#Markdown区块" class="headerlink" title="Markdown区块"></a>Markdown区块</h1><p>Markdown区块引用是在段落开头使用&gt;符号，然后后面紧跟一个空格符号：</p>
-<blockquote>
-<p>区块引用<br>菜鸟教程<br>学的不仅仅是技术更是梦想  </p>
-</blockquote>
-<p>另外区块是可以嵌套的，一个&gt;符号是最外层，两个 &gt;符号是第一层嵌套，以此类推：  </p>
-<blockquote>
-<p>最外层</p>
-<blockquote>
-<p>第一层</p>
-<blockquote>
-<p>第二层  </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="区块中使用列表区块中使用列表实例如下："><a href="#区块中使用列表区块中使用列表实例如下：" class="headerlink" title="区块中使用列表区块中使用列表实例如下："></a>区块中使用列表区块中使用列表实例如下：</h3><blockquote>
-<p>区块中使用列表</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-</ol>
-<ul>
-<li>第一项</li>
-</ul>
-<ul>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第三项</li>
-</ul>
-</blockquote>
-<h1 id="列表中使用区块如果要在列表项目内放进区块，那么就需要在-gt-前添加四个空格的缩进。"><a href="#列表中使用区块如果要在列表项目内放进区块，那么就需要在-gt-前添加四个空格的缩进。" class="headerlink" title="列表中使用区块如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。"></a>列表中使用区块如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</h1><p>列表中使用区块实例如下：</p>
-<ul>
-<li>第一项<blockquote>
-<p>菜鸟教程<br>学的不仅仅是技术更是梦想</p>
-</blockquote>
-</li>
-<li>第二项</li>
-</ul>
-<h1 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h1><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<code>）esc下面那个见，例如：   </code>printf()`  </p>
-<h1 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h1><p>代码区块使用4个空格或者一个制表符（Tab 键）。<br>实例如下：<br>    &lt;?php<br>    echo ‘RUNoob’;<br>    funtion test(){<br>       echo ‘test’;<br>    }</p>
-<p>你也可以用```包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;RUNOOB&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>用~~~包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;hello world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Markdown-链接"><a href="#Markdown-链接" class="headerlink" title="Markdown 链接"></a>Markdown 链接</h1><p>链接使用方法如下：<br><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">连接名称</a><br>或者<br>&lt;链接地址&gt;<br>例如：<br>这是一个链接 <a target="_blank" rel="noopener" href="https://wwww.runoob.com/">菜鸟教程</a>  </p>
-<h1 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a>高级链接</h1><p>可以通过变量来设置一个链接，变量赋值在文档末尾进行：<br>这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://www.google.com/">Google</a> 这个链接用 runoob 作为网址变量 <a target="_blank" rel="noopener" href="http://www.runoob.com/">Runoob</a>。<br>然后在文档结尾为变量赋值（网址)。至少有一个空行</p>
-<h1 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h1><p>Markdown 图片语法格式如下：<br><img src="/2021/02/04/startMarkdown/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" alt="alt 属性文本"><br><img src="/2021/02/04/startMarkdown/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80,%22%E5%8F%AF%E9%80%89%E6%A0%87%E9%A2%98%22" alt="alt 属性文本"><br>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的’title’属性的文字。<br>使用实例：  </p>
-<p><img src="/2021/02/04/startMarkdown/Aili.JPG" alt="这是谁呀！" title="猜猜这是谁"></p>
-<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB">  </p>
-<p>当然，你也可以像网址那样对图片网址使用变量:<br>这个链接用 2 作为网址变量 <a target="_blank" rel="noopener" href="http://localhost/C:/Users/asus/Desktop/IMG_1846.JPG">111</a><br>然后在文档的结尾为变量赋值（网址）  </p>
-<h1 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h1><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。<br>语法格式如下：<br> |  表头  |  表头 |<br> |  —-  |  —- |<br> | 单元格 | 单元格|<br> | 单元格 | 单元格|</p>
-<p>对齐方式</p>
-<p>我们可以设置表格的对齐方式：<br>-: 设置内容和标题栏居右对齐。<br>:- 设置内容和标题栏居左对齐。<br>:-: 设置内容和标题栏居中对齐。<br>实例如下：<br>| 左对齐 |  右对齐 | 居中对齐 |<br>| :—– | —-: | :—-: |<br>| 单元格 | 单元格 | 单元格 |<br>| 单元格 | 单元格 | 单元格 |</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="cl7xd9ikb0004oo7egjip1f1t" data-title="startMarkdown" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/04/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-02-04T03:28:55.394Z" itemprop="datePublished">2021-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/hello-world/" data-id="cl7xd9ik90002oo7ef6ty72fk" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/testIMG/" data-id="cl7xe1pl30004os7e1t7bcuhg" data-title="testIMG" class="article-share-link">Share</a>
       
       
       
@@ -905,6 +885,14 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       <ul>
         
           <li>
+            <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">(no title)</a>
           </li>
         
@@ -914,14 +902,6 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
         
           <li>
             <a href="/2022/09/11/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/19/SetNexTThemes/">SetNexTThemes</a>
-          </li>
-        
-          <li>
-            <a href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/">二分搜索升天词</a>
           </li>
         
       </ul>
