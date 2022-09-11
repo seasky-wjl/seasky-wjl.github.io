@@ -1,0 +1,47 @@
+<!-- 
+title:第三章：使用MySQL
+date:2022年7月4日22:16:29
+tags：MySQL必知必会
+ -->
+
+<h1 id="第三章：使用mysql"><a href="#第三章：使用mysql" class="headerlink" title="第三章：使用mysql"></a><center>第三章：使用mysql</center></h1><h2 id="3-1-连接"><a href="#3-1-连接" class="headerlink" title="3.1 连接"></a>3.1 连接</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;为了连接到MySQL，需要以下信息：  </p>
+<ol>
+<li>主机名（计算机名）————如果连接到本地MySQL服务器，为localhost；  </li>
+<li>端口（如果使用默认端口3306之外的端口）；  </li>
+<li>一个合法的用户名；  </li>
+<li>用户口令（如果需要）。  </li>
+</ol>
+<h2 id="3-2-选择数据库"><a href="#3-2-选择数据库" class="headerlink" title="3.2 选择数据库"></a>3.2 选择数据库</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;在最初连接到MySQL时，没有任何数据库打开供你使用。需要选择一个数据库。为此，可使用USE关键字。    </p>
+<blockquote>
+<p>输入：USE databasename;<br>输出：Database changed   </p>
+</blockquote>
+<p><em>必须先使用USE打开数据库，才能读取其中的数据。</em></p>
+<h2 id="3-3-了解数据库和表"><a href="#3-3-了解数据库和表" class="headerlink" title="3.3 了解数据库和表"></a>3.3 了解数据库和表</h2><p>查看全部的数据库：  </p>
+<blockquote>
+<p>输入：SHOW DATABASES;<br>输出： 返回可用数据库的一个列表。包含在这个列表中的可能是MySQL内部使用的数据库（包括mysql和information_schema）。  </p>
+</blockquote>
+<p>选择一个数据库中之后，可以查看该数据库内的所表：</p>
+<blockquote>
+<p>输入：SHOW TABLES;<br>输出：返回当前选择的数据库内可用表的列表。  </p>
+</blockquote>
+<p>此外，show也可以用来显示表列：  </p>
+<blockquote>
+<p>输入：SHOW COLUMNS FROM tableName;<br>输出：该表中的每个字段都会返回一行，行中包含字段名、数据类型、是否允许为NULL、键信息、默认值以及其他信息（如auto_increment）。  </p>
+</blockquote>
+<pre><code>    MySQL支持用DESCRIBE作为SHOW COLUMNS FROM的一种快捷方式。换句话说，DESCRIBE tableName与SHOW COLUMNS FROM tableName效果一样。  
+
+什么是自动增量？  
+    某些列表需要唯一值。例如，订单编号、雇员ID或顾客ID等信息。在每个行添加到表中是，MySQL可以自动地位每个行分配下一个可用编号，不用在添加时手动分配唯一值（这样做必须记住最后一次使用地值）。这个功能就是所谓地自动增量。如果需要它，则必须在用CREATE语句创建表时把它作为表定义地组成部分。    </code></pre>
+<p>所支持的其他SHOW语句还有：</p>
+<ol>
+<li><font color="pink">SHOW　STATUS;</font>&nbsp; &nbsp;&nbsp; &nbsp;#用于显示广泛的服务器状态信息。  </li>
+<li><font color="pink">SHOW CREATE DATABASE;</font>和<font color="pink">SHOW CREATE TABLE;</font>&nbsp; &nbsp;&nbsp; &nbsp;#分别用来显示创建特定数据库或表的MySQL语句。  </li>
+<li><font color="pink">SHOW GRANTS;&nbsp; &nbsp;&nbsp; &nbsp;</font>#用拉埃显示授予用户（所有用户或特定用户）的安全权限。  </li>
+<li><font color="pink">SHOW ERRORS;和SHOW WARNINGS;&nbsp; &nbsp;&nbsp; &nbsp;</font>#用来显示服务器错误或者警告消息。</li>
+</ol>
+<blockquote>
+<p>进一步了解SHOW，请在mysql命令行实用程序中，执行命令HELP SHOW;显示允许的SHOW语句。  </p>
+</blockquote>
+<h3 id="mysql命令行中忘了相关操作时，可以使用help命令。"><a href="#mysql命令行中忘了相关操作时，可以使用help命令。" class="headerlink" title="mysql命令行中忘了相关操作时，可以使用help命令。"></a>mysql命令行中忘了相关操作时，可以使用help命令。</h3><blockquote>
+<p>MySQL 5的新增内容 MySQL 5支持一个新的INFORMATION_SCHEMA命令，可用它来获得和过滤模式信息。</p>
+</blockquote>
