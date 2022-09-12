@@ -73,44 +73,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-第7章数据过滤" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/09/12/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2022-09-11T23:53:13.000Z" itemprop="datePublished">2022-09-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/09/12/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">第7章数据过滤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2022/09/12/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/" data-id="cl7y0srcs00096w7e9kdz74rf" data-title="第7章数据过滤" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-morris遍历" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/" class="article-date">
@@ -221,7 +183,1455 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/09/11/morris%E9%81%8D%E5%8E%86/" data-id="cl7y0srcn00036w7e475995d2" data-title="morris遍历" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/09/11/morris%E9%81%8D%E5%8E%86/" data-id="cl7y13hb50003qw7e1oav7yv2" data-title="morris遍历" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第6章过滤数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-09-11T13:44:02.000Z" itemprop="datePublished">2022-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第6章：过滤数据"><a href="#第6章：过滤数据" class="headerlink" title="第6章：过滤数据"></a><center>第6章：过滤数据</center></h1><h2 id="6-1-使用WHERE子句"><a href="#6-1-使用WHERE子句" class="headerlink" title="6.1 使用WHERE子句"></a>6.1 使用WHERE子句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;数据库表中包含大量的数据，通常只会根据特定操作或报告的需要提取表数据的子集。只检索所需数据需要指定搜索条件（search criteria），搜索条件也称为过滤条件（filter condition）。<br>&nbsp; &nbsp;&nbsp; &nbsp;在SELECT语句中，数据根据WHERE子句中指定的搜索条件进行过滤。WHERE子句在表名（FROM子句）之后给出。  </p>
+<blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE prod_price =2.50;<br>分析：这条语句从表poducts中检索两个列,但不返回所有行，只返回prod_price值为2.50的行。  </p>
+</blockquote>
+<pre><code>    SQL过滤与应用过滤：数据也可以在应用层过滤。为此目的，SQL的SELECT语句为客户机应用检索出超过实际所需的数据，然后客户机代码对所返回数据进行循环，已提取所需要的行。  
+    通常，这种实现并不令人满意。因此，对数据库进行了优化，一遍快速有效地对数据进行过滤。让客户机应用(或开发语言)处理数据库的工作将会极大的影响应用的性能，并且使创建的应用完全不具备可伸缩性。此外，如果在客户机上过滤数据，服务器不得不通过网络发送多余的数据，这将导致网络带宽的浪费。  
+
+    WHERE子句的位置：在同时使用ORDER BY和WHERE子句时，应该让ORDER BY位于WHERE之后，否则将会产生错误。 </code></pre>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<h2 id="6-2-WHERE子句操作符"><a href="#6-2-WHERE子句操作符" class="headerlink" title="6.2 WHERE子句操作符"></a>6.2 WHERE子句操作符</h2><p>WHERE子句操作符  </p>
+<table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">=</td>
+<td align="center">等于</td>
+</tr>
+<tr>
+<td align="center">&lt;&gt;</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">between</td>
+<td align="center">在指定的两个值之间</td>
+</tr>
+</tbody></table>
+<h2 id="6-2-1-检查单个值"><a href="#6-2-1-检查单个值" class="headerlink" title="6.2.1 检查单个值"></a>6.2.1 检查单个值</h2><blockquote>
+<p>输入：SELECT prod_name,prod_price FROM roducts WHERE prod_name=’fuses’;<br>分析：检查WHERE prod_name=’fuses’语句，它返回prod_name的值为FUses的一行。MySQL在执行匹配时默认不区分大小写，所以fuses与Fuses匹配。</p>
+</blockquote>
+<h2 id="6-2-2-不匹配检查"><a href="#6-2-2-不匹配检查" class="headerlink" title="6.2.2 不匹配检查"></a>6.2.2 不匹配检查</h2><pre><code>    何时使用引号：如果仔细观察尚需WHERE子句中使用的条件，会看到有的值括在单引号内（如前面使用的‘fuses’），而有的值未括起来。单引号用来限定字符串。如果将值与穿类型的列进行比较，则需要限定引号。用来与数值列进行比较的值不用引号。</code></pre>
+<h2 id="6-2-3-范围值检查"><a href="#6-2-3-范围值检查" class="headerlink" title="6.2.3 范围值检查"></a>6.2.3 范围值检查</h2><blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE prod_price BETWEEM 5 AND 10;<br>输出：在使用BETWEEN时，必须指定两个值————所需范围的低端值和高端值。这两个必须用AND关键字分隔。BETWEEN匹配范围中所有的值，包括指定的开始值和结束值。  </p>
+</blockquote>
+<h2 id="6-2-4-空值检查"><a href="#6-2-4-空值检查" class="headerlink" title="6.2.4 空值检查"></a>6.2.4 空值检查</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;在创建表时，表设计人员可以指定其中得咧是否可以不包含值。在一个列不包含值时，称其为包含空值NULL。  </p>
+<pre><code>    NULL：无值（no value），它与字段包含0、空字符串或仅仅包含不同。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句有一个特殊的WHERE子句可用来检查具有NULL值得列，这个WHERE子句就是IS NULL子句。其语法如下：</p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE pro_price IS NULL;<br>分析： 这条语句返回没有价格（空prod_price字段，不是价格为0）的所有产品，由于表中没有这样的行，所以没有返回数据。</p>
+</blockquote>
+<pre><code>    NULL与不匹配：在通过过滤选择出不具有特定值得行时，你希望返回具有NULL值得行。但是，不行。因为未知具有特殊的含义，数据库不知道他们是否匹配，所以在匹配过滤或不匹配过滤时不返回它们。  
+    因此，在过滤时，一定要验证返回数据中确实给出了被过滤列具有NULL的行。        </code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/" data-id="cl7y13hbh000gqw7efoi25sra" data-title="第6章过滤数据" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第5章排序检索数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-09-11T13:42:57.000Z" itemprop="datePublished">2022-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第5章：排序检索数据"><a href="#第5章：排序检索数据" class="headerlink" title="第5章：排序检索数据"></a><center>第5章：排序检索数据</center></h1><h2 id="5-1-排序数据"><a href="#5-1-排序数据" class="headerlink" title="5.1 排序数据"></a>5.1 排序数据</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;关系数据库设计理论认为，如果不明确规定排序顺序，则不应该嘉定检索出的数据的顺序有意义。  </p>
+<pre><code>    子句（clause）：SQL语句由子句构成，有些子句是必需的，而有的是可选的。一个子句通常由一个关键字和所提供的数据组成。子句的例子有SELECT语句的FROM子句。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;为了明确地拍用SELECT语句检索出的数据，可使用ORDER BY子句。ORDER BY子句取一个或多个列的名字，据此对输出进行排序。  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROm products ORDER BY prod_name;<br>分析：这条语句除了指示MySQL对prod_name列以字母顺序排序数据的ORDER BY子句外，与前面的语句相同。  </p>
+</blockquote>
+<pre><code>    通过非选择列进行排序：通常，ORDER BY子句中使用的列将是为显示所选择的列。但是，实际上并不是一定要这样，用非检索的列排序数据是完全合法的。</code></pre>
+<h2 id="5-2-按多个列排序"><a href="#5-2-按多个列排序" class="headerlink" title="5.2 按多个列排序"></a>5.2 按多个列排序</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;经常需要按不止一个列进行数据排序。为了按多个列进行排序，只要指定列名，列名之间用逗号分隔开即可（就像选择多个列时所做的那样）。  </p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price,prod_name;<br>分析：重要的是理解在按多个列排序时，排序完全按所规定的顺序进行。换句话说，对于上述例子中的输出，仅在多个行具有相同的prod_id值时才对产品按prod_name进行排序。如果prod_price列中所有的值都是唯一的，则不会按prod_name排序。</p>
+</blockquote>
+<h2 id="5-3-指定排序方向"><a href="#5-3-指定排序方向" class="headerlink" title="5.3 指定排序方向"></a>5.3 指定排序方向</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;数据排序不限于升序排序（从A到Z）。这知识默认的排序顺序，还可以使用ORDER BY子句以降序（从Z到A）顺序排序。为了进行降序排序必须指定DESC关键字。                  descend—–下降，下来  </p>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子铵价格以降序排序产品（最贵的排在最前面）：</p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FORM products ORDER BY prod_price DESC;  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;但是，如果打算用多个列排序怎么办？下面的例子以降序排序产品（最贵的在前面），然后再对产品排序：</p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FROM prducts ORDER BY prod_price DESC,prod_name;<br>分析：DESC关键字只应用到直接位于其前面的列名。在上例中，支队prod_price列指定DESC，对prod_name列不指定。因此，prod_price列以降序排序，而prod_name列（在每个价格内）仍然按照标准的升序排序。  </p>
+</blockquote>
+<pre><code>    在多个列上降序排序：如果想在多个列上进行降序排序，必须对每个列指定DESC关键字。这一点要与DISTINCT关键字区别。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;与DESC相反的关键字是ASC（ASCENDING），在肾虚时可以指定它。但时间上，ASC没多大用处，因为升序是默认的（如果既不指定ASC也不指定DESC，则假定为ASC）。</p>
+<pre><code>    区分大小写和排序顺序：在对文本型的数据进行排序时，A与a相同吗？a位于B之前还是位于Z之后？这些问题不是理论问题，其答案取决于数据库如何设置。  
+    在字典（dictionary）排序顺序中，A被视为与a相同，这是MySQL（和大多数数据库管理系统）的默认行为（如果你的数据库包含大量外语字符，可能必须这样做）。  
+    这里，关键的问题是，如果确实需要改变这种排序顺序，用简单的ORDER BY子句做不到。你必须请求数据库管理员的帮助。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;使用ORDER BY和LIMIT的组合，能够找出一个列中最高和最低的值。如何找出最昂贵物品的值：  </p>
+<blockquote>
+<p>输入:SELECT prod_price FROM products ORDER BY prod_price DESC LIMIT 1;<br>分析：prod_price DESC保证行是按照由最昂贵到最便宜检索的，而LIMIT 1告诉MySQL仅返回一行。  </p>
+</blockquote>
+<pre><code>    ORDER BY子句的位置：再给出ORDDER BY子句时，应该保证它位于FROm子句之后。如果使用LIMIT，它必须位于ORDER BY之后。使用子句的次序不对将产生错误消息。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7y13hbg000fqw7e81oh7yda" data-title="第5章排序检索数据" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第13章分组数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-07-18T10:56:21.000Z" itemprop="datePublished">2022-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/">第13章分组数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第13章：分组数据"><a href="#第13章：分组数据" class="headerlink" title="第13章：分组数据"></a><center>第13章：分组数据</center></h1><h2 id="13-1-数据分组"><a href="#13-1-数据分组" class="headerlink" title="13.1 数据分组"></a>13.1 数据分组</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;从上一章知道，SQL聚集函数可用来汇总数据。这使我们能够对行进<br>行计数，计算和与平均数，获得最大和最小值而不用检索所有数据。<br>&nbsp; &nbsp;&nbsp; &nbsp;目前为止的所有计算都是在表的所有数据或匹配特定的WHERE子句的<br>数据上进行的。提示一下，下面的例子返回供应商1003提供的产品数目：</p>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_prods FROm products WHERE vend_id=1003;  </p>
+</blockquote>
+<p>输出： </p>
+<table>
+<thead>
+<tr>
+<th align="center">num_prods</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7</td>
+</tr>
+</tbody></table>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;但如果要返回每个供应商提供的产品数目怎么办？或者返回只提供单项产品的供应商所提供的产品，或返回提供10个以上产品的供应商怎么办？这就是分组显身手的时候了。分组允许把数据分为多个逻辑组，以便能对每个组进行聚集计算。</p>
+<h2 id="13-2-创建分组"><a href="#13-2-创建分组" class="headerlink" title="13.2 创建分组"></a>13.2 创建分组</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;分组是在SELECT语句的GROUP BY子句中建立的。理解分组的最好办法是看一个例子：  </p>
+<blockquote>
+<p>输入：SELECT vend_id ,COUNT(*) AS num_prods FROm products GROUP BY vend_id;  </p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">vend_id</th>
+<th align="left">num_prods</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1001</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">1002</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">1003</td>
+<td align="left">7</td>
+</tr>
+<tr>
+<td align="left">1005</td>
+<td align="left">2</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：上面的SELECT语句指定了两个列，vend_id包含产品供应商的ID，num_prods为计算字段（用COUNT(*)函数建立）。GROUP BY子句指示MySQL按vend_id排序并分组数据。这导致对每个vend_id而不是整个表计算num_prods一次。从输出中可以看到，供应商1001有3个产品，供应商1002有2个产品，供应商1003有7个产品，而供应商1005有2个产品。</p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;因为使用了GROUP BY，就不必指定要计算和估值的每个组了。系统会自动完成。GROUP BY子句指示MySQL分组数据，然后对每个组而不是整个结果集进行聚集。<br>&nbsp; &nbsp;&nbsp; &nbsp;在具体使用GROUP BY子句前，需要知道一些重要的规定。</p>
+<ol>
+<li><p>GROUP BY子句可以包含任意数目的列。这使得能对分组进行嵌套，为数据分组提供更细致的控制。</p>
+</li>
+<li><p>如果在GROUP BY子句中嵌套了分组，数据将在最后规定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</p>
+</li>
+<li><p> GROUP BY子句中列出的每个列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</p>
+</li>
+<li><p>除聚集计算语句外，SELECT语句中的每个列都必须在GROUP BY子句中给出。</p>
+</li>
+<li><p>如果分组列中具有NULL值，则NULL将作为一个分组返回。如果列中有多行NULL值，它们将分为一组。</p>
+</li>
+<li><p>GROUP BY子句必须出现在WHERE子句之后，ORDER BY子句之前。</p>
+<pre><code> 使用ROLLUP 使用WITH ROLLUP关键字，可以得到每个分组以及每个分组汇总级别（针对每个分组）的值，如下所示：</code></pre>
+</li>
+</ol>
+<h2 id="13-3-过滤分组"><a href="#13-3-过滤分组" class="headerlink" title="13.3 过滤分组"></a>13.3 过滤分组</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;除了能用GROUP BY分组数据外，MySQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如，可能想要列出至少有两个订单的所有顾客。为得出这种数据，必须基于完整的分组而不是个别的行进行过滤。<br>&nbsp; &nbsp;&nbsp; &nbsp;我们已经看到了WHERE子句的作用（第6章中引入）。但是，在这个例子中WHERE不能完成任务，因为WHERE过滤指定的是行而不是分组。事实上，WHERE没有分组的概念。<br>&nbsp; &nbsp;&nbsp; &nbsp;那么，不使用WHERE使用什么呢？MySQL为此目的提供了另外的子句，那就是HAVING子句。HAVING非常类似于WHERE。事实上，目前为止所学过的所有类型的WHERE子句都可以用HAVING来替代。唯一的差别是WHERE过滤行，而HAVING过滤分组。</p>
+<pre><code>    HAVING支持所有WHERE操作符 在第6章和第7章中，我们学习了WHERE子句的条件（包括通配符条件和带多个操作符的子句）。所学过的有关WHERE的所有这些技术和选项都适用于HAVING。它们的句法是相同的，只是关键字有差别。</code></pre>
+<blockquote>
+<p>输入： SELECT cust_id,COUNT(<em>) AS orders FROM orders GROUP BY cust_id HAVING COUNT(</em>)&gt;=2;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">cust_id</th>
+<th align="center">orders</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10001</td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这条SELECT语句的前3行类似于上面的语句。最后一行增加了HAVING子句，它过滤COUNT(*) &gt;=2（两个以上的订单）的那些分组。正如所见，这里WHERE子句不起作用，因为过滤是基于分组聚集值而<br>不是特定行值的。</p>
+</blockquote>
+<pre><code>    HAVING和WHERE的差别 这里有另一种理解方法，WHERE在数据分组前进行过滤，HAVING在数据分组后进行过滤。这是一个重要的区别，WHERE排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING子句中基于这些值过滤掉的分组。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;那么，有没有在一条语句中同时使用WHERE和HAVING子句的需要呢？事实上，确实有。假如想进一步过滤上面的语句，使它返回过去12个月内具有两个以上订单的顾客。为达到这一点，可增加一条WHERE子句，过滤出过去12个月内下过的订单。然后再增加HAVING子句过滤出具有两个<br>以上订单的分组。<br>&nbsp; &nbsp;&nbsp; &nbsp;为更好地理解，请看下面的例子，它列出具有2个（含）以上、价格<br>为10（含）以上的产品的供应商：</p>
+<blockquote>
+<p>输入：SELECT vend_id,COUNT(<em>) AS num_prods FROM products WHERE prod_price &gt;= 10 GROUP BY vend_id HAVING COUNT(</em>)&gt;=2;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">vend_id</th>
+<th align="center">num_prods</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1003</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">1005</td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这条语句中，第一行是使用了聚集函数的基本SELECT，它与前面的例子很相像。WHERE子句过滤所有prod_price至少为10的行。然后按vend_id分组数据，HAVING子句过滤计数为2或2以上的分组。如果没有WHERE子句，将会多检索出两行（供应商1002，销售的所有产品价格都在10以下；供应商1001，销售3个产品，但只有一个产品的价格大于等于10）：</p>
+</blockquote>
+<blockquote>
+<p>输入：SELECT vend_id,COUNT(<em>) AS num_prods FROM products GROUP BY vend_id HAVING COUNT(</em>)&gt;=2;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">vend_id</th>
+<th align="center">num_prods</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1001</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">1002</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">1003</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="center">1005</td>
+<td align="center">2</td>
+</tr>
+</tbody></table>
+<h3 id="13-4-分组和排序"><a href="#13-4-分组和排序" class="headerlink" title="13.4 分组和排序"></a>13.4 分组和排序</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;虽然GROUP BY和ORDER BY经常完成相同的工作，但它们是非常不同<br>的。下表展示了它们之间的差别。</p>
+<table>
+<thead>
+<tr>
+<th align="center">ORDER BY</th>
+<th align="center">GROUP BY</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">排序产生的输出</td>
+<td align="center">分组行。但输出可能不是分组的顺序</td>
+</tr>
+<tr>
+<td align="center">任意列都可以使用（甚至非选择的列也可以使用）</td>
+<td align="center">只可能使用选择列或表达式列，而且必须使用每个选择列表达式</td>
+</tr>
+<tr>
+<td align="center">不一定需要</td>
+<td align="center">如果与聚集函数一起使用列（或表达式），则必须使用</td>
+</tr>
+</tbody></table>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;表中列出的第一项差别极为重要。我们经常发现用GROUP BY分组的数据确实是以分组顺序输出的。但情况并不总是这样，它并不是SQL规范所要求的。此外，用户也可能会要求以不同于分组的顺序排序。仅因为你以某种方式分组数据（获得特定的分组聚集值），并不表示你需要以相同的方式排序输出。应该提供明确的ORDER BY子句，即使其效果等同于GROUP BY子句也是如此。</p>
+<pre><code>    不要忘记ORDER BY 一般在使用GROUP BY子句时，应该也给出ORDER BY子句。这是保证数据正确排序的唯一方法。千万不要仅依赖GROUP BY排序数据。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;为说明GROUP BY和ORDER BY的使用方法，请看一个例子。下面的SELECT语句类似于前面那些例子。它检索总计订单价格大于等于50的订单的订单号和总计订单价格：</p>
+<blockquote>
+<p>输入：SELECT order_num,SUM(quantity<em>item_price) AS ordertotal FROM orderitems GROUP BY order_num HAVING SUM(quantity</em>item_price) &gt;=50;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">order_num</th>
+<th align="center">ordertotal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">20005</td>
+<td align="center">149.87</td>
+</tr>
+<tr>
+<td align="center">20006</td>
+<td align="center">55.00</td>
+</tr>
+<tr>
+<td align="center">20007</td>
+<td align="center">1000.00</td>
+</tr>
+<tr>
+<td align="center">20008</td>
+<td align="center">125.00</td>
+</tr>
+</tbody></table>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;为按总计订单价格排序输出，需要添加ORDER BY子句，如下所示：</p>
+<blockquote>
+<p>输入：SELECT order_num,SUM(quantity<em>item_price) AS ordertotal FROM orderitems GROUP BY order_num HAVING SUM(quantity</em>item_price) &gt;=50 ORDER BY ordertotal;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">order_num</th>
+<th align="center">ordertotal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">20006</td>
+<td align="center">55.00</td>
+</tr>
+<tr>
+<td align="center">20008</td>
+<td align="center">125.00</td>
+</tr>
+<tr>
+<td align="center">20005</td>
+<td align="center">149.87</td>
+</tr>
+<tr>
+<td align="center">20007</td>
+<td align="center">1000.00</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：</p>
+</blockquote>
+<p>在这个例子中，GROUP BY 子句用来按订单号（order_num列）分组数据，以便SUM(*)函数能够返回总计订单价格。HAVING子句过滤数据，使得只返回总计订单价格大于等于50的订单。最后，用ORDER BY排序。</p>
+<h2 id="13-5-SELECT子句顺序"><a href="#13-5-SELECT子句顺序" class="headerlink" title="13.5 SELECT子句顺序"></a>13.5 SELECT子句顺序</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;回顾一下SELECt语句中子句的顺序。<br>|  子句         |  说明               |     是否必须使用        |<br>|  :—–:      |  :——-:          |    :——-:          |<br>|  SELECT    |  要返回的列或表达式  |     是                 |<br>|  FROM            |  从中检索数据的表    |   仅在从表选择数据时使用|<br>|  WHERE    |  行级过滤           |   否                   |<br>|  GROUP BY     |  分组说明           |   仅在按组计算聚集时使用 |<br>|  HAVING       |  组级过滤           |   否                   |<br>|  ORDER BY     |  输出排序顺序       |   否                   |<br>|  LIMIT        |  要检索的行数        |  否                   |</p>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">avg_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">16.133571</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：此SELECT语句返回值avg_Price，它包含products表中所有产品的平均价格。如第10章所述，avg_price是一个别名。</p>
+</blockquote>
+<pre><code>    只用于单个列 AVG()只能用来确定特定数值列的平均值，而且列名必须作为函数参数给出。为了获得多个列的平均值，必须使用多个AVG()函数。
+
+    NULL值 AVG()函数忽略列值为NULL的行。</code></pre>
+<h3 id="12-1-2-COUNT-函数"><a href="#12-1-2-COUNT-函数" class="headerlink" title="12.1.2 COUNT()函数"></a>12.1.2 COUNT()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;COUNT()函数进行计数。可利用COUNT()确定表中行的数目或符合特定条件的行的数目。<br>&nbsp; &nbsp;&nbsp; &nbsp;COUNT()函数有两种使用方式。  </p>
+<ol>
+<li>使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。</li>
+<li>使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。</li>
+</ol>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_cust FROm customers;</p>
+</blockquote>
+<p>输出:</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_cust</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">5</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析： 在此例子中，利用COUNT(*)对所有行计数，不管行中各列有什么值。计数值在num_cust中返回。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子只对具有电子邮件地址的客户计数：  </p>
+<blockquote>
+<p>SELECT COUNT(cust_email) AS num_cust FROm customers;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_cust</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">3</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这条SELECT语句使用COUNT(cust_email)对cust_email列中有值的行进行计数。在此例子中，cust_email的计数为3（表示5个客户中只有3个客户有电子邮件地址）。</p>
+</blockquote>
+<pre><code>    NULL值 如果指定列名，则指定列的值为空的行被COUNT()函数忽略，但如果COUNT()函数中用的是星号（*），则不忽略。</code></pre>
+<h3 id="12-1-3-MAX-函数"><a href="#12-1-3-MAX-函数" class="headerlink" title="12.1.3 MAX()函数"></a>12.1.3 MAX()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;MAX()返回指定列中的最大值。MAX()要求指定列名，如下所示：  </p>
+<blockquote>
+<p>输入：SELECT MAX(prod_price) AS max_price FROM products;  </p>
+</blockquote>
+<p>输出:  </p>
+<table>
+<thead>
+<tr>
+<th align="left">min_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">55.00</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里，MAX()返回products表中最贵的物品的价格。  </p>
+</blockquote>
+<pre><code>    对非数值数据使用MAX() 虽然MAX()一般用来找出最大的数值或日期值，但MySQL允许将它用来返回任意列中的最大值，包括返回文本列中的最大值。在用于文本数据时，如果数据按相应的列排序，则MAX()返回最后一行。  
+
+    NULL值 MAX()函数忽略列值为NULL的行。</code></pre>
+<h3 id="12-1-4-MIN-函数"><a href="#12-1-4-MIN-函数" class="headerlink" title="12.1.4 MIN()函数"></a>12.1.4 MIN()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;MIN()的功能正好与MAX()功能相反，它返回指定列的最小值。</p>
+<h3 id="12-1-5-SUM-函数"><a href="#12-1-5-SUM-函数" class="headerlink" title="12.1.5 SUM()函数"></a>12.1.5 SUM()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;SUM()用来返回指定列值得和（总计）。<br>&nbsp; &nbsp;&nbsp; &nbsp;下面举一个例子，orderitems表包含订单中实际的物品，每个物品有相应的数量（quantity）。可如下检索所订购物品的总数（所有quantity值之和）：</p>
+<blockquote>
+<p>输入：SELECT SUM(quantity) AS items_ordered FROM orderitems WHERE order_num =20005;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">items_ordered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">19</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：函数SUM(quantity)返回订单中所有物品数量之和，WHERE子句保证只统计某个物品订单中的物品。</p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;SUM()也可以用来合计计算值。在下面的例子中，合计每项物品的<br>item_price*quantity，得出总的订单金额：</p>
+<blockquote>
+<p>输入：SELECT SUM(item_price*quantity) AS total_price FROM orderitems WHERE order_num =20005;  </p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">total_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">149.87</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：函数SUM(item_price*quantity)返回订单中所有物品价钱之和，WHERE子句同样保证只统计某个物品订单中的物品。</p>
+</blockquote>
+<pre><code>    在多个列上进行计算 如本例所示，利用标准的算术操作符，所有聚集函数都可用来执行多个列上的计算。
+    NULL值 SUM()函数忽略列值为NULL的行。</code></pre>
+<h2 id="12-2-聚集不同值"><a href="#12-2-聚集不同值" class="headerlink" title="12.2 聚集不同值"></a>12.2 聚集不同值</h2><pre><code>    MySQL 5 及后期版本 下面将要介绍的聚集函数的DISTINCT的使用，已经被添加到MySQL 5.0.3中。下面所述内容在MySQL 4.x中不能正常运行。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;以上5个聚集函数都可以如下使用：</p>
+<ol>
+<li><p>对所有的行执行计算，指定ALL参数或不给参数（因为ALL是默认<br>行为）；  </p>
+</li>
+<li><p>只包含不同的值，指定DISTINCT参数。</p>
+<pre><code> ALL为默认 ALL参数不需要指定，因为它是默认行为。如果不指定DISTINCT，则假定为ALL。</code></pre>
+</li>
+</ol>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子使用AVG()函数返回特定供应商提供的产品的平均价格。它与上面的SELECT语句相同，但使用了DISTINCT参数，因此平均值只考虑各个不同的价格：</p>
+<blockquote>
+<p>输入：SELECT AVG(DISTINCT prod_price) AS avg_price FROM products WHERE end_id=1003;</p>
+</blockquote>
+<p>输出： </p>
+<table>
+<thead>
+<tr>
+<th align="left">avg_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">15.998000</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：可以看到，在使用了DISTINCT后，此例子中的avg_price比较高，因为有多个物品具有相同的较低价格。排除它们提升了平均价格。</p>
+</blockquote>
+<pre><code>    注意 如果指定列名，则DISTINCT只能用于COUNT()。DISTINCT不能用于COUNT(*)，因此不允许使用COUNT（DISTINCT），否则会产生错误。类似地，DISTINCT必须使用列名，不能用于计算或表达式。</code></pre>
+<h2 id="12-3-组合聚集函数"><a href="#12-3-组合聚集函数" class="headerlink" title="12.3 组合聚集函数"></a>12.3 组合聚集函数</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句可根据需要包含多个聚集函数。请看下面的例子：  </p>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_items,Min(prod_price) AS price_min,MAX(prod_price) AS price_max, AVG(prod_price) AS price_avg FROM products;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_items</th>
+<th align="left">price_min</th>
+<th align="left">price_max</th>
+<th align="left">price_avg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">14</td>
+<td align="left">2.5</td>
+<td align="left">55</td>
+<td align="left">16.133571</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里用单条SELECT语句执行了4个聚集计算，返回4个值（products表中物品的数目，产品价格的最高、最低以及平均值）。</p>
+</blockquote>
+<pre><code>    取别名 在指定别名以包含某个聚集函数的结果时，不应该使用表中实际的列名。虽然这样做并非不合法，但使用唯一的名字会使你的SQL更易于理解和使用（以及将来容易排除故障）。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/" data-id="cl7y13hbe000bqw7e34ywhuqr" data-title="第13章分组数据" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第12章汇总数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-07-17T13:29:00.000Z" itemprop="datePublished">2022-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第12章：汇总数据"><a href="#第12章：汇总数据" class="headerlink" title="第12章：汇总数据"></a><center>第12章：汇总数据</center></h1><h2 id="12-1-汇总数据"><a href="#12-1-汇总数据" class="headerlink" title="12.1 汇总数据"></a>12.1 汇总数据</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;我们经常需要汇总数据而不用把它们实际检索出来，为此MySQL提供了专门的函数。使用这些函数，MySQL查询可用于检索数据，以便分析和报表生成。这种类型的检索例子有以下几种。</p>
+<ol>
+<li>确定表中行数（或者满足某个条件或包含某个特定值的行数）。</li>
+<li>获得表中行组的和。</li>
+<li>找出表列（或所有行或某些特定的行）的最大值、最小值和平均值。  </li>
+</ol>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;上述例子都需要对表中数据（而不是实际数据本身）汇总。因此，返回实际表数据是对时间和处理资源的一种浪费（更不用说带宽了）。重复一遍，实际想要的是汇总信息。</p>
+<pre><code>    聚集函数（aggregate function） 运行在行组上，计算和返回单个值的函数。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;为方便这种类型的检索，MySQL给出了5个聚集函数。<br>|     函数       |   说明            |<br>| :——-      |  :——-         |<br>|   AVG()       |  返回某列的平均值  |<br>|   COUNT()     |  返回某列的行数|<br>|   MAX()       |  返回某列的最大值|<br>|   MIN()       |  返回某列的最小值|<br>|   SUM()       |  返回某列值之和|</p>
+<h3 id="12-1-1-AVG-函数"><a href="#12-1-1-AVG-函数" class="headerlink" title="12.1.1 AVG()函数"></a>12.1.1 AVG()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;AVG()通过对表中行数计数并计算特定列值之和，求得该列的平均值。AVG()可用来返回所有列的平均值，也可以用来返回特定列或行的平均值。<br>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子使用AVG()返回products表中所有产品的平均价格：   </p>
+<blockquote>
+<p>输入: SELECT AVG(prod_price) AS avg_price FROM products;</p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">avg_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">16.133571</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：此SELECT语句返回值avg_Price，它包含products表中所有产品的平均价格。如第10章所述，avg_price是一个别名。</p>
+</blockquote>
+<pre><code>    只用于单个列 AVG()只能用来确定特定数值列的平均值，而且列名必须作为函数参数给出。为了获得多个列的平均值，必须使用多个AVG()函数。
+
+    NULL值 AVG()函数忽略列值为NULL的行。</code></pre>
+<h3 id="12-1-2-COUNT-函数"><a href="#12-1-2-COUNT-函数" class="headerlink" title="12.1.2 COUNT()函数"></a>12.1.2 COUNT()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;COUNT()函数进行计数。可利用COUNT()确定表中行的数目或符合特定条件的行的数目。<br>&nbsp; &nbsp;&nbsp; &nbsp;COUNT()函数有两种使用方式。  </p>
+<ol>
+<li>使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。</li>
+<li>使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。</li>
+</ol>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_cust FROm customers;</p>
+</blockquote>
+<p>输出:</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_cust</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">5</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析： 在此例子中，利用COUNT(*)对所有行计数，不管行中各列有什么值。计数值在num_cust中返回。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子只对具有电子邮件地址的客户计数：  </p>
+<blockquote>
+<p>SELECT COUNT(cust_email) AS num_cust FROm customers;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_cust</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">3</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这条SELECT语句使用COUNT(cust_email)对cust_email列中有值的行进行计数。在此例子中，cust_email的计数为3（表示5个客户中只有3个客户有电子邮件地址）。</p>
+</blockquote>
+<pre><code>    NULL值 如果指定列名，则指定列的值为空的行被COUNT()函数忽略，但如果COUNT()函数中用的是星号（*），则不忽略。</code></pre>
+<h3 id="12-1-3-MAX-函数"><a href="#12-1-3-MAX-函数" class="headerlink" title="12.1.3 MAX()函数"></a>12.1.3 MAX()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;MAX()返回指定列中的最大值。MAX()要求指定列名，如下所示：  </p>
+<blockquote>
+<p>输入：SELECT MAX(prod_price) AS max_price FROM products;  </p>
+</blockquote>
+<p>输出:  </p>
+<table>
+<thead>
+<tr>
+<th align="left">min_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">55.00</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里，MAX()返回products表中最贵的物品的价格。  </p>
+</blockquote>
+<pre><code>    对非数值数据使用MAX() 虽然MAX()一般用来找出最大的数值或日期值，但MySQL允许将它用来返回任意列中的最大值，包括返回文本列中的最大值。在用于文本数据时，如果数据按相应的列排序，则MAX()返回最后一行。  
+
+    NULL值 MAX()函数忽略列值为NULL的行。</code></pre>
+<h3 id="12-1-4-MIN-函数"><a href="#12-1-4-MIN-函数" class="headerlink" title="12.1.4 MIN()函数"></a>12.1.4 MIN()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;MIN()的功能正好与MAX()功能相反，它返回指定列的最小值。</p>
+<h3 id="12-1-5-SUM-函数"><a href="#12-1-5-SUM-函数" class="headerlink" title="12.1.5 SUM()函数"></a>12.1.5 SUM()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;SUM()用来返回指定列值得和（总计）。<br>&nbsp; &nbsp;&nbsp; &nbsp;下面举一个例子，orderitems表包含订单中实际的物品，每个物品有相应的数量（quantity）。可如下检索所订购物品的总数（所有quantity值之和）：</p>
+<blockquote>
+<p>输入：SELECT SUM(quantity) AS items_ordered FROM orderitems WHERE order_num =20005;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">items_ordered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">19</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：函数SUM(quantity)返回订单中所有物品数量之和，WHERE子句保证只统计某个物品订单中的物品。</p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;SUM()也可以用来合计计算值。在下面的例子中，合计每项物品的<br>item_price*quantity，得出总的订单金额：</p>
+<blockquote>
+<p>输入：SELECT SUM(item_price*quantity) AS total_price FROM orderitems WHERE order_num =20005;  </p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">total_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">149.87</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：函数SUM(item_price*quantity)返回订单中所有物品价钱之和，WHERE子句同样保证只统计某个物品订单中的物品。</p>
+</blockquote>
+<pre><code>    在多个列上进行计算 如本例所示，利用标准的算术操作符，所有聚集函数都可用来执行多个列上的计算。
+    NULL值 SUM()函数忽略列值为NULL的行。</code></pre>
+<h2 id="12-2-聚集不同值"><a href="#12-2-聚集不同值" class="headerlink" title="12.2 聚集不同值"></a>12.2 聚集不同值</h2><pre><code>    MySQL 5 及后期版本 下面将要介绍的聚集函数的DISTINCT的使用，已经被添加到MySQL 5.0.3中。下面所述内容在MySQL 4.x中不能正常运行。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;以上5个聚集函数都可以如下使用：</p>
+<ol>
+<li><p>对所有的行执行计算，指定ALL参数或不给参数（因为ALL是默认<br>行为）；  </p>
+</li>
+<li><p>只包含不同的值，指定DISTINCT参数。</p>
+<pre><code> ALL为默认 ALL参数不需要指定，因为它是默认行为。如果不指定DISTINCT，则假定为ALL。</code></pre>
+</li>
+</ol>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子使用AVG()函数返回特定供应商提供的产品的平均价格。它与上面的SELECT语句相同，但使用了DISTINCT参数，因此平均值只考虑各个不同的价格：</p>
+<blockquote>
+<p>输入：SELECT AVG(DISTINCT prod_price) AS avg_price FROM products WHERE end_id=1003;</p>
+</blockquote>
+<p>输出： </p>
+<table>
+<thead>
+<tr>
+<th align="left">avg_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">15.998000</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：可以看到，在使用了DISTINCT后，此例子中的avg_price比较高，因为有多个物品具有相同的较低价格。排除它们提升了平均价格。</p>
+</blockquote>
+<pre><code>    注意 如果指定列名，则DISTINCT只能用于COUNT()。DISTINCT不能用于COUNT(*)，因此不允许使用COUNT（DISTINCT），否则会产生错误。类似地，DISTINCT必须使用列名，不能用于计算或表达式。</code></pre>
+<h2 id="12-3-组合聚集函数"><a href="#12-3-组合聚集函数" class="headerlink" title="12.3 组合聚集函数"></a>12.3 组合聚集函数</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句可根据需要包含多个聚集函数。请看下面的例子：  </p>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_items,Min(prod_price) AS price_min,MAX(prod_price) AS price_max, AVG(prod_price) AS price_avg FROM products;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_items</th>
+<th align="left">price_min</th>
+<th align="left">price_max</th>
+<th align="left">price_avg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">14</td>
+<td align="left">2.5</td>
+<td align="left">55</td>
+<td align="left">16.133571</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里用单条SELECT语句执行了4个聚集计算，返回4个值（products表中物品的数目，产品价格的最高、最低以及平均值）。</p>
+</blockquote>
+<pre><code>    取别名 在指定别名以包含某个聚集函数的结果时，不应该使用表中实际的列名。虽然这样做并非不合法，但使用唯一的名字会使你的SQL更易于理解和使用（以及将来容易排除故障）。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/" data-id="cl7y13hb90008qw7e4v2r5t0c" data-title="第12章汇总数据" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第10章创建计算字段" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/16/%E7%AC%AC10%E7%AB%A0%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5/" class="article-date">
+  <time class="dt-published" datetime="2022-07-16T10:41:16.000Z" itemprop="datePublished">2022-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/16/%E7%AC%AC10%E7%AB%A0%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5/">第10章创建计算字段</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第10章：创建计算字段"><a href="#第10章：创建计算字段" class="headerlink" title="第10章：创建计算字段"></a><center>第10章：创建计算字段</center></h1><h2 id="10-1-计算字段"><a href="#10-1-计算字段" class="headerlink" title="10.1 计算字段"></a>10.1 计算字段</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;与前面各章介绍过的列不同，计算字段并不实际存在于数据库表中。计算字段是运行时在SELECT语句内创建的。</p>
+<pre><code>    字段（field）:基本上与列（column）的意思相同，经常互换使用，不过数据库列一般称为列，而术语字段通常用在计算字段的连接上。
+
+    客户机与服务器的格式：可在SQL语句内完成的许多转换和格式工作都可以直接在客户机应用程序内完成。但一般来说，在数据库服务器上完成这些操作比在客户机中完成要快的多，因为DBMS是设计来快速有效地完成这种处理的。</code></pre>
+<h2 id="10-2-拼接字段"><a href="#10-2-拼接字段" class="headerlink" title="10.2 拼接字段"></a>10.2 拼接字段</h2><pre><code>    拼接（concatenate）：将值联结到一起构成单个值。在MySQL的SELECT语句中，可使用COncat()函数来拼接两个列。
+
+    MySQL的不同之处：多数DBMS使用+或||来实现拼接，MySQL则使用Concat()函数来实现。当把SQL语句转换成MySQL语句时一定要把这个区别铭记在心。</code></pre>
+<blockquote>
+<p>输入： SELECT Contcat(vend_name,’ (‘,vend_country,’)’) FROM vendors ORDER BY vend_name;</p>
+</blockquote>
+<p>输入：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">Concat(vend_name,’ (‘,vend_country,’)’)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ACME (USA)</td>
+</tr>
+<tr>
+<td align="left">Anvils R Us (USA)</td>
+</tr>
+<tr>
+<td align="left">Furball Inc. (USA)</td>
+</tr>
+<tr>
+<td align="left">Jet Set (England)</td>
+</tr>
+<tr>
+<td align="left">Jouets Et Ours (France)</td>
+</tr>
+<tr>
+<td align="left">LT Supplies (USA)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：Concat()拼接串，即把多个串连接起来形成一个比较长的串。Concat()需要一个或多个指定的串，各个串之间用逗号分隔。</p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;在第8章曾提到通过删除数据右侧多余的空格来整理数据，这可以使用MySQL的RTrim()函数来完成，如下所示:</p>
+<blockquote>
+<p>输入：SELECT Contcat(RTrim(vend_name),’ (‘,RTrim(vend_country),’)’) FROM vendors ORDER BY vend_name;<br>分析：RTrim()函数去掉右边的所有空格。通过使用RTrim(),各个列都进行了整理。</p>
+</blockquote>
+<pre><code>    Trim()函数:MySQL除了支持RTrim(),还有LTrim()去掉串左边的空格以及Trim去掉左右两边的空格。</code></pre>
+<h4 id="使用别名"><a href="#使用别名" class="headerlink" title="使用别名"></a>使用别名</h4><p>&nbsp; &nbsp;&nbsp; &nbsp;如前所示，SELECT语句的拼接工作做得很好。但此新计算列没有名字，它只是一个值。如果仅在SQl查询工具中查看一下结果，这样没有什么不好。但是，一个未命名的列不能用于客户机应用中，因为客户机没有办法引用它。<br>&nbsp; &nbsp;&nbsp; &nbsp;别名（alias）是一个字段或值得替换名。别名用AS关键字赋予。</p>
+<blockquote>
+<p>输入：SELECT Contcat(RTrim(vend_name),’ (‘,RTrim(vend_country),’)’) AS vend_title FROM vendors ORDER BY vend_name;  </p>
+</blockquote>
+<p>输出：<br>| vend_title |<br>| :——- |<br>|ACME (USA)|<br>|Anvils R Us (USA)|<br>|Furball Inc. (USA)|<br>|Jet Set (England)|<br>|Jouets Et Ours (France)|<br>|LT Supplies (USA)|</p>
+<blockquote>
+<p>分析：SELECT语句本身与以前使用的相同。只不过这里的语句中计算字段之后跟了文本AS vend_title.它指示SQL创建一个包含指定计算的名为vend_title的计算字段。从输出中可以看到，结果与以前的相同，但现在列名为vend_title。</p>
+</blockquote>
+<pre><code>    别名还有其他用途：别名还有其他用途。常见的用途包括在实际的表列名中包含不符合规定的字符（如空格）时重新命名它，在原来的名字含或容易误解时扩充它，等等。
+
+    导出列：别名有时也称为导出列（derived column），不管称为什么，它们所代表的的都是相同的东西。</code></pre>
+<h2 id="10-3-执行算术计算"><a href="#10-3-执行算术计算" class="headerlink" title="10.3 执行算术计算"></a>10.3 执行算术计算</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;计算字段的另一个用途就是对检索出的数据进行算术计算。如下汇总物品的价格（单价乘以订购数量）：</p>
+<blockquote>
+<p>输入： SELECT prod_id,quantity,item_price,quantity*item_price AS expanded_price FROm orderitems WHERE order_num=20005;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">prod_id</th>
+<th align="left">quantity</th>
+<th align="left">item_price</th>
+<th align="left">expanded_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ANV01</td>
+<td align="left">10</td>
+<td align="left">5.99</td>
+<td align="left">59.90</td>
+</tr>
+<tr>
+<td align="left">ANV02</td>
+<td align="left">3</td>
+<td align="left">9.99</td>
+<td align="left">29.97</td>
+</tr>
+<tr>
+<td align="left">TNT2</td>
+<td align="left">5</td>
+<td align="left">10</td>
+<td align="left">50.00</td>
+</tr>
+<tr>
+<td align="left">FB</td>
+<td align="left">1</td>
+<td align="left">10</td>
+<td align="left">10.00</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：输出中显示的expanded_price列为一个计算字段，此计算为quantity*item_price。客户机应用现在可以使用这个新计算列，就像使用其他列一样。</p>
+</blockquote>
+<pre><code>    MySQL支持基本算术操作符（+、-、*、/）,此外，圆括号可用来区分有限顺序。
+
+    如何测试计算：SELECT提供了测试和实验函数与计算的一个很好的办法。虽然SELECT通常用来从表中检索数据，但可以省略FROm子句一遍简单地访问和处理表达式。例如如，SELECT 3*2;将返回6，SELECT Trim(&#39;abc&#39;);将返回abc，而SELECT Now()利用Now()函数返回当前日期和时间。通过这些例子，可以明白如何根据需要使用SELECT进行试验</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/16/%E7%AC%AC10%E7%AB%A0%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5/" data-id="cl7y13hb90007qw7ef8j035x9" data-title="第10章创建计算字段" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第9章正则表达式进行搜索" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/14/%E7%AC%AC9%E7%AB%A0%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/" class="article-date">
+  <time class="dt-published" datetime="2022-07-14T12:25:29.000Z" itemprop="datePublished">2022-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/14/%E7%AC%AC9%E7%AB%A0%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/">第9章正则表达式进行搜索</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第9章：用正则表达式进行搜索"><a href="#第9章：用正则表达式进行搜索" class="headerlink" title="第9章：用正则表达式进行搜索"></a><center>第9章：用正则表达式进行搜索</center></h1><h2 id="9-1-正则表达式介绍"><a href="#9-1-正则表达式介绍" class="headerlink" title="9.1 正则表达式介绍"></a>9.1 正则表达式介绍</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;前两张中的过滤例子允许用匹配、比较和通配符操作符寻找数据。对基本的过滤（或者甚至是某些不那么基本的过滤），这样就足够了。但随着过滤条件的复杂性的增加，WHERE子句本身的复杂性也有必要增加。<br>&nbsp; &nbsp;&nbsp; &nbsp;这就是正则表达式变得有用的地方。正则表达式是用来匹配文本的特殊的串（字符集合）。如果你想从一个表达式中提取电话号码，可以使用正则表达式。如果你需要查找名字中间有数字的所有文件，可以使用正则表达式。如果你想在一个文本块中找到所有重复的单词，可以使用一个正则表达式。如果你想替换一个页面中的所有URL为这些URL的实际HTML链接，也可以使用一个正则表达式（对于最后这个例子，或者是两个正则表达式）。<br>&nbsp; &nbsp;&nbsp; &nbsp;所有种类的程序设计语言、文本编辑器、操作系统等都支持正则表达式。<br>&nbsp; &nbsp;&nbsp; &nbsp;正则表达式用正则表达式语言来建立，正则表达式语言是用来完成刚讨论的所有工作以及更多工作的一种特殊语言。与任意语言一样，正则表达式具有你必须学习的特殊的语法和指令。  </p>
+<h2 id="9-2-使用MySQL正则表达式"><a href="#9-2-使用MySQL正则表达式" class="headerlink" title="9.2 使用MySQL正则表达式"></a>9.2 使用MySQL正则表达式</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;正则表达式的作用是匹配文本，将一个模式（正则表达式）与一个文本串进行比较。MySQL用WHERE子句对正则表达式提供了初步的支持，允许你指定正则表达式过滤SELECT检索出的数据。  </p>
+<pre><code>    仅为正则表达式的一个子集：如果你熟悉正则表达式，需要注意：MySQL仅支持多数正则表达式实现的一个很小的子集。  </code></pre>
+<h3 id="9-2-1-基本字符匹配"><a href="#9-2-1-基本字符匹配" class="headerlink" title="9.2.1 基本字符匹配"></a>9.2.1 基本字符匹配</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;下面语句检索列prod_name包含文本1000的所有行：  </p>
+<blockquote>
+<p>输入：SELECt prod_name FROM products WHERE prod_name REGEXP ‘1000’ ORDER BY prod_name;<br>分析：出关键字LIKE被REGEXP替代外，这条语句看上去非常像使用LIKE的语句。它告诉MySQL：REGEXP后所跟的东西作为正则表达式（与文字正文1000匹配的一个正则表达式）处理。</p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;再来看下面的例子：  </p>
+<blockquote>
+<p>输入： SELECT prod_name FROM products WHERE prod_name REGEXP ‘.000’ ORDER BY prod_name;  </p>
+</blockquote>
+<p>输出： </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">JetPack 1000</td>
+</tr>
+<tr>
+<td align="center">JetPack 2000</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析： 这里使用了正则表达式.000。其中.是正则表达式语言中一个特殊的字符。它表示匹配任意一个字符，因此，1000和2000都匹配且返回。  </p>
+</blockquote>
+<pre><code>    LIKE和REGEXP：在LIKE和REGEXP之间有一个重要的差别。请看一下两条语句：  
+
+    SELECT prod_name
+    FROM products
+    WHERE prod_name LIKE &#39;1000&#39;
+    ORDER BY prod_name;
+
+    SELECt prod_name
+    FROM products
+    WHERE prod_name REGEXP &#39;1000&#39;
+    ORDER BY prod_name;
+
+    如果执行上述两条语，会发现第一条语句不返回数据，而第二条语句返回一行。为什么？  
+
+    正如第8章所述，LIKE匹配整个列。如果被匹配的文本在列值中出现，LIKE将不会找到它，相应的行也不会被返回（除非使用通配符）。而REGEXP在列值内进行匹配，如果被匹配的文本在列值中出现，REGEXP在列值内进行匹配，如果被匹配的文本在列值中出现，REGEXP将会找到它，相应的行将被返回。这是一个非常重要的差别。那么，REGEXP能不能用来匹配整个列值（从而起与LIKE相同的作用）？答案是肯定的，用^和$定位符（anchor）即可。
+
+    匹配不区分大小写 MySQL中的正则表达式匹配不区分大小写。为区分大小写，可使用BINARY关键字，如WHERE prod_name REGEXP BINARY &#39;JetPack .000&#39;。</code></pre>
+<h3 id="9-2-2-进行OR匹配"><a href="#9-2-2-进行OR匹配" class="headerlink" title="9.2.2 进行OR匹配"></a>9.2.2 进行OR匹配</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;为搜索两个串之一（或者为这个串，或者为另一个串），使用|，如下所示：  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROm products WHERE prod_Name REGEXP ‘1000|2000’ ORDER BY prod_name;  </p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">JetPack 1000</td>
+</tr>
+<tr>
+<td align="center">JetPack 2000</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：语句中使用了正则表达式1000|2000。|为正则表达式的OR操作符。它表示匹配其中之一，因此1000和2000都匹配并返回。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;使用|从功能上类似于在SELECT语句中使用OR语句，多个OR条件可并入单个正则表达式。  </p>
+<pre><code>    两个以上的OR条件：可以给出两个以上的OR条件。例如，&#39;1000 | 2000 | 3000&#39;将匹配1000或2000或3000。</code></pre>
+<h3 id="9-2-3-匹配几个字符之一"><a href="#9-2-3-匹配几个字符之一" class="headerlink" title="9.2.3 匹配几个字符之一"></a>9.2.3 匹配几个字符之一</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;匹配任何单一字符。但是如果你只想匹配特定的字符，怎么办？可通过指定一组用[和]括起来的字符来完成，如下所示：</p>
+<blockquote>
+<p>输入：SELECT prod_name FROm products WHERE prod_name REGEXP ‘[123] Ton’ ORDER BY prod_name;  </p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1 ton anvil</td>
+</tr>
+<tr>
+<td align="center">2 ton anvil</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里，使用了正则表达式[123] Ton。[123]定义一组字符，它的意思式匹配1或2或3，因此，1 ton和2 ton都匹配且返回(没有3 ton)。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;正如所见,[]是另一种形式的OR语句。事实上，正则表达式[123]Ton为[1|2|3]Ton的缩写，也可以使用后者。但是，需要用[]来定义OR语句查找什么。为更好地理解这一点，请看下面地的例子：  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE prod_name REGEXP ‘1|2|3 Ton’ ORDER BY prod_name;  </p>
+</blockquote>
+<p>输出： </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1 ton anvil</td>
+</tr>
+<tr>
+<td align="center">2 ton anvil</td>
+</tr>
+<tr>
+<td align="center">JetPack 1000</td>
+</tr>
+<tr>
+<td align="center">JetPack 2000</td>
+</tr>
+<tr>
+<td align="center">TNT(1 stick)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这并不是期望的输出。两个要求的行被检索出来，但还检索出了另外3行。之所以这样是由于MySQL假定你的意思是’1’或’2’或’3 ton’。除非把字符|括在一个集合中，否则它将应用于整个串。<br>  字符串集合也可以被否定，即，它们将匹配除指定字符外的任何东西。为否定一个字符集，在集合的开始处放置一个^即可。因此，尽管[123]匹配字符1、2或3，但[^123]却匹配除这些字符外的任何东西。</p>
+</blockquote>
+<h3 id="9-2-4-匹配范围"><a href="#9-2-4-匹配范围" class="headerlink" title="9.2.4 匹配范围"></a>9.2.4 匹配范围</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;集合可用来定义要匹配的一个或多个字符。例如，下面的集合将匹配数字0到9：[0123456789]<br>&nbsp; &nbsp;&nbsp; &nbsp;为简化这种类型的集合，可使用-来定义一个范围。下面的式子功能上等同于上述数字列表：[0-9]<br>&nbsp; &nbsp;&nbsp; &nbsp;范围不限于完整的集合，[1-3]和[6-9]也是合法的范围。此外，范围不一定只是数值的，[a-z]匹配任意字母字符。例如：  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE prod_name REGEXP ‘[1-5] Ton’ ORDER BY prod_name;  </p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.5 ton anvil</td>
+</tr>
+<tr>
+<td align="center">1 ton anvil</td>
+</tr>
+<tr>
+<td align="center">2 ton anvil</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里使用正则表达式[1-5] Ton。[1-5]定义了一个范围，这个范围表达式意思是匹配1到5，因此返回3个匹配行。由于5 ton匹配，所以返回.5 ton。</p>
+</blockquote>
+<h3 id="9-2-5-匹配特殊字符"><a href="#9-2-5-匹配特殊字符" class="headerlink" title="9.2.5 匹配特殊字符"></a>9.2.5 匹配特殊字符</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;正则表达式语言具有特定含义的特殊字符构成。我们已经看到.、[]、|和-等，还有一些字符。请问，如果你需要匹配这些字符，应该怎么办呢？例如，如果要找出包含.字符的值，怎样搜索？请看下面的例子：  </p>
+<blockquote>
+<p>输入：SELECT vend_name FROM vendors WHERE vend_name REGEXP ‘.’ ORDER BY vend_name;  </p>
+</blockquote>
+<p>输出:</p>
+<table>
+<thead>
+<tr>
+<th align="center">vend_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ACME</td>
+</tr>
+<tr>
+<td align="center">ANVIL R Us</td>
+</tr>
+<tr>
+<td align="center">Furball Inc.</td>
+</tr>
+<tr>
+<td align="center">Jet Set</td>
+</tr>
+<tr>
+<td align="center">Jouets Et Ours</td>
+</tr>
+<tr>
+<td align="center">LT Supplies</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这并不是期望的输出，.匹配任意字符，因此每个行都被检索出来。  </p>
+</blockquote>
+<pre><code>    为了匹配特殊字符，必须用\\为前导。\\-表示查找-，用\\.表示查找.。</code></pre>
+<blockquote>
+<p>输入:SELECT vend_name FROM vendors WHERE vend_name REGEXP ‘\.’ ORDER BY vend_name;</p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">vend_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Furball Inc.</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这才是期望的输出。\.匹配.,所以只检索出一行。这种处理就是所谓的转移（escaping），正则表达式内具有特殊意义的所有字符都必须以这种方式转义。这包括.、|、[]以及迄今为止使用过的其他特殊字符。  </p>
+</blockquote>
+<pre><code>    \\也用来引用元字符（具有特殊含义的字符），如表所示。</code></pre>
+<p>空白元字符：<br>| 元字符 | 说明 |<br>| :—-:| :—-:|<br>| \f   |  换页 |<br>| \n   |  换行 |<br>| \r   |  回车 |<br>| \t   |  制表 |<br>| \v   | 纵向制表 |</p>
+<pre><code>    匹配\：为了匹配反斜杠（\）字符本身，需要使用\\\。
+    \或\\?：多数正则表达式实现使用单个反斜杠转义特殊字符，一边能使用这些字符本身。但MySQL要求两个反斜杠（MySQL自己解析一个，正则表达式库解释另外一个）。</code></pre>
+<h3 id="9-2-6-匹配字符类"><a href="#9-2-6-匹配字符类" class="headerlink" title="9.2.6 匹配字符类"></a>9.2.6 匹配字符类</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;存在找出你自己经常使用的数字、所有字母字符或所有数字字母字符等的匹配。可以使用预定义的字符集，称为字符类（character class）。<br>|     类    |             说明           |<br>| :——-: |    :—-                |<br>| [:alnum:] |   任意字母和数字（同[a-zA-Z0-9]） |<br>| [:alpha:] |   任意字符（同[a-zA-Z]）          |<br>| [:blank:] |   空格和制表（同[\t]）           |<br>| [:cntrl:] |   ASCII控制字符（ASCII 0到31和127）|<br>| [:digit:] |   任意数字（同[0-9]）              |<br>| [:graph:] |   与[:print:]相同，但不包括空格     |<br>| [:lower:] |   任意小写字母（同[a-z]）           |<br>| [:print:] |   任意可打印字符                  |<br>| [:punct:] |   既不在[:alnum:]又不在[:cntrl:]中的任意字符   |<br>| [:space:] |   包括空格在内的任意空白字符（同[\f\n\r\t\v]） |<br>| [:upper:] |   任意大写字母（同[A-Z]）           |<br>| [:xdigit:] |   任意十六进制数字（同[a-fA-F0-9]）  |</p>
+<h3 id="9-2-7-匹配多个实例"><a href="#9-2-7-匹配多个实例" class="headerlink" title="9.2.7 匹配多个实例"></a>9.2.7 匹配多个实例</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;目前为止使用的所有正则表达式都试图匹配单次出现。如果出现一个匹配，该行被检索出来，如果不存在，检索不出任何行。但有时需要对匹配的数目进行更强的控制。例如，你可能需要寻找所有的数，不管书中包含多少数字，或者你可能想寻找一个单词并且还能够适应一个尾随s（如果存在），等等。<br>&nbsp; &nbsp;&nbsp; &nbsp;者可以用正则表达式重复元字符来完成。<br>重复元字符：<br>| 元字符 | 说明          |<br>| :—-:| :————-|<br>|   *   |  0个或多个匹配 |<br>|   +   |  1个或多个匹配（等于{1,}） |<br>|   ?   |  0个或1个匹配（等于{0，1}） |<br>|  {n}  |  指定数目的匹配 |<br>| {n,}  | 不少于指定数目的匹配 |<br>| {n,m} | 匹配数目的范围（m不超过255） |</p>
+<p>下面举几个例子。</p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE prod-Name REGEXP ‘\([0-9] sticks?\)’;</p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">TNT（1 stick）</td>
+</tr>
+<tr>
+<td align="center">TNT（5 sticks）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：正则表达式\([0-9] sticks\)需要解说一下。\(匹配(，[0-9]匹配任意数字（这个例子中为1和5），sticks？匹配stick和sticks（s后的？使s可选，因为？匹配它前面的任何字符的0次或1次出现），\)匹配)。没有？，匹配stick和sticks会非常困难。  </p>
+</blockquote>
+<p>以下例子匹配连在一起的4位数字：  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE prod_name REGEXP ‘[[:digit:]]{4}’ ORDER BY prod_name;  </p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">JetPack 1000</td>
+</tr>
+<tr>
+<td align="center">JetPack 2000</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：如前所述，[:digit:]匹配任意数字，因为它为数字的一个集合。{4}确切地要求它前面地字符（任意数字）出现4次，所以[[:digit:]]{4}匹配连在一起地任意4位数字。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;需要注意的是，在使用正则表达式时，编写某个特殊的表达式几乎总有不止一种方法。上面的例子也可以如下编写：  </p>
+<blockquote>
+<p>输入：SELECT prod_name FROM products WHERE prod_name REGEXP ‘[0-9][0-9][0-9][0-9]’ ORDER BY prod_name;  </p>
+</blockquote>
+<h3 id="9-2-8-定位符"><a href="#9-2-8-定位符" class="headerlink" title="9.2.8 定位符"></a>9.2.8 定位符</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;目前为止的所有例子都是匹配一个传中任意的文本。为了匹配特定位置的文本，需要使用下表列出的定位符。<br>定位元字符<br>| 元字符   | 说明       |<br>| :—-:  | :——— |<br>|    ^    |  文本的开始 |<br>|    $    |  文本的末尾 |<br>| [[:&lt;:]] |    词的开始 |<br>| [[:&gt;:]] |    词的末尾 |</p>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;例如，如果你想找出以一个数（包括以小数点开始的数）开始的所有产品，怎么办？简单搜索[0-9\.]（或[[:digit:]\.]）不行，因为它将文本内任意位置查找匹配。解决办法是使用^定位符，如下所示：  </p>
+<blockquote>
+<p>输入： SELECT prod_name FROM products WHERE prod_name REGEXP ‘^[0-9\.]’  ORDER BY prod_name;</p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="center">prod_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.5 ton anvil</td>
+</tr>
+<tr>
+<td align="center">1 ton anvil</td>
+</tr>
+<tr>
+<td align="center">2 ton anvil</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：匹配串的开始。因此，^[0-9\.]只在.或任意数字为串中第一个字符时才匹配它们。没有^,则还要多检索4个别的行（那些中间有数字的行）。</p>
+</blockquote>
+<pre><code>    ^的双重用途：^有两种用法。在集合中（用[和]定义），用它来否定该集合，否则，用来指串的开始处。  
+
+    使REGEXP起类似LIKE的作用 本章前面说过，LIKE和REGEXP的不同在于，LIKE匹配整个串而REGEXP匹配子串，利用定位符，通过用^开始每个表达式，用$结束每个表达式，可以使REGEXP的作用的作用与LIKE一样。
+
+    简单的正则表达式测试：
+    可以在不使用数据库表的情况下用
+    SELECT来测试正则表达式。REGEXP检查总是返回0（没有匹配）
+    或1（匹配）。可以用带文字串的REGEXP来测试表达式，并试
+    验它们。相应的语法如下：
+
+    SELECt &#39;hello&#39; REGEXP &#39;[0-9]&#39;;
+
+    这个例子显然将返回0（因为文本hello中没有数字）。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/14/%E7%AC%AC9%E7%AB%A0%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2/" data-id="cl7y13hbl000iqw7e2svx67fr" data-title="第9章正则表达式进行搜索" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第8章用通配符进行过滤" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/14/%E7%AC%AC8%E7%AB%A0%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2022-07-14T11:35:28.000Z" itemprop="datePublished">2022-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/14/%E7%AC%AC8%E7%AB%A0%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/">第8章用通配符进行过滤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第8章：用通配符进行过滤"><a href="#第8章：用通配符进行过滤" class="headerlink" title="第8章：用通配符进行过滤"></a><center>第8章：用通配符进行过滤</center></h1><h2 id="8-1-LIKE操作符"><a href="#8-1-LIKE操作符" class="headerlink" title="8.1 LIKE操作符"></a>8.1 LIKE操作符</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;前面介绍的所有操作符都是针对已知值进行过滤，这种过滤方式不是任何时候都好用。例如，怎样搜索产品命中包含文本anvil的所由产品？用简单的比较操作符肯定不行，必须使用通配符。利用通配符可创建比较特定数据的搜索模式。  </p>
+<pre><code>    通配符（wildcard）：用来匹配值得一部分的特殊字符。  
+    搜索模式（search pattern）：由字面值、通配符或两者组合构成的搜索条件。  
+
+    谓词  
+    操作符何时不是操作符？答案是在它作为谓词(predicate)时。从技术上说，LIKE是谓词而不是操作符。虽然最终的结果是相同的，但应该对此术语有所了解，以免在SQL文档中遇到此术语时不知道。</code></pre>
+<h3 id="8-1-1-百分号（-）通配符"><a href="#8-1-1-百分号（-）通配符" class="headerlink" title="8.1.1 百分号（%）通配符"></a>8.1.1 百分号（%）通配符</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;最常使用的通配符是百分号（%）。在搜索串中，%表示任何字符出现任意次数。例如，为了找出所有以词jet起头的产品，可使用一下SELECT语句：</p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_name FROM products WHERE prod_name LIKE ‘jet%’;<br>分析：此例子使用了搜索模式’jet%’。在执行这条句子时，将检索任意以jet起头的词。%告诉MySQL接收jet之后的任意字符，不管它有多少字符。 </p>
+</blockquote>
+<pre><code>    区分大小写：根据MySQL的配置方式，搜索可以是区分大小写的。如果区分大小写，&#39;jet%&#39;与JetPack 1000将不匹配。  </code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;通配符可在搜索模式中任意位置使用，并且可以使用多个通配符。下面的例子使用两个通配符，他们位于模式的两端：  </p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_name FROM products WHERE prod_name LIKE ‘%anvil%’;<br>分析：搜索模式’%anvil%’表示匹配任何位置包含文本anvil的值，而不论它之前货之后出现什么字符。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;通配符也可以出现在搜索模式的中间，虽然这样做不太有用。  </p>
+<pre><code>    重要的是要注意到：除了一个或多个字符外，%还能匹配0个字符。%代表搜索模式中给定位置的0个、1个或多个字符。  
+
+    注意未空格：为空格可能会干扰通配符匹配。例如，在保存此avil时，如果它后面有一个或多个空格，则子句WHERE prod_name LIKE &#39;%anvil&#39;将不会匹配它们，因为在最后的l后有多余的字符。解决这个问题的一个简单办法是在搜索模式最后附加一个%，一个更好的办法是使用函数（第11章将会介绍）去掉首位空格。  
+
+    注意NULL：虽然似乎%通配符可以匹配任何东西，但有一个例外，即NULL。即使是WHERE prod_name LIKE &#39;%&#39;也不能匹配用值NULL作为产品名的行。  </code></pre>
+<h3 id="8-1-2-下划线（-）通配符"><a href="#8-1-2-下划线（-）通配符" class="headerlink" title="8.1.2 下划线（_）通配符"></a>8.1.2 下划线（_）通配符</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;另一个有用的通配符是下划线（_）。下划线的用途与%一样，但下划线只匹配单个字符而不是多个字符。  例如：</p>
+<blockquote>
+<p>输入：SELECt prod_id,prod_name FEOm products WHERE prod_name,LIKE ‘_ ton anvil’;<br>分析：此WHERE子句中的搜索模式给出了后面跟有文本的两个通配符。结果只显示匹配搜索模式的行：第一行中下划线匹配1，第二行匹配2。  </p>
+</blockquote>
+<pre><code>    与%能匹配0个字符不一样，_总是匹配一个字符，不能多也不能少。  </code></pre>
+<h2 id="8-2-使用通配符的技巧"><a href="#8-2-使用通配符的技巧" class="headerlink" title="8.2 使用通配符的技巧"></a>8.2 使用通配符的技巧</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;正如所见，MySQL的通配符很有用。 但这种功能是有代价的：通配符搜索的处理一般要比前面讨论的其他搜索花费更多的时间。这里给出一些使用通配符要记住的技巧：</p>
+<ol>
+<li>不要过度使用通配符。如果其他操作符能达到想用的目的，应该使用其他操作符。  </li>
+<li>在确实需要使用通配符时，除非绝对有必要，否则不要把它们用在搜索模式的开始处。把通配符置于搜索模式的开始除，搜索起来是最慢的。  </li>
+<li>仔细注意通配符的位置。如果放错地方，可能不会返回想要的数据。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/14/%E7%AC%AC8%E7%AB%A0%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E8%BF%9B%E8%A1%8C%E8%BF%87%E6%BB%A4/" data-id="cl7y13hbl000jqw7e3pg9dvmw" data-title="第8章用通配符进行过滤" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第7章数据过滤" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/14/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2022-07-14T10:45:42.000Z" itemprop="datePublished">2022-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/14/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">第7章数据过滤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第7章：数据过滤"><a href="#第7章：数据过滤" class="headerlink" title="第7章：数据过滤"></a><center>第7章：数据过滤</center></h1><h2 id="7-1-组合WHERE子句"><a href="#7-1-组合WHERE子句" class="headerlink" title="7.1 组合WHERE子句"></a>7.1 组合WHERE子句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;MySQL允许给出多个WHERE子句。这些子句可以两种方式使用：以AND子句的方式或OR子句的方式使用。<br>        操作符（operator）：用来联结或改变WHERE子句中的子句的关键字。也称为逻辑操作符（logical operator）。  </p>
+<h3 id="7-1-1-AND操作符"><a href="#7-1-1-AND操作符" class="headerlink" title="7.1.1 AND操作符"></a>7.1.1 AND操作符</h3><p> &nbsp; &nbsp;&nbsp; &nbsp;为了通过不止一个列进行过滤，可以使用AND操作符给WHERE子句附加条件。  </p>
+<blockquote>
+<p>输入：SELECT prod_id,prod_price,prod_name FROM products WHERE vend_id=1003 AND prod_price &lt;=10;<br>分析：此SQL语句检索由供应商1003制造且价格小于等于10美元的所有产品的名称和价格。  </p>
+</blockquote>
+<pre><code>    AND：用在WHERE子句的关键字，用来检索满足给定条件的行。  
+
+    上述例子中使用了只包含一个关键字AND的语句，把两个过滤条件组合在一起。还可以添加多个过滤条件，每添加一个过滤条件就要使用一个AND。</code></pre>
+<h3 id="7-1-2-OR操作符"><a href="#7-1-2-OR操作符" class="headerlink" title="7.1.2 OR操作符"></a>7.1.2 OR操作符</h3><p> &nbsp; &nbsp;&nbsp; &nbsp;OR操作符与AND操作符不同，它指示MySQL检索匹配任一条件的行。  </p>
+<blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE vend_id=1002 OR vend_id=1003;<br>分析： 此SQL语句检索由任一个指定供应商制造的所有产品的产品和价格。</p>
+</blockquote>
+<pre><code>    OR：WHERE子句中使用的关键字，用来表示检索匹配任一给定条件的行。  </code></pre>
+<h3 id="7-1-3-计算次序"><a href="#7-1-3-计算次序" class="headerlink" title="7.1.3 计算次序"></a>7.1.3 计算次序</h3><p> &nbsp; &nbsp;&nbsp; &nbsp;WHERE可包含任意数目的AND和OR操作符。允许两者结合以进行复杂和高级的过滤。<br>  &nbsp; &nbsp;&nbsp; &nbsp;假如需要列出价格为10美元（含）以上且由1002或1003制造的所有产品。请看下面的SQL语句：  </p>
+<blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE vend_id OR vend_id=1003 AND prod_price&gt;=10;<br>分析：返回的结果出有两行价格小于10美元，显然，返回的行未按预期的进行过滤。为什么？原因在于计算的次序。SQL(像多数语言一样)在处理OR操作符前，优先处理AND操作符。当SQL看到尚需WHERE子句时，它理解为有供应商1003制造的任何为10美元（含）以上的产品，或者由供应商10032制造的任何产品，而不管其价格如何。换句话说，由于AND在计算次序中优先级更高，操作符被错误的组合了。</p>
+</blockquote>
+<pre><code>    此问题的解决方法是用远哭好明确地分组相应的操作符。请看如下SQL语句：</code></pre>
+<blockquote>
+<p>输入：SELECT prod_name.prod_price FROm products WHERE (vend_id =1002 OR vend_id=1003) AND prod_price &gt;=10;<br>分析：与上一条SQL语句的唯一差别是，这条语句中，前两个条件用圆括号括了起来。因为圆括号具有较AND和OR操作符高的计算次序，DBMS首先过滤掉圆括号内的OR条件。  </p>
+</blockquote>
+<pre><code>    在WHERE子句中使用圆括号：任何时候使用具有AND和OR操作符的WHERE子句，都应该使用圆括号明确地分组操作符。不要过分依赖默认计算次序，即使它确实是你想要的东西也是如此。使用圆括号没有什么坏处，它能消除歧义。</code></pre>
+<h2 id="7-2-IN操作符"><a href="#7-2-IN操作符" class="headerlink" title="7.2 IN操作符"></a>7.2 IN操作符</h2><p> &nbsp; &nbsp;&nbsp; &nbsp;圆括号在WHERE子句中还有另外一种用法。IN操作符用来指定条件范围，范围中的每个条件都可以进行匹配IN取合法值得由逗号分隔的清单,全都在圆括号中。例子：</p>
+<blockquote>
+<p>输入：SELECT prod_name,prod_price FROM products WHERE<br>  vend_id IN (1002,1003) ORDER BY prod_name;<br>分析：此SELECT语句检索供应商1002和1003制造的所有产品。IN操作符后跟由逗号分隔的合法值清单，整个清单必须括在圆括号中。  </p>
+</blockquote>
+<pre><code>    IN操作符完成与OR相同的功能。除此之外，IN还有如下优点：
+    1）、在使用长的合法选项清单时，IN操作符的语法更清楚更直观。
+    2）、在使用IN时，计算的次序更容易管理（因为使用的操作符更少）。  
+    3）、IN操作符一般比OR操作符执行更快。  
+    4）、IN的最大优点是可以包含其他SELECT语句，使得能够更动态地建立WHERE子句。</code></pre>
+<h2 id="7-3-NOT操作符"><a href="#7-3-NOT操作符" class="headerlink" title="7.3 NOT操作符"></a>7.3 NOT操作符</h2><p> &nbsp; &nbsp;&nbsp; &nbsp;WHERE子句中的NOT操作符有且只有一个功能，那就是否定它之后所跟的任何条件。  </p>
+<blockquote>
+<p>输入： SELECT prod_name ,prod_price FROm products WHERE vend_id NOT IN （1002,1003） ORDER  BY prod_name;<br>分析： 这里的NOT否定跟在它之后的条件。</p>
+</blockquote>
+<pre><code>    为什么使用NOT？对于简单的WHERE子句，使用NOT确实没有是没有事。但在更复杂的子句中，NOT是非常有用的。例如，在与In操作符联合使用时，NOT使找出与条件列表不匹配的行非常简单。  
+    MySQL中的NOT：MySQL支持使用NOT对IN、BETWEEN和EXITS子句取反，这与大多数其他DBMS允许使用NOT对各种条件取反有很大的差别。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/14/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/" data-id="cl7y13hbk000hqw7e2iqs8hxk" data-title="第7章数据过滤" class="article-share-link">Share</a>
       
       
       
@@ -235,20 +1645,27 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
   
     <article id="post-第4章检索数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
-  <time class="dt-published" datetime="2022-09-11T13:05:36.888Z" itemprop="datePublished">2022-09-11</time>
+    <a href="/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-07-05T12:35:09.000Z" itemprop="datePublished">2022-07-05</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第4章检索数据</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title:第4章：检索数据<br>date:2022年7月5日20:35:09<br>tags：</p>
-<hr>
-<h1 id="第4章：检索数据"><a href="#第4章：检索数据" class="headerlink" title="第4章：检索数据"></a><center>第4章：检索数据</center></h1><h2 id="4-1-SELECT语句"><a href="#4-1-SELECT语句" class="headerlink" title="4.1 SELECT语句"></a>4.1 SELECT语句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句的用途是从一个或多个表中检索信息，为了使用SELECT检索表数据， 必须至少给出两条信息—————_想选择什么，以及从什么地方选择信息_。</p>
+        <h1 id="第4章：检索数据"><a href="#第4章：检索数据" class="headerlink" title="第4章：检索数据"></a><center>第4章：检索数据</center></h1><h2 id="4-1-SELECT语句"><a href="#4-1-SELECT语句" class="headerlink" title="4.1 SELECT语句"></a>4.1 SELECT语句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句的用途是从一个或多个表中检索信息，为了使用SELECT检索表数据， 必须至少给出两条信息—————_想选择什么，以及从什么地方选择信息_。</p>
 <h2 id="4-2-检索单个列"><a href="#4-2-检索单个列" class="headerlink" title="4.2 检索单个列"></a>4.2 检索单个列</h2><blockquote>
 <p>输入：SELECT prod_name FROM products;<br>分析：上述语句利用SELECT语句从products表中检索一个名为prod_name的列。所需的列明在SELECT关键字之后给出，FROM关键字之处其中检索数据的表名。   </p>
 </blockquote>
@@ -303,535 +1720,7 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7y0srcr00086w7e9kyz3n2w" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-第1章了解sql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" class="article-date">
-  <time class="dt-published" datetime="2022-06-28T12:16:23.000Z" itemprop="datePublished">2022-06-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/">第1章了解sql</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="了解mysql"><a href="#了解mysql" class="headerlink" title="了解mysql"></a><center>了解mysql</center></h1><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p>  **数据库(database)**：保存有组织的数据的容器(通常是一个文件或一组文件)。</p>
-<p>  确切地说，数据库软件应称为DBMS(数据库管理系统)。数据库是通过DBMS创建和操纵的容器。  </p>
-<p>  **表(table)**：某种特定类型数据的结构化清单。  </p>
-<p>  注：表名的唯一性取决于多个因素，如数据库名和表名的结合。意思就是说，虽然在相同数据库中不能使用相同的表名，但是在不同的数据库中却可以使用相同的表名。  </p>
-<p>  **模式(schema)**：关于数据库和表的布局及特性的信息。  </p>
-<p>  **列(column)**：表中的一个字段。所有表都是由一个或多个列组成的。表由列组成，列中存储着表中某部分的信息。  </p>
-<p>  分解数据：正确地将数据分解为多个列极为重要。例如，城市、州、邮政编码营改增同时独立的列。通过把它分解开，才有可能利用特定的列队数据进行排序和过滤(如，找出特定州或特定城市的所有顾客)。如果城市和州组合在一个列中，则按州进行排序或过滤会很困难。  </p>
-<p>  **数据类型(datatype)**：所容许的数据类型。每个列表都有相应的数据类型，它限制（或容许）该列中存储的数据。  </p>
-<p>  **行(row)**：表中的一个记录。  </p>
-<p>  你可能听到用户在提到行（row）时称其为数据库记录(record)。在很大程度上，这两个术语是可以互相替代的，但从技术上说，行才是正确的术语。  </p>
-<p>  <strong>主键（primary key）</strong>：一列（或一组列），其值能够唯一区分表中每个行。  </p>
-<p>  <em>应该总是定义主键</em> ：虽然并不总是都需要主键，但大多数数据库设计人员都应该保证他们创建的每个表具有一个主键，以便于以后的数据操纵和整理。  </p>
-<p>  表中任何列都可以作为主键，只要它满足以下条件：  </p>
-<ol>
-<li>任意两行都不具有相同的主键值  </li>
-<li>每个行都必须具有一个主键值（主键列不允许NULL值）。  </li>
-</ol>
-<p>  <em>主键值规则</em>（这里列出的规则是MySQL本身强制实施的）：主键通常定义在表的一列上，但这并不是必须得，也可以一起使用多个列作为主键。在使用多列作为主键时，上述条件必须应用到构成主键的所有列，所有列值得组合必须是唯一的（但单个列的值可以不唯一）。  </p>
-<p>  &nbsp; &nbsp; &nbsp; &nbsp; 主键的最好习惯（除Mysql强制实施的规则外，应该坚持的几个普遍认可的最好习惯为）：  </p>
-<ol>
-<li><p>不更新主键列中的值；  </p>
-</li>
-<li><p>补充用主键列的值；</p>
-</li>
-<li><p>不在主键列中使用可能更改的值。（例如，如果使用一个名字作为主键以标识某个供应商，当该供应商合并和更改其名字时，必须更改这个主键。）  </p>
-<h2 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h2></li>
-</ol>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;  首先SQL是结构化查询语言的缩写。SQL是一种专门用来与数据库通信的语言。<br>SQL有如下有点：  </p>
-<ol>
-<li>SQL不是某个特定数据库供应商专有的语言。几乎所有重要的DBMS都支持SQL，所以学习次语言使你几乎能与所有数据库打交道。  </li>
-<li>SQL简单易学。他的语句全都是由描述性很强的英语单词组成的，而且这些单词的数目不多。  </li>
-<li>SQL尽管看上去很简单那，但他实际上是一种强有力的语言，灵活使用其他语言元素，可以进行非常复杂和高级的数据库操作。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" data-id="cl7y0srcr00076w7e2bmrdioe" data-title="第1章了解sql" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-SetNexTThemes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/19/SetNexTThemes/" class="article-date">
-  <time class="dt-published" datetime="2022-03-19T09:38:38.000Z" itemprop="datePublished">2022-03-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/19/SetNexTThemes/">SetNexTThemes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="给hexo设置NexT主题"><a href="#给hexo设置NexT主题" class="headerlink" title="给hexo设置NexT主题"></a><center>给hexo设置NexT主题</center></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;Hexo是高效的静态站点生成框架，基于Node.js。通过Hexo你可以轻松地使用Markdown编写文章，除了Markdown本身语法之外，还可以使用Hexo提供地标签插件来快速插入特定形式地内容。<br>&nbsp;&nbsp;&nbsp;&nbsp;在Hexo中有两份主要地配置文件，名称都是_config.yml。其中，一份位于站点根目录下，主要包含Hexo本身的配置，另一份位于主题目录下，主要包含Hexo本身的配置；另外一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。将前者称为站点配置文件，后者成为主题配置文件。  </p>
-<h2 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装NexT</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;只需要将主题文件拷贝至站点目录的themes目录下，然后修改下配置文件即可。安装步骤如下。  </p>
-<h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;如果熟悉Git，可以使用克隆最新版本的方式，之后的更新可以同各国git pull来快速更新，而不用再次下载压缩包替换。  </p>
-<ul>
-<li>法一：克隆最新版本<br>在终端窗口下，定位到Hexo站点目录下。使用Git checkout代码：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd &#x2F;e&#x2F;mwdeblog  </span><br><span class="line"></span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;next  </span><br></pre></td></tr></table></figure></li>
-<li>法二：下载稳定版本<br>1).前往NexT版本 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next/releases">发布页面</a><br>2). 选择你所需要的版本，下载 Download 区域下的 Source Code (zip) 到本地。例如，下载 v0.4.0 版本：<img src="/2022/03/19/SetNexTThemes/download-stable-version.png"><br>3).解压所下载的压缩包至站点的 themes 目录下， 并将 解压后的文件夹名称（hexo-theme-next-0.4.0）更改为 next。  </li>
-</ul>
-<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;与所有Hexo主题启用的模式一样。当克隆/下载完成之后，打开站点配置文件，找到theme字段，并将其值更改为：next。  </p>
-<blockquote>
-<p>theme:next  </p>
-</blockquote>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;至此，NexT主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前。最好使用 hexo clean 来清除Hexo的缓存。  </p>
-<h2 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;首先启动Hexo本地站点，并开启调试模式(即加上 –debug)，整个命令 hexo s –debug。在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更的定位错误。当命令行输出中提示出：<br><code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop. </code><br>此时可使用浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> , 检查站点是否正常运行。   </p>
-<blockquote>
-<h3 id="当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。"><a href="#当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。" class="headerlink" title="当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。"></a>当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。</h3><p><img src="/2022/03/19/SetNexTThemes/validation-default-scheme-mac.png">  </p>
-</blockquote>
-<p>现在，已经成功安装并启用了NexT主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。  </p>
-<h2 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h2><h3 id="选择Scheme"><a href="#选择Scheme" class="headerlink" title="选择Scheme"></a>选择Scheme</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Scheme是NexT提供的一种特性，借助Scheme，NexT为你提供多种不同的外观。同时，几乎所有的配置都可以在Scheme之间公用。目前NexT支持三种Scheme，他们是：  </p>
-<ul>
-<li>Muse-默认Scheme，这是NexT最初的版本，黑白主调，大量留白。  </li>
-<li>Mist-Muse的紧凑版本，整洁有序的单栏外观。  </li>
-<li>Pisces-双栏Scheme，小家碧玉似的清新。<br>Scheme的接话通过主题配置文件，搜索schemem关键字。将不使用的两个主题行注释，再将选用的主题行取消注释。以下即为选用 Pisces 主题。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#scheme：Muse </span><br><span class="line">#scheme:Mist </span><br><span class="line">scheme:Pisces  #当前使用的是该主题</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 设定语言  </span><br><span class="line">编辑站点配置文件，将language设置成你所需要的语言，例如选用简体中文(代码为：zh-Hans)，英语的代码为en，配置如下：</span><br></pre></td></tr></table></figure>
-language: zh-Hans  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 设定菜单  </span><br><span class="line">菜单配置包括三个部分，第一项是菜单（名称和链接），第二是菜单项的显示文本，第三是菜单项对应的图标。NexT使用的是Font Awesome提供的图标，Font Awesome有足够的图标，可以满足绝大多数场景，无须担心Retina屏幕下图标模糊的问题。  </span><br><span class="line">配置主题配置文件，修改以下内容：</span><br><span class="line">* 设定菜单内容，对应的字段是menu。菜单内容的设置格式是：item name：link。其中item name是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。  </span><br><span class="line"> &#96;&#96;&#96;  </span><br><span class="line">menu:</span><br><span class="line">  home:  # &#x2F; || home #运行在子目录下，删除根路径上的&#x2F;</span><br><span class="line">  archives: &#x2F;archives&#x2F;  # || archive</span><br><span class="line">  #下面的几个菜单项需要自己手动创建页面 time:22&#x2F;3&#x2F;19</span><br><span class="line">  # about: &#x2F;about&#x2F; #|| user</span><br><span class="line">  #tags: &#x2F;tags&#x2F; || tags</span><br><span class="line">  #categories: &#x2F;categories&#x2F; || th</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat</span><br><span class="line">  &#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line">* 设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo在生成的时候将用这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在NexT主题下目录下的languages&#x2F;&#123;language&#125;.yml(&#123;language&#125;为你所使用的语言)。  </span><br><span class="line">以简体中文为例，若你需要添加一个菜单项，比如something。那么你就需要修改简体中问对应的翻译文件languages&#x2F;zh-Hans.yml,在menu字段下添加一项：  </span><br></pre></td></tr></table></figure>
-menu:<br>home: 首页<br>archives: 归档<br>categories: 分类<br>tags: 标签<br>about: 关于<br>search: 搜索<br>commonweal: 公益404<br>something: 有料<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 设定菜单项的目标，对应的字段是menu_icons。此设定格式是item name:icon name,其中item name与上一步所配置的菜单名字对应，icon name是Font Awesome图标的名字。而enable课用于控制是否显示图标，你可以设置成false来去掉图标。  </span><br><span class="line"> &#96;&#96;&#96;   </span><br><span class="line"> menu_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  # Icon Mapping.</span><br><span class="line">  home: home</span><br><span class="line">  about: user</span><br><span class="line">  categories: th</span><br><span class="line">  tags: tags</span><br><span class="line">  archives: archive</span><br><span class="line">  commonweal: heartbeat</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line">  &gt; 在菜单图标开启的情况下，如果菜单项与菜单未匹配(没有设置或无效的FontAwesome图标名字)的情况下，NexT将会用？作为图标。  </span><br><span class="line"></span><br><span class="line">  &gt; 请注意键值(如home)的大小要严格匹配。</span><br><span class="line"></span><br><span class="line"> ## 设置侧栏  </span><br><span class="line"> 默认情况下，侧栏仅在文章页面(拥有目录列表)时才显示，并放置于右侧位置。可以通过修改主题配置文件中的sidebar字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置其二是侧栏显示的时机。   </span><br><span class="line"> * 设置侧栏的位置，修改sidebar.position的值，支持选项的有：  </span><br><span class="line">   + left - 靠左边放</span><br><span class="line">   + right - 靠右边放</span><br><span class="line"> &gt; 目前仅Prices Scheme支持position配置，影响版本5.0.0及更低版本。 </span><br></pre></td></tr></table></figure>
-sidebar：<br> position:left<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 设置侧栏显示的时机，修改sidebar.display的值，支持的选项有：</span><br><span class="line">  + post - 默认行为，在文章页面显示</span><br><span class="line">  + always - 在所有页面中都显示</span><br><span class="line">  + hide - 在所有页面中都隐藏(可以手动展开)</span><br><span class="line">  + remove - 完全移除  </span><br></pre></td></tr></table></figure>
-sidebar:<br> display:post<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  &gt; 已知侧栏在use motion:false的情况下不会展示。影响版本5.0.0及更低版本。</span><br><span class="line"></span><br><span class="line">## 设置头像  </span><br><span class="line">编辑主配置文件，修改字段avatar,值设置成头像的链接地址。其中，头像的链接地址可以是：完整的互联网URI，也可以是站内地址。 </span><br></pre></td></tr></table></figure>
-avatar: /images/Okizi.png<pre><code></code></pre>
-</li>
-</ul>
-<h2 id="设置作者的昵称"><a href="#设置作者的昵称" class="headerlink" title="设置作者的昵称"></a>设置作者的昵称</h2><p>编辑站点配置文件，设置author为你的昵称。</p>
-<h2 id="站点描述"><a href="#站点描述" class="headerlink" title="站点描述"></a>站点描述</h2><p>编辑站点配置文件，设置description字段为你的站点描述。  </p>
-<h2 id="集成常用的第三方服务"><a href="#集成常用的第三方服务" class="headerlink" title="集成常用的第三方服务"></a>集成常用的第三方服务</h2><p>以上信息来源：<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html">http://theme-next.iissnan.com/getting-started.html</a>  </p>
-<h2 id="我遇到的问题："><a href="#我遇到的问题：" class="headerlink" title="我遇到的问题："></a>我遇到的问题：</h2><ul>
-<li><p>下载的themes文件夹中的文件夹为nexts，而不是next。所以在修改站点配置文件的主题时，应该用nexts，而非next。<br><img src="/2022/03/19/SetNexTThemes/setTheme.PNG">  </p>
-</li>
-<li><p>设置主题后并不能正常显示。<br>解决方法：npm i hexo-renderer-swig<br>原因：hexo在5.0之后把swig给删除了需要自己手动安装。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2022/03/19/SetNexTThemes/" data-id="cl7y0srcd00006w7e0t24g835" data-title="SetNexTThemes" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-二分搜索升天词" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" class="article-date">
-  <time class="dt-published" datetime="2022-02-14T07:51:34.000Z" itemprop="datePublished">2022-02-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/">二分搜索升天词</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <pre><code> * dong哥   </code></pre>
-<p>二分搜索不好记，左右边界让人迷。<br>小于等于变小于，mid加一又减一。<br>就算这样还没完，return应否再-1？<br>信心慢慢刷力扣，AC比率二十一。<br>我本将心向明月，奈何明月照沟渠！<br>问君能有几多愁？恰似情深喂了狗。</p>
-<p>labuladong从天降，一同手撕算法题。<br>增君一法写二分，不用拜佛与念经。<br>管他左侧还右侧，搜索区间定乾坤。 </p>
-<p>搜索一个元素时，搜索区间两端闭。<br>while条件带等号，否则需要打补丁。<br>if相等就返回，其他的事甭操心。<br>mid必须加减一，因为区间两端闭。<br>while结束就凉了，凄凄惨惨返-1。  </p>
-<p>搜索左右边界时，搜索区间要阐明。<br>左闭右开最常见，其余逻辑便自明。<br>while要用小于号，这样才能不漏掉。<br>if相等别返回，利用mid锁边界。<br>mid加一或减一？要看区间开或闭。<br>while结束不算完，因为你还没返回。<br>索引可能出边界，if检查保平安。  </p>
-<p>左闭右开最常见，难道常见就合理？<br>labuladong不信邪，偏要改成两端闭。<br>搜索区间记于心，或开或闭有何异？<br>二分搜索三变体，逻辑统一容易记。<br>一套框架改两行，胜过千言和万语。  </p>
-<p>附上Java代码</p>
-<p> //搜索中间值，左边界，右边界，都用的[left,right]两端都闭的区间<br> //注意每搜索一次边界的变换，返回之前检查边界的越界情况，看给定序列中是否有target。</p>
-<pre><code>int binary_search(int[] nums, int target) &#123; 
-    int left = 0, right = nums.length - 1; 
-    while(left &lt;= right) &#123; 
-        int mid = left + (right - left) / 2; 
-        if (nums[mid] &lt; target) &#123; 
-            left = mid + 1; 
-        &#125; else if (nums[mid] &gt; target) &#123; 
-            right = mid - 1; 
-        &#125; else if(nums[mid] == target) &#123; 
-            // 直接返回 
-            return mid; 
-        &#125; 
-    &#125;
-
-    // 直接返回
-    return -1;
-
-&#125;
-
-
-int left_bound(int[] nums, int target) &#123; 
-    int left = 0, right = nums.length - 1; 
-    while (left &lt;= right) &#123;                 
-        int mid = left + (right - left) / 2; 
-        if (nums[mid] &lt; target) &#123; 
-            left = mid + 1; 
-        &#125; else if (nums[mid] &gt; target) &#123; 
-            right = mid - 1; 
-        &#125; else if (nums[mid] == target) &#123;
-             // 别返回，锁定左侧边界 
-             right = mid - 1; 
-        &#125; 
-    &#125;
-
-    // 最后要检查 left 越界的情况 
-    if (left &gt;= nums.length || nums[left] != target) 
-        return -1; 
-    return left; 
-&#125;
-
-int right_bound(int[] nums, int target) &#123; 
-    int left = 0, right = nums.length - 1; 
-    while (left &lt;= right) &#123; 
-        int mid = left + (right - left) / 2; 
-        if (nums[mid] &lt; target) &#123; 
-            left = mid + 1; 
-        &#125; else if (nums[mid] &gt; target) &#123; 
-            right = mid - 1; 
-        &#125; else if (nums[mid] == target) &#123; 
-            // 别返回，锁定右侧边界 
-            left = mid + 1; 
-        &#125; 
-    &#125;
-
-    // 最后要检查 right 越界的情况 
-    if (right &lt; 0 || nums[right] != target) 
-        return -1; 
-    return right; 
-&#125;</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="cl7y0srcp00056w7e4nzhb9o0" data-title="二分搜索升天词" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-认识flyway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" class="article-date">
-  <time class="dt-published" datetime="2021-03-14T12:53:21.000Z" itemprop="datePublished">2021-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/">认识flyway</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Flyway简介和SpringBoot集成Flyway"><a href="#Flyway简介和SpringBoot集成Flyway" class="headerlink" title="Flyway简介和SpringBoot集成Flyway"></a>Flyway简介和SpringBoot集成Flyway</h1><h2 id="Flayway简介"><a href="#Flayway简介" class="headerlink" title="Flayway简介"></a>Flayway简介</h2><p>FLYway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway_schema_history</p>
-<p>2、紧接着flyway将开始扫描文件系统或引用程序的类路径进行迁移。然后，flyway的数据将基于对sql脚本的版本号进行排序，并按顺序应用：可以看到执行数据库表后在checksum中储存一个数值，用于在之后运行过程中对比sql文件执行是否有变化。</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>flyway在执行脚本时，会在源数据表中检查checksum值，并确定上次运行到哪一个脚本文件，本次执行时从下一条脚本文件开始执行。所以编写脚本的时候不要去修改原有的脚本内容，并且新的脚本号要继续。</p>
-<h2 id="集成SpringBoot"><a href="#集成SpringBoot" class="headerlink" title="集成SpringBoot"></a>集成SpringBoot</h2><p>1.添加依赖和插件<br><a><font color="red"><br>注意：spring boot 2.2.x supplies flyway version 6. This version does not support mysql 5.5. You could try to override the flyway version to 5.2.4<br></font></a></p>
-<p>2.命名规范<br>sql脚本存放目录：src/main/resources/db/migration<br>对应一个程序版本的多个脚本，从1开始，比如1.0.9版本，有多个任务：张三负责a任务（tapd号为1111111），李四负责b任务（tapd号为222222），他们的任务都涉及到db更新他们会分别创建两个脚本：<br>V1.0.9.0.1__1111111.sql<br>V1.0.9.0.2__222222.sql<br>说明：V大写，中间是两个下划线（__)</p>
-<p>常见问题<br>1、可以基于环境变量，实现不同的环境，做不同的初始化脚本吗？<br> 基于我们的配置中 心，可以对flyway.locations配置进行修改，不同环境的初始化脚本可以放到不同的目录下。</p>
-<p>2、初始化数据过程会发生错误回滚？<br> 每 一个sql 文件会有 一个单独的事物，如果单个文件中发 生错误，单个文件的操作会回滚， 比如有1、2、3个 文件，第 二个文件发生错误，第二个文件所有操作将会回滚，第三个文件不会执行。但： Unfortunately, today only DB2, PostgreSQL, Derby, EnterpriseDB and to a certain extent SQL Server support DDL statements  inside a transaction。 所以，建议不要把ddl 文件和dml语句句放到同 一个文件 里，避免不必要的麻烦。</p>
-<p>3、多个节点能够并行执行migration吗？<br> 当然可以！Flyway使用数据库锁机制（locking technology of your database）来协调多个节点，从而保证多套应用程序可同时执行migration，而且集群控制也可做配置。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="cl7y0srcv000a6w7ecysi16f5" data-title="认识flyway" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-testIMG" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/04/testIMG/" class="article-date">
-  <time class="dt-published" datetime="2021-02-04T04:03:24.000Z" itemprop="datePublished">2021-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/04/testIMG/">testIMG</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="图片测试"><a href="#图片测试" class="headerlink" title="图片测试"></a><center>图片测试</center></h1><p><img src="/2021/02/04/testIMG/IMG_0561.PNG"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/testIMG/" data-id="cl7y0srcq00066w7e3op92k1j" data-title="testIMG" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-startMarkdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/04/startMarkdown/" class="article-date">
-  <time class="dt-published" datetime="2021-02-04T03:36:38.000Z" itemprop="datePublished">2021-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/04/startMarkdown/">startMarkdown</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="菜鸟教程"><a href="#菜鸟教程" class="headerlink" title="菜鸟教程"></a><center>菜鸟教程</center></h1><h2 id="Markdown是支持HTML的，可以用HTML语法来写"><a href="#Markdown是支持HTML的，可以用HTML语法来写" class="headerlink" title="Markdown是支持HTML的，可以用HTML语法来写!!!"></a><center>Markdown是支持HTML的，可以用HTML语法来写!!!</center></h2><html>
-<!--在这里插入内容-->
-    <a><font color="red">sss</font></a>
-</html>
-
-
-
-<h1 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><h4 id="四级"><a href="#四级" class="headerlink" title="四级"></a>四级</h4><h5 id="五级"><a href="#五级" class="headerlink" title="五级"></a>五级</h5><h1 id="我展示的是一级标题"><a href="#我展示的是一级标题" class="headerlink" title="我展示的是一级标题"></a>我展示的是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>Markdown段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>这又是一段。</p>
-<p>也可以用空行来重开一段。</p>
-<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><h2 id="斜体文本"><a href="#斜体文本" class="headerlink" title="斜体文本"></a><em>斜体文本</em></h2><h2 id="斜体文本-1"><a href="#斜体文本-1" class="headerlink" title="斜体文本"></a><em>斜体文本</em></h2><h2 id="粗体文本"><a href="#粗体文本" class="headerlink" title="粗体文本"></a><strong>粗体文本</strong></h2><h2 id="粗体文本-1"><a href="#粗体文本-1" class="headerlink" title="粗体文本"></a><strong>粗体文本</strong></h2><h2 id="粗斜体文本"><a href="#粗斜体文本" class="headerlink" title="粗斜体文本"></a><strong><em>粗斜体文本</em></strong></h2><h2 id="粗斜体文本-1"><a href="#粗斜体文本-1" class="headerlink" title="粗斜体文本"></a><strong><em>粗斜体文本</em></strong></h2><h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下:<br>这段文字不用删除。<br><del>这段文字要删除。</del></p>
-<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><p>下划线可以通过 HTML 的 <u>u</u> 标签来实现：<br><u>这个文本会带下划线</u>  </p>
-<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>脚注是对文本的补充说明。<br>Markdown 脚注的格式如下:<br>[^要注明的文本]<br>以下实例演示了脚注的用法：<br>创建脚注格式 <a href="ta%E5%B0%B1%E6%98%AFwjl%E3%80%82">^sss</a>  </p>
-<p>创建脚注格式类似这样 [^RUNOOB]<br>[^RUNOOB]:菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
-<h1 id="Markdown列表"><a href="#Markdown列表" class="headerlink" title="Markdown列表"></a>Markdown列表</h1><p>Markdown支持有序列表和无序列表。<br>无序列表使用*、+或者是-作为列表标记，这些标记后面添加一个空格然后再填写内容。  </p>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-</ul>
-<p>有序列表使用数字并加上.号来表示，注意.后面要加上空格如:</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素  </li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-<h1 id="Markdown区块"><a href="#Markdown区块" class="headerlink" title="Markdown区块"></a>Markdown区块</h1><p>Markdown区块引用是在段落开头使用&gt;符号，然后后面紧跟一个空格符号：</p>
-<blockquote>
-<p>区块引用<br>菜鸟教程<br>学的不仅仅是技术更是梦想  </p>
-</blockquote>
-<p>另外区块是可以嵌套的，一个&gt;符号是最外层，两个 &gt;符号是第一层嵌套，以此类推：  </p>
-<blockquote>
-<p>最外层</p>
-<blockquote>
-<p>第一层</p>
-<blockquote>
-<p>第二层  </p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="区块中使用列表区块中使用列表实例如下："><a href="#区块中使用列表区块中使用列表实例如下：" class="headerlink" title="区块中使用列表区块中使用列表实例如下："></a>区块中使用列表区块中使用列表实例如下：</h3><blockquote>
-<p>区块中使用列表</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-</ol>
-<ul>
-<li>第一项</li>
-</ul>
-<ul>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第三项</li>
-</ul>
-</blockquote>
-<h1 id="列表中使用区块如果要在列表项目内放进区块，那么就需要在-gt-前添加四个空格的缩进。"><a href="#列表中使用区块如果要在列表项目内放进区块，那么就需要在-gt-前添加四个空格的缩进。" class="headerlink" title="列表中使用区块如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。"></a>列表中使用区块如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</h1><p>列表中使用区块实例如下：</p>
-<ul>
-<li>第一项<blockquote>
-<p>菜鸟教程<br>学的不仅仅是技术更是梦想</p>
-</blockquote>
-</li>
-<li>第二项</li>
-</ul>
-<h1 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h1><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<code>）esc下面那个见，例如：   </code>printf()`  </p>
-<h1 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h1><p>代码区块使用4个空格或者一个制表符（Tab 键）。<br>实例如下：<br>    &lt;?php<br>    echo ‘RUNoob’;<br>    funtion test(){<br>       echo ‘test’;<br>    }</p>
-<p>你也可以用```包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;RUNOOB&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>用~~~包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;hello world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Markdown-链接"><a href="#Markdown-链接" class="headerlink" title="Markdown 链接"></a>Markdown 链接</h1><p>链接使用方法如下：<br><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">连接名称</a><br>或者<br>&lt;链接地址&gt;<br>例如：<br>这是一个链接 <a target="_blank" rel="noopener" href="https://wwww.runoob.com/">菜鸟教程</a>  </p>
-<h1 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a>高级链接</h1><p>可以通过变量来设置一个链接，变量赋值在文档末尾进行：<br>这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://www.google.com/">Google</a> 这个链接用 runoob 作为网址变量 <a target="_blank" rel="noopener" href="http://www.runoob.com/">Runoob</a>。<br>然后在文档结尾为变量赋值（网址)。至少有一个空行</p>
-<h1 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h1><p>Markdown 图片语法格式如下：<br><img src="/2021/02/04/startMarkdown/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" alt="alt 属性文本"><br><img src="/2021/02/04/startMarkdown/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80,%22%E5%8F%AF%E9%80%89%E6%A0%87%E9%A2%98%22" alt="alt 属性文本"><br>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的’title’属性的文字。<br>使用实例：  </p>
-<p><img src="/2021/02/04/startMarkdown/Aili.JPG" alt="这是谁呀！" title="猜猜这是谁"></p>
-<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB">  </p>
-<p>当然，你也可以像网址那样对图片网址使用变量:<br>这个链接用 2 作为网址变量 <a target="_blank" rel="noopener" href="http://localhost/C:/Users/asus/Desktop/IMG_1846.JPG">111</a><br>然后在文档的结尾为变量赋值（网址）  </p>
-<h1 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h1><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。<br>语法格式如下：<br> |  表头  |  表头 |<br> |  —-  |  —- |<br> | 单元格 | 单元格|<br> | 单元格 | 单元格|</p>
-<p>对齐方式</p>
-<p>我们可以设置表格的对齐方式：<br>-: 设置内容和标题栏居右对齐。<br>:- 设置内容和标题栏居左对齐。<br>:-: 设置内容和标题栏居中对齐。<br>实例如下：<br>| 左对齐 |  右对齐 | 居中对齐 |<br>| :—– | —-: | :—-: |<br>| 单元格 | 单元格 | 单元格 |<br>| 单元格 | 单元格 | 单元格 |</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="cl7y0srco00046w7e483u0om2" data-title="startMarkdown" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/04/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-02-04T03:28:55.394Z" itemprop="datePublished">2021-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/hello-world/" data-id="cl7y0srcm00026w7e3v020685" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7y13hbf000cqw7e1v7b4u1u" data-title="第4章检索数据" class="article-share-link">Share</a>
       
       
       
@@ -858,15 +1747,29 @@ int right_bound(int[] nums, int target) &#123;
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" style="font-size: 10px;">MySQL必知必会</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
     </div>
   </div>
 
@@ -879,23 +1782,23 @@ int right_bound(int[] nums, int target) &#123;
       <ul>
         
           <li>
-            <a href="/2022/09/12/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">第7章数据过滤</a>
-          </li>
-        
-          <li>
             <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/">morris遍历</a>
           </li>
         
           <li>
-            <a href="/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">(no title)</a>
+            <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
           </li>
         
           <li>
-            <a href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/">第1章了解sql</a>
+            <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
           </li>
         
           <li>
-            <a href="/2022/03/19/SetNexTThemes/">SetNexTThemes</a>
+            <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/">第13章分组数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
           </li>
         
       </ul>

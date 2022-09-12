@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第3章使用sql | Mw&#39;s Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第3章：使用mysql3.1 连接&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;为了连接到MySQL，需要以下信息：    主机名（计算机名）————如果连接到本地MySQL服务器，为localhost；   端口（如果使用默认端口3306之外的端口）；   一个合法的用户名；   用户口令（如果需要）。    3.2 选择数据库&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;在最初连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第3章使用sql">
+<meta property="og:url" content="http://example/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/index.html">
+<meta property="og:site_name" content="Mw&#39;s Hexo">
+<meta property="og:description" content="第3章：使用mysql3.1 连接&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;为了连接到MySQL，需要以下信息：    主机名（计算机名）————如果连接到本地MySQL服务器，为localhost；   端口（如果使用默认端口3306之外的端口）；   一个合法的用户名；   用户口令（如果需要）。    3.2 选择数据库&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;在最初连接">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-04T14:16:29.000Z">
+<meta property="article:modified_time" content="2022-09-12T00:24:09.904Z">
+<meta property="article:author" content="mawan">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Mw's Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mw&#39;s Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第3章使用sql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" class="article-date">
+  <time class="dt-published" datetime="2022-07-04T14:16:29.000Z" itemprop="datePublished">2022-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第3章使用sql
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第3章：使用mysql"><a href="#第3章：使用mysql" class="headerlink" title="第3章：使用mysql"></a><center>第3章：使用mysql</center></h1><h2 id="3-1-连接"><a href="#3-1-连接" class="headerlink" title="3.1 连接"></a>3.1 连接</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;为了连接到MySQL，需要以下信息：  </p>
+<ol>
+<li>主机名（计算机名）————如果连接到本地MySQL服务器，为localhost；  </li>
+<li>端口（如果使用默认端口3306之外的端口）；  </li>
+<li>一个合法的用户名；  </li>
+<li>用户口令（如果需要）。  </li>
+</ol>
+<h2 id="3-2-选择数据库"><a href="#3-2-选择数据库" class="headerlink" title="3.2 选择数据库"></a>3.2 选择数据库</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;在最初连接到MySQL时，没有任何数据库打开供你使用。需要选择一个数据库。为此，可使用USE关键字。    </p>
+<blockquote>
+<p>输入：USE databasename;<br>输出：Database changed   </p>
+</blockquote>
+<p><em>必须先使用USE打开数据库，才能读取其中的数据。</em></p>
+<h2 id="3-3-了解数据库和表"><a href="#3-3-了解数据库和表" class="headerlink" title="3.3 了解数据库和表"></a>3.3 了解数据库和表</h2><p>查看全部的数据库：  </p>
+<blockquote>
+<p>输入：SHOW DATABASES;<br>输出： 返回可用数据库的一个列表。包含在这个列表中的可能是MySQL内部使用的数据库（包括mysql和information_schema）。  </p>
+</blockquote>
+<p>选择一个数据库中之后，可以查看该数据库内的所表：</p>
+<blockquote>
+<p>输入：SHOW TABLES;<br>输出：返回当前选择的数据库内可用表的列表。  </p>
+</blockquote>
+<p>此外，show也可以用来显示表列：  </p>
+<blockquote>
+<p>输入：SHOW COLUMNS FROM tableName;<br>输出：该表中的每个字段都会返回一行，行中包含字段名、数据类型、是否允许为NULL、键信息、默认值以及其他信息（如auto_increment）。  </p>
+</blockquote>
+<pre><code>    MySQL支持用DESCRIBE作为SHOW COLUMNS FROM的一种快捷方式。换句话说，DESCRIBE tableName与SHOW COLUMNS FROM tableName效果一样。  
+
+什么是自动增量？  
+    某些列表需要唯一值。例如，订单编号、雇员ID或顾客ID等信息。在每个行添加到表中是，MySQL可以自动地位每个行分配下一个可用编号，不用在添加时手动分配唯一值（这样做必须记住最后一次使用地值）。这个功能就是所谓地自动增量。如果需要它，则必须在用CREATE语句创建表时把它作为表定义地组成部分。    </code></pre>
+<p>所支持的其他SHOW语句还有：</p>
+<ol>
+<li><font color="pink">SHOW　STATUS;</font>&nbsp; &nbsp;&nbsp; &nbsp;#用于显示广泛的服务器状态信息。  </li>
+<li><font color="pink">SHOW CREATE DATABASE;</font>和<font color="pink">SHOW CREATE TABLE;</font>&nbsp; &nbsp;&nbsp; &nbsp;#分别用来显示创建特定数据库或表的MySQL语句。  </li>
+<li><font color="pink">SHOW GRANTS;&nbsp; &nbsp;&nbsp; &nbsp;</font>#用拉埃显示授予用户（所有用户或特定用户）的安全权限。  </li>
+<li><font color="pink">SHOW ERRORS;和SHOW WARNINGS;&nbsp; &nbsp;&nbsp; &nbsp;</font>#用来显示服务器错误或者警告消息。</li>
+</ol>
+<blockquote>
+<p>进一步了解SHOW，请在mysql命令行实用程序中，执行命令HELP SHOW;显示允许的SHOW语句。  </p>
+</blockquote>
+<h3 id="mysql命令行中忘了相关操作时，可以使用help命令。"><a href="#mysql命令行中忘了相关操作时，可以使用help命令。" class="headerlink" title="mysql命令行中忘了相关操作时，可以使用help命令。"></a>mysql命令行中忘了相关操作时，可以使用help命令。</h3><blockquote>
+<p>MySQL 5的新增内容 MySQL 5支持一个新的INFORMATION_SCHEMA命令，可用它来获得和过滤模式信息。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" data-id="cl7y13hbg000dqw7e593q15w9" data-title="第3章使用sql" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第4章检索数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第1章了解sql</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" style="font-size: 10px;">MySQL必知必会</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/">morris遍历</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/">第13章分组数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 mawan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

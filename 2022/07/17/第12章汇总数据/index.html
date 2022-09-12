@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第12章汇总数据 | Mw&#39;s Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第12章：汇总数据12.1 汇总数据&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;我们经常需要汇总数据而不用把它们实际检索出来，为此MySQL提供了专门的函数。使用这些函数，MySQL查询可用于检索数据，以便分析和报表生成。这种类型的检索例子有以下几种。  确定表中行数（或者满足某个条件或包含某个特定值的行数）。 获得表中行组的和。 找出表列（或所有行或某些特定的行）的最大值、最小值和平均值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第12章汇总数据">
+<meta property="og:url" content="http://example/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="Mw&#39;s Hexo">
+<meta property="og:description" content="第12章：汇总数据12.1 汇总数据&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;我们经常需要汇总数据而不用把它们实际检索出来，为此MySQL提供了专门的函数。使用这些函数，MySQL查询可用于检索数据，以便分析和报表生成。这种类型的检索例子有以下几种。  确定表中行数（或者满足某个条件或包含某个特定值的行数）。 获得表中行组的和。 找出表列（或所有行或某些特定的行）的最大值、最小值和平均值">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-17T13:29:00.000Z">
+<meta property="article:modified_time" content="2022-09-12T00:28:57.325Z">
+<meta property="article:author" content="mawan">
+<meta property="article:tag" content="MySQL必知必会">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Mw's Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mw&#39;s Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第12章汇总数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-07-17T13:29:00.000Z" itemprop="datePublished">2022-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第12章汇总数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第12章：汇总数据"><a href="#第12章：汇总数据" class="headerlink" title="第12章：汇总数据"></a><center>第12章：汇总数据</center></h1><h2 id="12-1-汇总数据"><a href="#12-1-汇总数据" class="headerlink" title="12.1 汇总数据"></a>12.1 汇总数据</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;我们经常需要汇总数据而不用把它们实际检索出来，为此MySQL提供了专门的函数。使用这些函数，MySQL查询可用于检索数据，以便分析和报表生成。这种类型的检索例子有以下几种。</p>
+<ol>
+<li>确定表中行数（或者满足某个条件或包含某个特定值的行数）。</li>
+<li>获得表中行组的和。</li>
+<li>找出表列（或所有行或某些特定的行）的最大值、最小值和平均值。  </li>
+</ol>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;上述例子都需要对表中数据（而不是实际数据本身）汇总。因此，返回实际表数据是对时间和处理资源的一种浪费（更不用说带宽了）。重复一遍，实际想要的是汇总信息。</p>
+<pre><code>    聚集函数（aggregate function） 运行在行组上，计算和返回单个值的函数。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;为方便这种类型的检索，MySQL给出了5个聚集函数。<br>|     函数       |   说明            |<br>| :——-      |  :——-         |<br>|   AVG()       |  返回某列的平均值  |<br>|   COUNT()     |  返回某列的行数|<br>|   MAX()       |  返回某列的最大值|<br>|   MIN()       |  返回某列的最小值|<br>|   SUM()       |  返回某列值之和|</p>
+<h3 id="12-1-1-AVG-函数"><a href="#12-1-1-AVG-函数" class="headerlink" title="12.1.1 AVG()函数"></a>12.1.1 AVG()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;AVG()通过对表中行数计数并计算特定列值之和，求得该列的平均值。AVG()可用来返回所有列的平均值，也可以用来返回特定列或行的平均值。<br>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子使用AVG()返回products表中所有产品的平均价格：   </p>
+<blockquote>
+<p>输入: SELECT AVG(prod_price) AS avg_price FROM products;</p>
+</blockquote>
+<p>输出：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">avg_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">16.133571</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：此SELECT语句返回值avg_Price，它包含products表中所有产品的平均价格。如第10章所述，avg_price是一个别名。</p>
+</blockquote>
+<pre><code>    只用于单个列 AVG()只能用来确定特定数值列的平均值，而且列名必须作为函数参数给出。为了获得多个列的平均值，必须使用多个AVG()函数。
+
+    NULL值 AVG()函数忽略列值为NULL的行。</code></pre>
+<h3 id="12-1-2-COUNT-函数"><a href="#12-1-2-COUNT-函数" class="headerlink" title="12.1.2 COUNT()函数"></a>12.1.2 COUNT()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;COUNT()函数进行计数。可利用COUNT()确定表中行的数目或符合特定条件的行的数目。<br>&nbsp; &nbsp;&nbsp; &nbsp;COUNT()函数有两种使用方式。  </p>
+<ol>
+<li>使用COUNT(*)对表中行的数目进行计数，不管表列中包含的是空值（NULL）还是非空值。</li>
+<li>使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。</li>
+</ol>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_cust FROm customers;</p>
+</blockquote>
+<p>输出:</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_cust</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">5</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析： 在此例子中，利用COUNT(*)对所有行计数，不管行中各列有什么值。计数值在num_cust中返回。  </p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子只对具有电子邮件地址的客户计数：  </p>
+<blockquote>
+<p>SELECT COUNT(cust_email) AS num_cust FROm customers;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_cust</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">3</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这条SELECT语句使用COUNT(cust_email)对cust_email列中有值的行进行计数。在此例子中，cust_email的计数为3（表示5个客户中只有3个客户有电子邮件地址）。</p>
+</blockquote>
+<pre><code>    NULL值 如果指定列名，则指定列的值为空的行被COUNT()函数忽略，但如果COUNT()函数中用的是星号（*），则不忽略。</code></pre>
+<h3 id="12-1-3-MAX-函数"><a href="#12-1-3-MAX-函数" class="headerlink" title="12.1.3 MAX()函数"></a>12.1.3 MAX()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;MAX()返回指定列中的最大值。MAX()要求指定列名，如下所示：  </p>
+<blockquote>
+<p>输入：SELECT MAX(prod_price) AS max_price FROM products;  </p>
+</blockquote>
+<p>输出:  </p>
+<table>
+<thead>
+<tr>
+<th align="left">min_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">55.00</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里，MAX()返回products表中最贵的物品的价格。  </p>
+</blockquote>
+<pre><code>    对非数值数据使用MAX() 虽然MAX()一般用来找出最大的数值或日期值，但MySQL允许将它用来返回任意列中的最大值，包括返回文本列中的最大值。在用于文本数据时，如果数据按相应的列排序，则MAX()返回最后一行。  
+
+    NULL值 MAX()函数忽略列值为NULL的行。</code></pre>
+<h3 id="12-1-4-MIN-函数"><a href="#12-1-4-MIN-函数" class="headerlink" title="12.1.4 MIN()函数"></a>12.1.4 MIN()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;MIN()的功能正好与MAX()功能相反，它返回指定列的最小值。</p>
+<h3 id="12-1-5-SUM-函数"><a href="#12-1-5-SUM-函数" class="headerlink" title="12.1.5 SUM()函数"></a>12.1.5 SUM()函数</h3><p>&nbsp; &nbsp;&nbsp; &nbsp;SUM()用来返回指定列值得和（总计）。<br>&nbsp; &nbsp;&nbsp; &nbsp;下面举一个例子，orderitems表包含订单中实际的物品，每个物品有相应的数量（quantity）。可如下检索所订购物品的总数（所有quantity值之和）：</p>
+<blockquote>
+<p>输入：SELECT SUM(quantity) AS items_ordered FROM orderitems WHERE order_num =20005;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">items_ordered</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">19</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：函数SUM(quantity)返回订单中所有物品数量之和，WHERE子句保证只统计某个物品订单中的物品。</p>
+</blockquote>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;SUM()也可以用来合计计算值。在下面的例子中，合计每项物品的<br>item_price*quantity，得出总的订单金额：</p>
+<blockquote>
+<p>输入：SELECT SUM(item_price*quantity) AS total_price FROM orderitems WHERE order_num =20005;  </p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">total_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">149.87</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：函数SUM(item_price*quantity)返回订单中所有物品价钱之和，WHERE子句同样保证只统计某个物品订单中的物品。</p>
+</blockquote>
+<pre><code>    在多个列上进行计算 如本例所示，利用标准的算术操作符，所有聚集函数都可用来执行多个列上的计算。
+    NULL值 SUM()函数忽略列值为NULL的行。</code></pre>
+<h2 id="12-2-聚集不同值"><a href="#12-2-聚集不同值" class="headerlink" title="12.2 聚集不同值"></a>12.2 聚集不同值</h2><pre><code>    MySQL 5 及后期版本 下面将要介绍的聚集函数的DISTINCT的使用，已经被添加到MySQL 5.0.3中。下面所述内容在MySQL 4.x中不能正常运行。</code></pre>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;以上5个聚集函数都可以如下使用：</p>
+<ol>
+<li><p>对所有的行执行计算，指定ALL参数或不给参数（因为ALL是默认<br>行为）；  </p>
+</li>
+<li><p>只包含不同的值，指定DISTINCT参数。</p>
+<pre><code> ALL为默认 ALL参数不需要指定，因为它是默认行为。如果不指定DISTINCT，则假定为ALL。</code></pre>
+</li>
+</ol>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子使用AVG()函数返回特定供应商提供的产品的平均价格。它与上面的SELECT语句相同，但使用了DISTINCT参数，因此平均值只考虑各个不同的价格：</p>
+<blockquote>
+<p>输入：SELECT AVG(DISTINCT prod_price) AS avg_price FROM products WHERE end_id=1003;</p>
+</blockquote>
+<p>输出： </p>
+<table>
+<thead>
+<tr>
+<th align="left">avg_price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">15.998000</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：可以看到，在使用了DISTINCT后，此例子中的avg_price比较高，因为有多个物品具有相同的较低价格。排除它们提升了平均价格。</p>
+</blockquote>
+<pre><code>    注意 如果指定列名，则DISTINCT只能用于COUNT()。DISTINCT不能用于COUNT(*)，因此不允许使用COUNT（DISTINCT），否则会产生错误。类似地，DISTINCT必须使用列名，不能用于计算或表达式。</code></pre>
+<h2 id="12-3-组合聚集函数"><a href="#12-3-组合聚集函数" class="headerlink" title="12.3 组合聚集函数"></a>12.3 组合聚集函数</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句可根据需要包含多个聚集函数。请看下面的例子：  </p>
+<blockquote>
+<p>输入：SELECT COUNT(*) AS num_items,Min(prod_price) AS price_min,MAX(prod_price) AS price_max, AVG(prod_price) AS price_avg FROM products;</p>
+</blockquote>
+<p>输出：</p>
+<table>
+<thead>
+<tr>
+<th align="left">num_items</th>
+<th align="left">price_min</th>
+<th align="left">price_max</th>
+<th align="left">price_avg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">14</td>
+<td align="left">2.5</td>
+<td align="left">55</td>
+<td align="left">16.133571</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>分析：这里用单条SELECT语句执行了4个聚集计算，返回4个值（products表中物品的数目，产品价格的最高、最低以及平均值）。</p>
+</blockquote>
+<pre><code>    取别名 在指定别名以包含某个聚集函数的结果时，不应该使用表中实际的列名。虽然这样做并非不合法，但使用唯一的名字会使你的SQL更易于理解和使用（以及将来容易排除故障）。</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/" data-id="cl7y13hb90008qw7e4v2r5t0c" data-title="第12章汇总数据" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          第13章分组数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/16/%E7%AC%AC10%E7%AB%A0%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第10章创建计算字段</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" style="font-size: 10px;">MySQL必知必会</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/">morris遍历</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/">第13章分组数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 mawan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

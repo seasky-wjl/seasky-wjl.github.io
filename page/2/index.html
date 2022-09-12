@@ -73,6 +73,613 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-第3章使用sql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" class="article-date">
+  <time class="dt-published" datetime="2022-07-04T14:16:29.000Z" itemprop="datePublished">2022-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/">第3章使用sql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第3章：使用mysql"><a href="#第3章：使用mysql" class="headerlink" title="第3章：使用mysql"></a><center>第3章：使用mysql</center></h1><h2 id="3-1-连接"><a href="#3-1-连接" class="headerlink" title="3.1 连接"></a>3.1 连接</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;为了连接到MySQL，需要以下信息：  </p>
+<ol>
+<li>主机名（计算机名）————如果连接到本地MySQL服务器，为localhost；  </li>
+<li>端口（如果使用默认端口3306之外的端口）；  </li>
+<li>一个合法的用户名；  </li>
+<li>用户口令（如果需要）。  </li>
+</ol>
+<h2 id="3-2-选择数据库"><a href="#3-2-选择数据库" class="headerlink" title="3.2 选择数据库"></a>3.2 选择数据库</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;在最初连接到MySQL时，没有任何数据库打开供你使用。需要选择一个数据库。为此，可使用USE关键字。    </p>
+<blockquote>
+<p>输入：USE databasename;<br>输出：Database changed   </p>
+</blockquote>
+<p><em>必须先使用USE打开数据库，才能读取其中的数据。</em></p>
+<h2 id="3-3-了解数据库和表"><a href="#3-3-了解数据库和表" class="headerlink" title="3.3 了解数据库和表"></a>3.3 了解数据库和表</h2><p>查看全部的数据库：  </p>
+<blockquote>
+<p>输入：SHOW DATABASES;<br>输出： 返回可用数据库的一个列表。包含在这个列表中的可能是MySQL内部使用的数据库（包括mysql和information_schema）。  </p>
+</blockquote>
+<p>选择一个数据库中之后，可以查看该数据库内的所表：</p>
+<blockquote>
+<p>输入：SHOW TABLES;<br>输出：返回当前选择的数据库内可用表的列表。  </p>
+</blockquote>
+<p>此外，show也可以用来显示表列：  </p>
+<blockquote>
+<p>输入：SHOW COLUMNS FROM tableName;<br>输出：该表中的每个字段都会返回一行，行中包含字段名、数据类型、是否允许为NULL、键信息、默认值以及其他信息（如auto_increment）。  </p>
+</blockquote>
+<pre><code>    MySQL支持用DESCRIBE作为SHOW COLUMNS FROM的一种快捷方式。换句话说，DESCRIBE tableName与SHOW COLUMNS FROM tableName效果一样。  
+
+什么是自动增量？  
+    某些列表需要唯一值。例如，订单编号、雇员ID或顾客ID等信息。在每个行添加到表中是，MySQL可以自动地位每个行分配下一个可用编号，不用在添加时手动分配唯一值（这样做必须记住最后一次使用地值）。这个功能就是所谓地自动增量。如果需要它，则必须在用CREATE语句创建表时把它作为表定义地组成部分。    </code></pre>
+<p>所支持的其他SHOW语句还有：</p>
+<ol>
+<li><font color="pink">SHOW　STATUS;</font>&nbsp; &nbsp;&nbsp; &nbsp;#用于显示广泛的服务器状态信息。  </li>
+<li><font color="pink">SHOW CREATE DATABASE;</font>和<font color="pink">SHOW CREATE TABLE;</font>&nbsp; &nbsp;&nbsp; &nbsp;#分别用来显示创建特定数据库或表的MySQL语句。  </li>
+<li><font color="pink">SHOW GRANTS;&nbsp; &nbsp;&nbsp; &nbsp;</font>#用拉埃显示授予用户（所有用户或特定用户）的安全权限。  </li>
+<li><font color="pink">SHOW ERRORS;和SHOW WARNINGS;&nbsp; &nbsp;&nbsp; &nbsp;</font>#用来显示服务器错误或者警告消息。</li>
+</ol>
+<blockquote>
+<p>进一步了解SHOW，请在mysql命令行实用程序中，执行命令HELP SHOW;显示允许的SHOW语句。  </p>
+</blockquote>
+<h3 id="mysql命令行中忘了相关操作时，可以使用help命令。"><a href="#mysql命令行中忘了相关操作时，可以使用help命令。" class="headerlink" title="mysql命令行中忘了相关操作时，可以使用help命令。"></a>mysql命令行中忘了相关操作时，可以使用help命令。</h3><blockquote>
+<p>MySQL 5的新增内容 MySQL 5支持一个新的INFORMATION_SCHEMA命令，可用它来获得和过滤模式信息。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" data-id="cl7y13hbg000dqw7e593q15w9" data-title="第3章使用sql" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第1章了解sql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" class="article-date">
+  <time class="dt-published" datetime="2022-06-28T12:16:23.000Z" itemprop="datePublished">2022-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/">第1章了解sql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="了解mysql"><a href="#了解mysql" class="headerlink" title="了解mysql"></a><center>了解mysql</center></h1><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p>  **数据库(database)**：保存有组织的数据的容器(通常是一个文件或一组文件)。</p>
+<p>  确切地说，数据库软件应称为DBMS(数据库管理系统)。数据库是通过DBMS创建和操纵的容器。  </p>
+<p>  **表(table)**：某种特定类型数据的结构化清单。  </p>
+<p>  注：表名的唯一性取决于多个因素，如数据库名和表名的结合。意思就是说，虽然在相同数据库中不能使用相同的表名，但是在不同的数据库中却可以使用相同的表名。  </p>
+<p>  **模式(schema)**：关于数据库和表的布局及特性的信息。  </p>
+<p>  **列(column)**：表中的一个字段。所有表都是由一个或多个列组成的。表由列组成，列中存储着表中某部分的信息。  </p>
+<p>  分解数据：正确地将数据分解为多个列极为重要。例如，城市、州、邮政编码营改增同时独立的列。通过把它分解开，才有可能利用特定的列队数据进行排序和过滤(如，找出特定州或特定城市的所有顾客)。如果城市和州组合在一个列中，则按州进行排序或过滤会很困难。  </p>
+<p>  **数据类型(datatype)**：所容许的数据类型。每个列表都有相应的数据类型，它限制（或容许）该列中存储的数据。  </p>
+<p>  **行(row)**：表中的一个记录。  </p>
+<p>  你可能听到用户在提到行（row）时称其为数据库记录(record)。在很大程度上，这两个术语是可以互相替代的，但从技术上说，行才是正确的术语。  </p>
+<p>  <strong>主键（primary key）</strong>：一列（或一组列），其值能够唯一区分表中每个行。  </p>
+<p>  <em>应该总是定义主键</em> ：虽然并不总是都需要主键，但大多数数据库设计人员都应该保证他们创建的每个表具有一个主键，以便于以后的数据操纵和整理。  </p>
+<p>  表中任何列都可以作为主键，只要它满足以下条件：  </p>
+<ol>
+<li>任意两行都不具有相同的主键值  </li>
+<li>每个行都必须具有一个主键值（主键列不允许NULL值）。  </li>
+</ol>
+<p>  <em>主键值规则</em>（这里列出的规则是MySQL本身强制实施的）：主键通常定义在表的一列上，但这并不是必须得，也可以一起使用多个列作为主键。在使用多列作为主键时，上述条件必须应用到构成主键的所有列，所有列值得组合必须是唯一的（但单个列的值可以不唯一）。  </p>
+<p>  &nbsp; &nbsp; &nbsp; &nbsp; 主键的最好习惯（除Mysql强制实施的规则外，应该坚持的几个普遍认可的最好习惯为）：  </p>
+<ol>
+<li><p>不更新主键列中的值；  </p>
+</li>
+<li><p>补充用主键列的值；</p>
+</li>
+<li><p>不在主键列中使用可能更改的值。（例如，如果使用一个名字作为主键以标识某个供应商，当该供应商合并和更改其名字时，必须更改这个主键。）  </p>
+<h2 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h2></li>
+</ol>
+<p>&nbsp; &nbsp;&nbsp; &nbsp;  首先SQL是结构化查询语言的缩写。SQL是一种专门用来与数据库通信的语言。<br>SQL有如下有点：  </p>
+<ol>
+<li>SQL不是某个特定数据库供应商专有的语言。几乎所有重要的DBMS都支持SQL，所以学习次语言使你几乎能与所有数据库打交道。  </li>
+<li>SQL简单易学。他的语句全都是由描述性很强的英语单词组成的，而且这些单词的数目不多。  </li>
+<li>SQL尽管看上去很简单那，但他实际上是一种强有力的语言，灵活使用其他语言元素，可以进行非常复杂和高级的数据库操作。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" data-id="cl7y13hba0009qw7ehyz05p0j" data-title="第1章了解sql" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-SetNexTThemes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/19/SetNexTThemes/" class="article-date">
+  <time class="dt-published" datetime="2022-03-19T09:38:38.000Z" itemprop="datePublished">2022-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/19/SetNexTThemes/">SetNexTThemes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="给hexo设置NexT主题"><a href="#给hexo设置NexT主题" class="headerlink" title="给hexo设置NexT主题"></a><center>给hexo设置NexT主题</center></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;Hexo是高效的静态站点生成框架，基于Node.js。通过Hexo你可以轻松地使用Markdown编写文章，除了Markdown本身语法之外，还可以使用Hexo提供地标签插件来快速插入特定形式地内容。<br>&nbsp;&nbsp;&nbsp;&nbsp;在Hexo中有两份主要地配置文件，名称都是_config.yml。其中，一份位于站点根目录下，主要包含Hexo本身的配置，另一份位于主题目录下，主要包含Hexo本身的配置；另外一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。将前者称为站点配置文件，后者成为主题配置文件。  </p>
+<h2 id="安装NexT"><a href="#安装NexT" class="headerlink" title="安装NexT"></a>安装NexT</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;只需要将主题文件拷贝至站点目录的themes目录下，然后修改下配置文件即可。安装步骤如下。  </p>
+<h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;如果熟悉Git，可以使用克隆最新版本的方式，之后的更新可以同各国git pull来快速更新，而不用再次下载压缩包替换。  </p>
+<ul>
+<li>法一：克隆最新版本<br>在终端窗口下，定位到Hexo站点目录下。使用Git checkout代码：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd &#x2F;e&#x2F;mwdeblog  </span><br><span class="line"></span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;next  </span><br></pre></td></tr></table></figure></li>
+<li>法二：下载稳定版本<br>1).前往NexT版本 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next/releases">发布页面</a><br>2). 选择你所需要的版本，下载 Download 区域下的 Source Code (zip) 到本地。例如，下载 v0.4.0 版本：<img src="/2022/03/19/SetNexTThemes/download-stable-version.png"><br>3).解压所下载的压缩包至站点的 themes 目录下， 并将 解压后的文件夹名称（hexo-theme-next-0.4.0）更改为 next。  </li>
+</ul>
+<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;与所有Hexo主题启用的模式一样。当克隆/下载完成之后，打开站点配置文件，找到theme字段，并将其值更改为：next。  </p>
+<blockquote>
+<p>theme:next  </p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;至此，NexT主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前。最好使用 hexo clean 来清除Hexo的缓存。  </p>
+<h2 id="验证主题"><a href="#验证主题" class="headerlink" title="验证主题"></a>验证主题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;首先启动Hexo本地站点，并开启调试模式(即加上 –debug)，整个命令 hexo s –debug。在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更的定位错误。当命令行输出中提示出：<br><code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop. </code><br>此时可使用浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> , 检查站点是否正常运行。   </p>
+<blockquote>
+<h3 id="当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。"><a href="#当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。" class="headerlink" title="当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。"></a>当你看到站点的外观如下图所示类似时即说明你已经成功安装NexT主题。这是NexT默认的Scheme——Muse。</h3><p><img src="/2022/03/19/SetNexTThemes/validation-default-scheme-mac.png">  </p>
+</blockquote>
+<p>现在，已经成功安装并启用了NexT主题。下一步我们将要更改一些主题的设定，包括个性化以及集成第三方服务。  </p>
+<h2 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h2><h3 id="选择Scheme"><a href="#选择Scheme" class="headerlink" title="选择Scheme"></a>选择Scheme</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;Scheme是NexT提供的一种特性，借助Scheme，NexT为你提供多种不同的外观。同时，几乎所有的配置都可以在Scheme之间公用。目前NexT支持三种Scheme，他们是：  </p>
+<ul>
+<li>Muse-默认Scheme，这是NexT最初的版本，黑白主调，大量留白。  </li>
+<li>Mist-Muse的紧凑版本，整洁有序的单栏外观。  </li>
+<li>Pisces-双栏Scheme，小家碧玉似的清新。<br>Scheme的接话通过主题配置文件，搜索schemem关键字。将不使用的两个主题行注释，再将选用的主题行取消注释。以下即为选用 Pisces 主题。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#scheme：Muse </span><br><span class="line">#scheme:Mist </span><br><span class="line">scheme:Pisces  #当前使用的是该主题</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 设定语言  </span><br><span class="line">编辑站点配置文件，将language设置成你所需要的语言，例如选用简体中文(代码为：zh-Hans)，英语的代码为en，配置如下：</span><br></pre></td></tr></table></figure>
+language: zh-Hans  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 设定菜单  </span><br><span class="line">菜单配置包括三个部分，第一项是菜单（名称和链接），第二是菜单项的显示文本，第三是菜单项对应的图标。NexT使用的是Font Awesome提供的图标，Font Awesome有足够的图标，可以满足绝大多数场景，无须担心Retina屏幕下图标模糊的问题。  </span><br><span class="line">配置主题配置文件，修改以下内容：</span><br><span class="line">* 设定菜单内容，对应的字段是menu。菜单内容的设置格式是：item name：link。其中item name是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。  </span><br><span class="line"> &#96;&#96;&#96;  </span><br><span class="line">menu:</span><br><span class="line">  home:  # &#x2F; || home #运行在子目录下，删除根路径上的&#x2F;</span><br><span class="line">  archives: &#x2F;archives&#x2F;  # || archive</span><br><span class="line">  #下面的几个菜单项需要自己手动创建页面 time:22&#x2F;3&#x2F;19</span><br><span class="line">  # about: &#x2F;about&#x2F; #|| user</span><br><span class="line">  #tags: &#x2F;tags&#x2F; || tags</span><br><span class="line">  #categories: &#x2F;categories&#x2F; || th</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat</span><br><span class="line">  &#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line">* 设置菜单项的显示文本。在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo在生成的时候将用这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在NexT主题下目录下的languages&#x2F;&#123;language&#125;.yml(&#123;language&#125;为你所使用的语言)。  </span><br><span class="line">以简体中文为例，若你需要添加一个菜单项，比如something。那么你就需要修改简体中问对应的翻译文件languages&#x2F;zh-Hans.yml,在menu字段下添加一项：  </span><br></pre></td></tr></table></figure>
+menu:<br>home: 首页<br>archives: 归档<br>categories: 分类<br>tags: 标签<br>about: 关于<br>search: 搜索<br>commonweal: 公益404<br>something: 有料<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 设定菜单项的目标，对应的字段是menu_icons。此设定格式是item name:icon name,其中item name与上一步所配置的菜单名字对应，icon name是Font Awesome图标的名字。而enable课用于控制是否显示图标，你可以设置成false来去掉图标。  </span><br><span class="line"> &#96;&#96;&#96;   </span><br><span class="line"> menu_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  # Icon Mapping.</span><br><span class="line">  home: home</span><br><span class="line">  about: user</span><br><span class="line">  categories: th</span><br><span class="line">  tags: tags</span><br><span class="line">  archives: archive</span><br><span class="line">  commonweal: heartbeat</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line">  &gt; 在菜单图标开启的情况下，如果菜单项与菜单未匹配(没有设置或无效的FontAwesome图标名字)的情况下，NexT将会用？作为图标。  </span><br><span class="line"></span><br><span class="line">  &gt; 请注意键值(如home)的大小要严格匹配。</span><br><span class="line"></span><br><span class="line"> ## 设置侧栏  </span><br><span class="line"> 默认情况下，侧栏仅在文章页面(拥有目录列表)时才显示，并放置于右侧位置。可以通过修改主题配置文件中的sidebar字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置其二是侧栏显示的时机。   </span><br><span class="line"> * 设置侧栏的位置，修改sidebar.position的值，支持选项的有：  </span><br><span class="line">   + left - 靠左边放</span><br><span class="line">   + right - 靠右边放</span><br><span class="line"> &gt; 目前仅Prices Scheme支持position配置，影响版本5.0.0及更低版本。 </span><br></pre></td></tr></table></figure>
+sidebar：<br> position:left<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 设置侧栏显示的时机，修改sidebar.display的值，支持的选项有：</span><br><span class="line">  + post - 默认行为，在文章页面显示</span><br><span class="line">  + always - 在所有页面中都显示</span><br><span class="line">  + hide - 在所有页面中都隐藏(可以手动展开)</span><br><span class="line">  + remove - 完全移除  </span><br></pre></td></tr></table></figure>
+sidebar:<br> display:post<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  &gt; 已知侧栏在use motion:false的情况下不会展示。影响版本5.0.0及更低版本。</span><br><span class="line"></span><br><span class="line">## 设置头像  </span><br><span class="line">编辑主配置文件，修改字段avatar,值设置成头像的链接地址。其中，头像的链接地址可以是：完整的互联网URI，也可以是站内地址。 </span><br></pre></td></tr></table></figure>
+avatar: /images/Okizi.png<pre><code></code></pre>
+</li>
+</ul>
+<h2 id="设置作者的昵称"><a href="#设置作者的昵称" class="headerlink" title="设置作者的昵称"></a>设置作者的昵称</h2><p>编辑站点配置文件，设置author为你的昵称。</p>
+<h2 id="站点描述"><a href="#站点描述" class="headerlink" title="站点描述"></a>站点描述</h2><p>编辑站点配置文件，设置description字段为你的站点描述。  </p>
+<h2 id="集成常用的第三方服务"><a href="#集成常用的第三方服务" class="headerlink" title="集成常用的第三方服务"></a>集成常用的第三方服务</h2><p>以上信息来源：<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html">http://theme-next.iissnan.com/getting-started.html</a>  </p>
+<h2 id="我遇到的问题："><a href="#我遇到的问题：" class="headerlink" title="我遇到的问题："></a>我遇到的问题：</h2><ul>
+<li><p>下载的themes文件夹中的文件夹为nexts，而不是next。所以在修改站点配置文件的主题时，应该用nexts，而非next。<br><img src="/2022/03/19/SetNexTThemes/setTheme.PNG">  </p>
+</li>
+<li><p>设置主题后并不能正常显示。<br>解决方法：npm i hexo-renderer-swig<br>原因：hexo在5.0之后把swig给删除了需要自己手动安装。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/03/19/SetNexTThemes/" data-id="cl7y13haw0000qw7e2ajv9t1c" data-title="SetNexTThemes" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-二分搜索升天词" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" class="article-date">
+  <time class="dt-published" datetime="2022-02-14T07:51:34.000Z" itemprop="datePublished">2022-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/">二分搜索升天词</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <pre><code> * dong哥   </code></pre>
+<p>二分搜索不好记，左右边界让人迷。<br>小于等于变小于，mid加一又减一。<br>就算这样还没完，return应否再-1？<br>信心慢慢刷力扣，AC比率二十一。<br>我本将心向明月，奈何明月照沟渠！<br>问君能有几多愁？恰似情深喂了狗。</p>
+<p>labuladong从天降，一同手撕算法题。<br>增君一法写二分，不用拜佛与念经。<br>管他左侧还右侧，搜索区间定乾坤。 </p>
+<p>搜索一个元素时，搜索区间两端闭。<br>while条件带等号，否则需要打补丁。<br>if相等就返回，其他的事甭操心。<br>mid必须加减一，因为区间两端闭。<br>while结束就凉了，凄凄惨惨返-1。  </p>
+<p>搜索左右边界时，搜索区间要阐明。<br>左闭右开最常见，其余逻辑便自明。<br>while要用小于号，这样才能不漏掉。<br>if相等别返回，利用mid锁边界。<br>mid加一或减一？要看区间开或闭。<br>while结束不算完，因为你还没返回。<br>索引可能出边界，if检查保平安。  </p>
+<p>左闭右开最常见，难道常见就合理？<br>labuladong不信邪，偏要改成两端闭。<br>搜索区间记于心，或开或闭有何异？<br>二分搜索三变体，逻辑统一容易记。<br>一套框架改两行，胜过千言和万语。  </p>
+<p>附上Java代码</p>
+<p> //搜索中间值，左边界，右边界，都用的[left,right]两端都闭的区间<br> //注意每搜索一次边界的变换，返回之前检查边界的越界情况，看给定序列中是否有target。</p>
+<pre><code>int binary_search(int[] nums, int target) &#123; 
+    int left = 0, right = nums.length - 1; 
+    while(left &lt;= right) &#123; 
+        int mid = left + (right - left) / 2; 
+        if (nums[mid] &lt; target) &#123; 
+            left = mid + 1; 
+        &#125; else if (nums[mid] &gt; target) &#123; 
+            right = mid - 1; 
+        &#125; else if(nums[mid] == target) &#123; 
+            // 直接返回 
+            return mid; 
+        &#125; 
+    &#125;
+
+    // 直接返回
+    return -1;
+
+&#125;
+
+
+int left_bound(int[] nums, int target) &#123; 
+    int left = 0, right = nums.length - 1; 
+    while (left &lt;= right) &#123;                 
+        int mid = left + (right - left) / 2; 
+        if (nums[mid] &lt; target) &#123; 
+            left = mid + 1; 
+        &#125; else if (nums[mid] &gt; target) &#123; 
+            right = mid - 1; 
+        &#125; else if (nums[mid] == target) &#123;
+             // 别返回，锁定左侧边界 
+             right = mid - 1; 
+        &#125; 
+    &#125;
+
+    // 最后要检查 left 越界的情况 
+    if (left &gt;= nums.length || nums[left] != target) 
+        return -1; 
+    return left; 
+&#125;
+
+int right_bound(int[] nums, int target) &#123; 
+    int left = 0, right = nums.length - 1; 
+    while (left &lt;= right) &#123; 
+        int mid = left + (right - left) / 2; 
+        if (nums[mid] &lt; target) &#123; 
+            left = mid + 1; 
+        &#125; else if (nums[mid] &gt; target) &#123; 
+            right = mid - 1; 
+        &#125; else if (nums[mid] == target) &#123; 
+            // 别返回，锁定右侧边界 
+            left = mid + 1; 
+        &#125; 
+    &#125;
+
+    // 最后要检查 right 越界的情况 
+    if (right &lt; 0 || nums[right] != target) 
+        return -1; 
+    return right; 
+&#125;</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="cl7y13hb80006qw7e4kbs8cjv" data-title="二分搜索升天词" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-认识flyway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" class="article-date">
+  <time class="dt-published" datetime="2021-03-14T12:53:21.000Z" itemprop="datePublished">2021-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/">认识flyway</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Flyway简介和SpringBoot集成Flyway"><a href="#Flyway简介和SpringBoot集成Flyway" class="headerlink" title="Flyway简介和SpringBoot集成Flyway"></a>Flyway简介和SpringBoot集成Flyway</h1><h2 id="Flayway简介"><a href="#Flayway简介" class="headerlink" title="Flayway简介"></a>Flayway简介</h2><p>FLYway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway_schema_history</p>
+<p>2、紧接着flyway将开始扫描文件系统或引用程序的类路径进行迁移。然后，flyway的数据将基于对sql脚本的版本号进行排序，并按顺序应用：可以看到执行数据库表后在checksum中储存一个数值，用于在之后运行过程中对比sql文件执行是否有变化。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>flyway在执行脚本时，会在源数据表中检查checksum值，并确定上次运行到哪一个脚本文件，本次执行时从下一条脚本文件开始执行。所以编写脚本的时候不要去修改原有的脚本内容，并且新的脚本号要继续。</p>
+<h2 id="集成SpringBoot"><a href="#集成SpringBoot" class="headerlink" title="集成SpringBoot"></a>集成SpringBoot</h2><p>1.添加依赖和插件<br><a><font color="red"><br>注意：spring boot 2.2.x supplies flyway version 6. This version does not support mysql 5.5. You could try to override the flyway version to 5.2.4<br></font></a></p>
+<p>2.命名规范<br>sql脚本存放目录：src/main/resources/db/migration<br>对应一个程序版本的多个脚本，从1开始，比如1.0.9版本，有多个任务：张三负责a任务（tapd号为1111111），李四负责b任务（tapd号为222222），他们的任务都涉及到db更新他们会分别创建两个脚本：<br>V1.0.9.0.1__1111111.sql<br>V1.0.9.0.2__222222.sql<br>说明：V大写，中间是两个下划线（__)</p>
+<p>常见问题<br>1、可以基于环境变量，实现不同的环境，做不同的初始化脚本吗？<br> 基于我们的配置中 心，可以对flyway.locations配置进行修改，不同环境的初始化脚本可以放到不同的目录下。</p>
+<p>2、初始化数据过程会发生错误回滚？<br> 每 一个sql 文件会有 一个单独的事物，如果单个文件中发 生错误，单个文件的操作会回滚， 比如有1、2、3个 文件，第 二个文件发生错误，第二个文件所有操作将会回滚，第三个文件不会执行。但： Unfortunately, today only DB2, PostgreSQL, Derby, EnterpriseDB and to a certain extent SQL Server support DDL statements  inside a transaction。 所以，建议不要把ddl 文件和dml语句句放到同 一个文件 里，避免不必要的麻烦。</p>
+<p>3、多个节点能够并行执行migration吗？<br> 当然可以！Flyway使用数据库锁机制（locking technology of your database）来协调多个节点，从而保证多套应用程序可同时执行migration，而且集群控制也可做配置。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="cl7y13hbm000kqw7eagis5dwb" data-title="认识flyway" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-testIMG" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/04/testIMG/" class="article-date">
+  <time class="dt-published" datetime="2021-02-04T04:03:24.000Z" itemprop="datePublished">2021-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/04/testIMG/">testIMG</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="图片测试"><a href="#图片测试" class="headerlink" title="图片测试"></a><center>图片测试</center></h1><p><img src="/2021/02/04/testIMG/IMG_0561.PNG"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2021/02/04/testIMG/" data-id="cl7y13hb70005qw7ef594bhmh" data-title="testIMG" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-startMarkdown" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/04/startMarkdown/" class="article-date">
+  <time class="dt-published" datetime="2021-02-04T03:36:38.000Z" itemprop="datePublished">2021-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/04/startMarkdown/">startMarkdown</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="菜鸟教程"><a href="#菜鸟教程" class="headerlink" title="菜鸟教程"></a><center>菜鸟教程</center></h1><h2 id="Markdown是支持HTML的，可以用HTML语法来写"><a href="#Markdown是支持HTML的，可以用HTML语法来写" class="headerlink" title="Markdown是支持HTML的，可以用HTML语法来写!!!"></a><center>Markdown是支持HTML的，可以用HTML语法来写!!!</center></h2><html>
+<!--在这里插入内容-->
+    <a><font color="red">sss</font></a>
+</html>
+
+
+
+<h1 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><h4 id="四级"><a href="#四级" class="headerlink" title="四级"></a>四级</h4><h5 id="五级"><a href="#五级" class="headerlink" title="五级"></a>五级</h5><h1 id="我展示的是一级标题"><a href="#我展示的是一级标题" class="headerlink" title="我展示的是一级标题"></a>我展示的是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>Markdown段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。<br>这又是一段。</p>
+<p>也可以用空行来重开一段。</p>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><h2 id="斜体文本"><a href="#斜体文本" class="headerlink" title="斜体文本"></a><em>斜体文本</em></h2><h2 id="斜体文本-1"><a href="#斜体文本-1" class="headerlink" title="斜体文本"></a><em>斜体文本</em></h2><h2 id="粗体文本"><a href="#粗体文本" class="headerlink" title="粗体文本"></a><strong>粗体文本</strong></h2><h2 id="粗体文本-1"><a href="#粗体文本-1" class="headerlink" title="粗体文本"></a><strong>粗体文本</strong></h2><h2 id="粗斜体文本"><a href="#粗斜体文本" class="headerlink" title="粗斜体文本"></a><strong><em>粗斜体文本</em></strong></h2><h2 id="粗斜体文本-1"><a href="#粗斜体文本-1" class="headerlink" title="粗斜体文本"></a><strong><em>粗斜体文本</em></strong></h2><h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下:<br>这段文字不用删除。<br><del>这段文字要删除。</del></p>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><p>下划线可以通过 HTML 的 <u>u</u> 标签来实现：<br><u>这个文本会带下划线</u>  </p>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><p>脚注是对文本的补充说明。<br>Markdown 脚注的格式如下:<br>[^要注明的文本]<br>以下实例演示了脚注的用法：<br>创建脚注格式 <a href="ta%E5%B0%B1%E6%98%AFwjl%E3%80%82">^sss</a>  </p>
+<p>创建脚注格式类似这样 [^RUNOOB]<br>[^RUNOOB]:菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
+<h1 id="Markdown列表"><a href="#Markdown列表" class="headerlink" title="Markdown列表"></a>Markdown列表</h1><p>Markdown支持有序列表和无序列表。<br>无序列表使用*、+或者是-作为列表标记，这些标记后面添加一个空格然后再填写内容。  </p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+</ul>
+<p>有序列表使用数字并加上.号来表示，注意.后面要加上空格如:</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><p>列表嵌套只需在子列表中的选项前面添加四个空格即可：</p>
+<ol>
+<li>第一项：<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素  </li>
+</ul>
+</li>
+<li>第二项：<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+</li>
+</ol>
+<h1 id="Markdown区块"><a href="#Markdown区块" class="headerlink" title="Markdown区块"></a>Markdown区块</h1><p>Markdown区块引用是在段落开头使用&gt;符号，然后后面紧跟一个空格符号：</p>
+<blockquote>
+<p>区块引用<br>菜鸟教程<br>学的不仅仅是技术更是梦想  </p>
+</blockquote>
+<p>另外区块是可以嵌套的，一个&gt;符号是最外层，两个 &gt;符号是第一层嵌套，以此类推：  </p>
+<blockquote>
+<p>最外层</p>
+<blockquote>
+<p>第一层</p>
+<blockquote>
+<p>第二层  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="区块中使用列表区块中使用列表实例如下："><a href="#区块中使用列表区块中使用列表实例如下：" class="headerlink" title="区块中使用列表区块中使用列表实例如下："></a>区块中使用列表区块中使用列表实例如下：</h3><blockquote>
+<p>区块中使用列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+<ul>
+<li>第一项</li>
+</ul>
+<ul>
+<li>第二项</li>
+</ul>
+<ul>
+<li>第三项</li>
+</ul>
+</blockquote>
+<h1 id="列表中使用区块如果要在列表项目内放进区块，那么就需要在-gt-前添加四个空格的缩进。"><a href="#列表中使用区块如果要在列表项目内放进区块，那么就需要在-gt-前添加四个空格的缩进。" class="headerlink" title="列表中使用区块如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。"></a>列表中使用区块如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</h1><p>列表中使用区块实例如下：</p>
+<ul>
+<li>第一项<blockquote>
+<p>菜鸟教程<br>学的不仅仅是技术更是梦想</p>
+</blockquote>
+</li>
+<li>第二项</li>
+</ul>
+<h1 id="Markdown-代码"><a href="#Markdown-代码" class="headerlink" title="Markdown 代码"></a>Markdown 代码</h1><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<code>）esc下面那个见，例如：   </code>printf()`  </p>
+<h1 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h1><p>代码区块使用4个空格或者一个制表符（Tab 键）。<br>实例如下：<br>    &lt;?php<br>    echo ‘RUNoob’;<br>    funtion test(){<br>       echo ‘test’;<br>    }</p>
+<p>你也可以用```包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;RUNOOB&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>用~~~包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;hello world!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Markdown-链接"><a href="#Markdown-链接" class="headerlink" title="Markdown 链接"></a>Markdown 链接</h1><p>链接使用方法如下：<br><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">连接名称</a><br>或者<br>&lt;链接地址&gt;<br>例如：<br>这是一个链接 <a target="_blank" rel="noopener" href="https://wwww.runoob.com/">菜鸟教程</a>  </p>
+<h1 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a>高级链接</h1><p>可以通过变量来设置一个链接，变量赋值在文档末尾进行：<br>这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://www.google.com/">Google</a> 这个链接用 runoob 作为网址变量 <a target="_blank" rel="noopener" href="http://www.runoob.com/">Runoob</a>。<br>然后在文档结尾为变量赋值（网址)。至少有一个空行</p>
+<h1 id="Markdown-图片"><a href="#Markdown-图片" class="headerlink" title="Markdown 图片"></a>Markdown 图片</h1><p>Markdown 图片语法格式如下：<br><img src="/2021/02/04/startMarkdown/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80" alt="alt 属性文本"><br><img src="/2021/02/04/startMarkdown/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80,%22%E5%8F%AF%E9%80%89%E6%A0%87%E9%A2%98%22" alt="alt 属性文本"><br>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的’title’属性的文字。<br>使用实例：  </p>
+<p><img src="/2021/02/04/startMarkdown/Aili.JPG" alt="这是谁呀！" title="猜猜这是谁"></p>
+<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB">  </p>
+<p>当然，你也可以像网址那样对图片网址使用变量:<br>这个链接用 2 作为网址变量 <a target="_blank" rel="noopener" href="http://localhost/C:/Users/asus/Desktop/IMG_1846.JPG">111</a><br>然后在文档的结尾为变量赋值（网址）  </p>
+<h1 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h1><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。<br>语法格式如下：<br> |  表头  |  表头 |<br> |  —-  |  —- |<br> | 单元格 | 单元格|<br> | 单元格 | 单元格|</p>
+<p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：<br>-: 设置内容和标题栏居右对齐。<br>:- 设置内容和标题栏居左对齐。<br>:-: 设置内容和标题栏居中对齐。<br>实例如下：<br>| 左对齐 |  右对齐 | 居中对齐 |<br>| :—– | —-: | :—-: |<br>| 单元格 | 单元格 | 单元格 |<br>| 单元格 | 单元格 | 单元格 |</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="cl7y13hb70004qw7ef2ljdeti" data-title="startMarkdown" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/04/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2021-02-04T03:28:55.394Z" itemprop="datePublished">2021-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2021/02/04/hello-world/" data-id="cl7y13hb30001qw7e07fa9ik3" data-title="Hello World" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-first-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/04/first-blog/" class="article-date">
@@ -94,7 +701,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/first-blog/" data-id="cl7y0srck00016w7e4am95qjy" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/first-blog/" data-id="cl7y13hb40002qw7e4kfociw0" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -121,15 +728,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" style="font-size: 10px;">MySQL必知必会</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
     </div>
   </div>
 
@@ -142,23 +763,23 @@
       <ul>
         
           <li>
-            <a href="/2022/09/12/%E7%AC%AC7%E7%AB%A0%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4/">第7章数据过滤</a>
-          </li>
-        
-          <li>
             <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/">morris遍历</a>
           </li>
         
           <li>
-            <a href="/2022/09/11/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">(no title)</a>
+            <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
           </li>
         
           <li>
-            <a href="/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/">第1章了解sql</a>
+            <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
           </li>
         
           <li>
-            <a href="/2022/03/19/SetNexTThemes/">SetNexTThemes</a>
+            <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/">第13章分组数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
           </li>
         
       </ul>
