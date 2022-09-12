@@ -73,6 +73,95 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-第4章检索数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-07-05T12:35:09.000Z" itemprop="datePublished">2022-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第4章检索数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第4章：检索数据"><a href="#第4章：检索数据" class="headerlink" title="第4章：检索数据"></a><center>第4章：检索数据</center></h1><h2 id="4-1-SELECT语句"><a href="#4-1-SELECT语句" class="headerlink" title="4.1 SELECT语句"></a>4.1 SELECT语句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句的用途是从一个或多个表中检索信息，为了使用SELECT检索表数据， 必须至少给出两条信息—————_想选择什么，以及从什么地方选择信息_。</p>
+<h2 id="4-2-检索单个列"><a href="#4-2-检索单个列" class="headerlink" title="4.2 检索单个列"></a>4.2 检索单个列</h2><blockquote>
+<p>输入：SELECT prod_name FROM products;<br>分析：上述语句利用SELECT语句从products表中检索一个名为prod_name的列。所需的列明在SELECT关键字之后给出，FROM关键字之处其中检索数据的表名。   </p>
+</blockquote>
+<pre><code>    未排序数据：如果没有明确排序查询结果，则返回的数据的顺序没有特殊意义。返回数据的顺序可能十数据被添加到表中的顺序，也可能不是。
+
+    结束SQL语句：多条SELECT语句必须以分号(;)分隔。MySQL如同多数DBMS一样，不需要在单挑SQL语句后加上分号。但特定的DBMS可能必须在单条SQL语句后家伙是哪个分号。事实上，即使不一定需要即使加上分号也没有坏处。如果你使用的是mysql命令行，则必须加上分号来结束SQL语句。  
+
+    SQL语句和大小写：请注意，SQL语句不区分大小写，因此SELECT与select是相同的。同样，写成Select也没有关系。许多SQL开发人员喜欢对所有SQL关键字使用大写，而对所有列和表名使用小写，这样做使代码更易于阅读和调试。不过，一定要认识到虽然SQL是不区分大小写的，但有些标识符（如数据库名、表名、列名）可能不同：在MySQL4.1及之前的版本中，这些标识符默认是区分大小写的；在MySQL4.11版本中，这些标识符默认是不区分大小写的。最佳方式是按照带小写的惯例，且使用时保持一致。  
+
+    使用空格：在处理SQL语句时，在其中所有空格都被忽略。SQL语句可以在一行上给出，也可以分成许多行。多数SQL开发人员认为将SQL语句分成多行容易阅读和调试。        </code></pre>
+<h2 id="4-3-检索多个列"><a href="#4-3-检索多个列" class="headerlink" title="4.3 检索多个列"></a>4.3 检索多个列</h2><pre><code>    当心逗号：在选择多个列时，一定要在列名之间加上逗号，但最后一个列名后不加。如果在最后一个列名后加了逗号，将出现错误。</code></pre>
+<blockquote>
+<p>输入：SELECT prod_id,prod_name,prod_price FROM products;<br>分析： 与前一个例子一样，这条语句使用SELECT语句从表products中选择数据。在这个例子中，指定3个列名，列名之间用逗号分隔开。。  </p>
+</blockquote>
+<h2 id="4-4-检索所有列"><a href="#4-4-检索所有列" class="headerlink" title="4.4 检索所有列"></a>4.4 检索所有列</h2><p>&nbsp;&nbsp;除了指定所需的列外（如上所述，一个或多列），SELECT语句还可以检索所有的列而不必逐个列出它们。这可以通过在实际列名的位置使用星号(*)通佩服来达到，如下所示：</p>
+<blockquote>
+<p>输入：SELECT * FROM products;<br>分析：如果给定一个通配符（*），则返回表中所有列。列的顺序一般是列在定义中出现的顺序。但有时候并不是这样的，表的模式的变化（如添加或删除列）可能会导致顺序的变化。  </p>
+</blockquote>
+<pre><code>    使用通配符：一般，除非你确定需要表中的每个列，否则最好别使用*通配符。虽然使用通配符可能会使你自己省事，不用明确列出所需列，但检索不需要的列通常会减低检索和应用程序的性能。  
+
+    检索未知列：使用通配符有一个大优点。由于不明确指定列名（星号检索每个列），所以能检索出名字未知的列。</code></pre>
+<h2 id="4-5-检索不同的行"><a href="#4-5-检索不同的行" class="headerlink" title="4.5 检索不同的行"></a>4.5 检索不同的行</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;正如所见，SELECT返回所有匹配的行。但是，如果你不想要每个值每次都出现，怎么办？例如，假设你想得出products表中产品的所有供应商ID，只显示不同的供应商，需要用到DISTINCT关键字，顾名思义，此关键字指示MySQL只返回不同的值：  </p>
+<blockquote>
+<p>输入：SELECT DISTINCT vend_id FROM products;<br>分析：DISTINCT的工能就是去重。  </p>
+</blockquote>
+<pre><code>    不能部分使用DISTINCT：DISTINCT关键字应用于所有列而不仅前置它的列。如果给出SELECT DISTINCT vend_id,prod_price FROM products,除非指定的两个列都不同（即两个记录中的vend_id和prod_price有一个不同则为不同），否则所有行都会被检索出来。这一点要与对数据排序中的DESC关键字区别</code></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;此外，show也可以用来显示表列：  </p>
+<blockquote>
+<p>输入：SHOW COLUMNS FROM tableName;<br>输出：该表中的每个字段都会返回一行，行中包含字段名、数据类型、是否允许为NULL、键信息、默认值以及其他信息（如auto_increment）。  </p>
+</blockquote>
+<pre><code>    MySQL支持用DESCRIBE作为SHOW COLUMNS FROM的一种快捷方式。换句话说，DESCRIBE tableName与SHOW COLUMNS FROM tableName效果一样。  </code></pre>
+<h2 id="4-6-限制结果"><a href="#4-6-限制结果" class="headerlink" title="4.6 限制结果"></a>4.6 限制结果</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;SELECT语句返回所有匹配的行，它们可能是指定表中的每个行。为了返回第一行或前几行，可使用LIMIT子句。例如：</p>
+<blockquote>
+<p>输入： SELECT prod_name FROM products LIMIT 5;<br>分析：此语句使用SELECT语句检索单个列。LIMIT 5指示MySQL返回不多于5行。  </p>
+</blockquote>
+<blockquote>
+<p>输入：SELECT prod_name FROM products LIMIT 5,5;<br>分析：LIMIT 5，5指示MySQL返回从行5开始的5行。第一个数为开始位置，第二个数为要检索的行数。  </p>
+</blockquote>
+<pre><code>    所以，带一个值的LIMIT总是从第一行开始，给出的数为返回的行数。带两个值的LIMIT可以指定从行号为第一个值的位置开始。  
+
+    行0：检索出来的第一行为行0而不是行1.因此，LIMIT 1,1将检索出第二行而不是第一行。  
+
+    在行数不够时：LIMIT中指定要检索的行数为检索的最大行数。如果没有足够的行（例如，给出LIMIT 10,5，但只有13行），MySQL将值返回它能返回的那么多行。  
+
+    MySQL 5的LIMIT语法：LIMIT 3,4的含义是从行4开始的3行还是从行3开始的4行？如前所述，它的意思是从行3开始的4行，这容易把人搞糊涂。  
+    由于这个原因，MySQL 5支持LIMIT的另一种替代语法。LIMIT 4 OFFSET 3意为从行3开始取4行，就像LIMIT 3,4一样。</code></pre>
+<h2 id="4-7-使用完全限定的表名"><a href="#4-7-使用完全限定的表名" class="headerlink" title="4.7 使用完全限定的表名"></a>4.7 使用完全限定的表名</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;迄今为止使用的SQL例子只通过列名引用列。也可能会使用完全限定的名字来引用列（同时使用表名和列名）。同理，表名也可以是完全限定的，在某些情况下需要完全限定的表名。请看以下例子：  </p>
+<blockquote>
+<p>输入：SELECT products.prod_name FROM crashcourse.products;</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/07/05/%E7%AC%AC4%E7%AB%A0%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7yu8i8a000e6s7e25rq5n0r" data-title="第4章检索数据" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-第3章使用sql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" class="article-date">
@@ -140,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" data-id="cl7y13hbg000dqw7e593q15w9" data-title="第3章使用sql" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/07/04/%E7%AC%AC3%E7%AB%A0%E4%BD%BF%E7%94%A8sql/" data-id="cl7yu8i89000c6s7e37a43xpx" data-title="第3章使用sql" class="article-share-link">Share</a>
       
       
       
@@ -211,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" data-id="cl7y13hba0009qw7ehyz05p0j" data-title="第1章了解sql" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/06/28/%E7%AC%AC1%E7%AB%A0%E4%BA%86%E8%A7%A3sql/" data-id="cl7yu8i8a000d6s7e74gq3qc9" data-title="第1章了解sql" class="article-share-link">Share</a>
       
       
       
@@ -287,7 +376,7 @@ avatar: /images/Okizi.png<pre><code></code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/03/19/SetNexTThemes/" data-id="cl7y13haw0000qw7e2ajv9t1c" data-title="SetNexTThemes" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/03/19/SetNexTThemes/" data-id="cl7yu8i7s00006s7eb9xq7ths" data-title="SetNexTThemes" class="article-share-link">Share</a>
       
       
       
@@ -392,7 +481,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="cl7y13hb80006qw7e4kbs8cjv" data-title="二分搜索升天词" class="article-share-link">Share</a>
+      <a data-url="http://example/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" data-id="cl7yu8i8200066s7e8vzwhruj" data-title="二分搜索升天词" class="article-share-link">Share</a>
       
       
       
@@ -439,7 +528,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="cl7y13hbm000kqw7eagis5dwb" data-title="认识flyway" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="cl7yu8i8h000l6s7e9x2aeixv" data-title="认识flyway" class="article-share-link">Share</a>
       
       
       
@@ -478,7 +567,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/testIMG/" data-id="cl7y13hb70005qw7ef594bhmh" data-title="testIMG" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/testIMG/" data-id="cl7yu8i8100056s7e3vv5gzvr" data-title="testIMG" class="article-share-link">Share</a>
       
       
       
@@ -621,7 +710,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="cl7y13hb70004qw7ef2ljdeti" data-title="startMarkdown" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/startMarkdown/" data-id="cl7yu8i8000046s7eg9rwb7as" data-title="startMarkdown" class="article-share-link">Share</a>
       
       
       
@@ -668,7 +757,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/hello-world/" data-id="cl7y13hb30001qw7e07fa9ik3" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/hello-world/" data-id="cl7yu8i7x00016s7e4j6t0aue" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -701,7 +790,7 @@ int right_bound(int[] nums, int target) &#123;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example/2021/02/04/first-blog/" data-id="cl7y13hb40002qw7e4kfociw0" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example/2021/02/04/first-blog/" data-id="cl7yu8i7y00026s7ecmfghfsn" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -767,19 +856,19 @@ int right_bound(int[] nums, int target) &#123;
           </li>
         
           <li>
-            <a href="/2022/09/11/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
-          </li>
-        
-          <li>
-            <a href="/2022/09/11/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
-          </li>
-        
-          <li>
             <a href="/2022/07/18/%E7%AC%AC13%E7%AB%A0%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE/">第13章分组数据</a>
           </li>
         
           <li>
             <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/16/%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/">第11章使用数据处理函数</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/16/%E7%AC%AC10%E7%AB%A0%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5/">第10章创建计算字段</a>
           </li>
         
       </ul>
