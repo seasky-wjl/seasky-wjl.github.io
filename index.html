@@ -73,6 +73,121 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-基于-相似度-的手写汉字识别与美感评分北邮2019" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/29/%E5%9F%BA%E4%BA%8E-%E7%9B%B8%E4%BC%BC%E5%BA%A6-%E7%9A%84%E6%89%8B%E5%86%99%E6%B1%89%E5%AD%97%E8%AF%86%E5%88%AB%E4%B8%8E%E7%BE%8E%E6%84%9F%E8%AF%84%E5%88%86%E5%8C%97%E9%82%AE2019/" class="article-date">
+  <time class="dt-published" datetime="2022-09-29T12:54:17.000Z" itemprop="datePublished">2022-09-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/29/%E5%9F%BA%E4%BA%8E-%E7%9B%B8%E4%BC%BC%E5%BA%A6-%E7%9A%84%E6%89%8B%E5%86%99%E6%B1%89%E5%AD%97%E8%AF%86%E5%88%AB%E4%B8%8E%E7%BE%8E%E6%84%9F%E8%AF%84%E5%88%86%E5%8C%97%E9%82%AE2019/">基于_相似度_的手写汉字识别与美感评分北邮2019</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="基于-相似度-的手写汉字识别与美感评分北邮2019"><a href="#基于-相似度-的手写汉字识别与美感评分北邮2019" class="headerlink" title="基于_相似度_的手写汉字识别与美感评分北邮2019"></a><center>基于_相似度_的手写汉字识别与美感评分北邮2019</center></h1><h2 id="Article"><a href="#Article" class="headerlink" title="Article:"></a>Article:</h2><p>[1]庄子明. 基于深度学习的手写汉字识别与美感评分[D].北京邮电大学,2019.<br>==<em>基于相似度的手写汉字美感评分</em>  </p>
+<hr>
+<h2 id="Data："><a href="#Data：" class="headerlink" title="Data："></a>Data：</h2><p>题目：<br>基于深度学习的手写汉字识别与美感评分</p>
+<p>背景：<br>数据采集方式有两种：联机和脱机。前者可以记录笔者笔顺轨迹、笔画数量等信息、识别对象具有时间顺序的采样点信息，需要有特定输入设备，实际场景比较少。脱机的使用场景更多，但会缺少笔顺信息，有光照、分辨率、书写背景等不同条件的干扰。</p>
+<p>汉字识别研究背景：<br>基于传统的“预处理+特征提取+分类器”的HCCR框架在识别性能上突破不够。随着研究者们将许多深度学习模型，如深度卷积神经网络（CNN）、深度置信网络（DBN）、深度递归神经网络（DRNN）应用到手写文字识别，取得了大量突破。</p>
+<p>美感分析的现状：<br>传统的方法基本都专注于探索文字的特征构建和优化特征提取方法，如陈惠敏等人按照书写特征，将汉字的笔画简单地分为直线笔画和弧线笔画，分别给出了识别模型和评估算法，评价结果波动较大；李玉峰等人在工程制图字体场景下通过抓取手写字体的点阵特征根据汉字在结构方面特征相似度来评价书写质量，但这仅限于规定格式的标准书写字体；李艺等人提出了从笔画。部件、整字等三个层次建立汉字书写特征集，并以此为依据对书写者硬币汉字书写的工整性进行评价；王耀等人针对四线格英文字母书写练习场景，提出了规定格式书写质量评价方法，分别从比例、位置、大小、畸变四个方面分析参照字符与被分析字符的参数距离，给出书写的质量评价，这一方法直接应用于手写汉字效果并不很理想。</p>
+<p>方法：<br>手写汉字没敢评价方法非常依赖对汉字的特征提取和分析。深度学习的一大优势是消除了复杂的特征工程的困难挑战，只需要将数据直接传递到网络，通过可以让计算机自动学习出模型特征，让特征学习融入到建立模型的过程中。</p>
+<p>深度学习的根本原理是利用海量的数据在多隐层网络中训练模型，学习数据中有价值的信息——特征。深度学习的本质是特征学习。</p>
+<p>对于手写汉字的识别和美感评分，最难也是最关键的核心就是特征提取。而无监督是深度学习学习最大的特点，在训练时无需人工进行特征提取，全过程自主取样自主学习。</p>
+<p>模型分为三大部分：汉字检测、识别、美感评分。</p>
+<p>作者使用自然场景下手写汉字检测模型–连接文本区域候选网络（CTPN）的相关原理和细节，将RNN的网络结构与Faster-RCNN网络相结合，既可以提取到深度特征，也能够进行序列的特征识别。<br>手写汉字识别模型——HCCR-GoogleLeNet网络，将手动提取的汉字特征作为先验知识嵌入到深度卷积神经网络中，有助于网络更好地学习到汉字辅助特征。</p>
+<p>作者将传统的评价手写汉字美感的两类结构特征——重心特征和网格特征与CNN特征结合来优化手写汉字美感评分效果。</p>
+<p> <font color="yellow">作者的相似度检索策略的思路为：将待测汉字与已含有美感类别标签的手写汉字数据库进行相似度检索，根据检索出来的手写美感类别标签确定待测的手写汉字的美感分数。手写汉字相似度检索分成两部分：手写汉字特征的提取与手写汉字特征的距离度量。</font></p>
+<p>形近字难以区分，可以用什么方法来根据语境推测这到底是什么字。</p>
+<hr>
+<h2 id="Comments："><a href="#Comments：" class="headerlink" title="Comments："></a>Comments：</h2><p>先选一部分字让们打分，算出每个字的平均分，再让模型学习，学习完了之后，就可以直接用这个模型根据库中已有文字及其分数来对新的手写汉字进行打分，而且结果是写得越好的字，它的得分的准确率就会越高，因为好的标准已经确定，且笔画的结构相似度越高；而写得越不好的字，它的得分的准确率就会相对较低。</p>
+<p>这篇文章就是老师说的情况，只是通过它的相似度去给出一个评价，而没有去给这个字怎样写得更好去提出建议和指导。</p>
+<p>作者认识到，这个系统将检测、识别、美感评分散步分别构建了三个深度学习的网络模型，而且在实验过程中，基于相似度检索的手写汉字没敢评分CNN网络实际上具有一定成都的手写汉字识别功能，既可以通过待评分汉字与数据库中已有汉字的特征相似度的距离排序来确定汉字的识别结果，但目前准确度还不高。</p>
+<hr>
+<h2 id="Why："><a href="#Why：" class="headerlink" title="Why："></a>Why：</h2><p>了解汉字识别的课题背景，学习前人的实验方法。</p>
+<hr>
+<h2 id="Summary："><a href="#Summary：" class="headerlink" title="Summary："></a>Summary：</h2><p>基于相似度的手写汉字美感评分。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/09/29/%E5%9F%BA%E4%BA%8E-%E7%9B%B8%E4%BC%BC%E5%BA%A6-%E7%9A%84%E6%89%8B%E5%86%99%E6%B1%89%E5%AD%97%E8%AF%86%E5%88%AB%E4%B8%8E%E7%BE%8E%E6%84%9F%E8%AF%84%E5%88%86%E5%8C%97%E9%82%AE2019/" data-id="cl8n32wxp00002w7eag2b4stl" data-title="基于_相似度_的手写汉字识别与美感评分北邮2019" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9C%8B%E6%96%87%E7%8C%AE/" rel="tag">看文献</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-看文献应该做什么" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/09/29/%E7%9C%8B%E6%96%87%E7%8C%AE%E5%BA%94%E8%AF%A5%E5%81%9A%E4%BB%80%E4%B9%88/" class="article-date">
+  <time class="dt-published" datetime="2022-09-29T12:49:33.000Z" itemprop="datePublished">2022-09-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/09/29/%E7%9C%8B%E6%96%87%E7%8C%AE%E5%BA%94%E8%AF%A5%E5%81%9A%E4%BB%80%E4%B9%88/">看文献应该做什么</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="看一篇文献后需要干什么"><a href="#看一篇文献后需要干什么" class="headerlink" title="看一篇文献后需要干什么"></a><center>看一篇文献后需要干什么</center></h1><p>看一篇文献需要做以下工作：<br>Article: 文献出处（方便再次搜索）<br>Data: 文献数据（总结归纳，方便理解）<br>Comments: 对文献的想法 （强迫自己思考，结合自己的学科）<br>Why: 为什么看这篇文献 （方便再次搜索）<br>Summary: 文献方向归纳 （方便分类管理）  </p>
+<ol>
+<li><p>Article：记录文献出处，包括作者、文献题目、文献时间。</p>
+</li>
+<li><p>Data：文献数据，包括这篇文章的题目、背景介绍、方法、结果、结论。</p>
+</li>
+<li><p>Comments：自己的想法，记录自己看了文章之后有什么想法，创新点，不足之处，经验教训等等等。</p>
+</li>
+<li><p>Why：为什么？即为什么要精读这篇文献，为什么做文献笔记？原因可以是：了解课题背景，用于实验设计，用于写作仿真等。</p>
+</li>
+<li><p>Summary：文献总结。用尽量少的话来概括此文。可以是文献关键词的组合，也可以是自己的总结。目的是为了让你以后对相关文献笔记进行分类，搜索的时候也更容易。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example/2022/09/29/%E7%9C%8B%E6%96%87%E7%8C%AE%E5%BA%94%E8%AF%A5%E5%81%9A%E4%BB%80%E4%B9%88/" data-id="cl8n32wxt00012w7e4iio1z5h" data-title="看文献应该做什么" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9C%8B%E6%96%87%E7%8C%AE/" rel="tag">看文献</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-morris遍历" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/" class="article-date">
@@ -1672,201 +1787,11 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
 
 
   
-    <article id="post-第6章过滤数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/07/12/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/" class="article-date">
-  <time class="dt-published" datetime="2022-07-12T13:46:27.000Z" itemprop="datePublished">2022-07-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/07/12/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/">第6章过滤数据</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="第6章：过滤数据"><a href="#第6章：过滤数据" class="headerlink" title="第6章：过滤数据"></a><center>第6章：过滤数据</center></h1><h2 id="6-1-使用WHERE子句"><a href="#6-1-使用WHERE子句" class="headerlink" title="6.1 使用WHERE子句"></a>6.1 使用WHERE子句</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;数据库表中包含大量的数据，通常只会根据特定操作或报告的需要提取表数据的子集。只检索所需数据需要指定搜索条件（search criteria），搜索条件也称为过滤条件（filter condition）。<br>&nbsp; &nbsp;&nbsp; &nbsp;在SELECT语句中，数据根据WHERE子句中指定的搜索条件进行过滤。WHERE子句在表名（FROM子句）之后给出。  </p>
-<blockquote>
-<p>输入：SELECT prod_name,prod_price FROM products WHERE prod_price =2.50;<br>分析：这条语句从表poducts中检索两个列,但不返回所有行，只返回prod_price值为2.50的行。  </p>
-</blockquote>
-<pre><code>    SQL过滤与应用过滤：数据也可以在应用层过滤。为此目的，SQL的SELECT语句为客户机应用检索出超过实际所需的数据，然后客户机代码对所返回数据进行循环，已提取所需要的行。  
-    通常，这种实现并不令人满意。因此，对数据库进行了优化，一遍快速有效地对数据进行过滤。让客户机应用(或开发语言)处理数据库的工作将会极大的影响应用的性能，并且使创建的应用完全不具备可伸缩性。此外，如果在客户机上过滤数据，服务器不得不通过网络发送多余的数据，这将导致网络带宽的浪费。  
-
-    WHERE子句的位置：在同时使用ORDER BY和WHERE子句时，应该让ORDER BY位于WHERE之后，否则将会产生错误。 </code></pre>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-<h2 id="6-2-WHERE子句操作符"><a href="#6-2-WHERE子句操作符" class="headerlink" title="6.2 WHERE子句操作符"></a>6.2 WHERE子句操作符</h2><p>WHERE子句操作符  </p>
-<table>
-<thead>
-<tr>
-<th align="center">操作符</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">=</td>
-<td align="center">等于</td>
-</tr>
-<tr>
-<td align="center">&lt;&gt;</td>
-<td align="center">不等于</td>
-</tr>
-<tr>
-<td align="center">!=</td>
-<td align="center">不等于</td>
-</tr>
-<tr>
-<td align="center">&lt;</td>
-<td align="center">小于</td>
-</tr>
-<tr>
-<td align="center">&lt;=</td>
-<td align="center">小于等于</td>
-</tr>
-<tr>
-<td align="center">&gt;</td>
-<td align="center">大于</td>
-</tr>
-<tr>
-<td align="center">&gt;=</td>
-<td align="center">大于等于</td>
-</tr>
-<tr>
-<td align="center">between</td>
-<td align="center">在指定的两个值之间</td>
-</tr>
-</tbody></table>
-<h2 id="6-2-1-检查单个值"><a href="#6-2-1-检查单个值" class="headerlink" title="6.2.1 检查单个值"></a>6.2.1 检查单个值</h2><blockquote>
-<p>输入：SELECT prod_name,prod_price FROM roducts WHERE prod_name=’fuses’;<br>分析：检查WHERE prod_name=’fuses’语句，它返回prod_name的值为FUses的一行。MySQL在执行匹配时默认不区分大小写，所以fuses与Fuses匹配。</p>
-</blockquote>
-<h2 id="6-2-2-不匹配检查"><a href="#6-2-2-不匹配检查" class="headerlink" title="6.2.2 不匹配检查"></a>6.2.2 不匹配检查</h2><pre><code>    何时使用引号：如果仔细观察尚需WHERE子句中使用的条件，会看到有的值括在单引号内（如前面使用的‘fuses’），而有的值未括起来。单引号用来限定字符串。如果将值与穿类型的列进行比较，则需要限定引号。用来与数值列进行比较的值不用引号。</code></pre>
-<h2 id="6-2-3-范围值检查"><a href="#6-2-3-范围值检查" class="headerlink" title="6.2.3 范围值检查"></a>6.2.3 范围值检查</h2><blockquote>
-<p>输入：SELECT prod_name,prod_price FROM products WHERE prod_price BETWEEM 5 AND 10;<br>输出：在使用BETWEEN时，必须指定两个值————所需范围的低端值和高端值。这两个必须用AND关键字分隔。BETWEEN匹配范围中所有的值，包括指定的开始值和结束值。  </p>
-</blockquote>
-<h2 id="6-2-4-空值检查"><a href="#6-2-4-空值检查" class="headerlink" title="6.2.4 空值检查"></a>6.2.4 空值检查</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;在创建表时，表设计人员可以指定其中得咧是否可以不包含值。在一个列不包含值时，称其为包含空值NULL。  </p>
-<pre><code>    NULL：无值（no value），它与字段包含0、空字符串或仅仅包含不同。  </code></pre>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;SELECT语句有一个特殊的WHERE子句可用来检查具有NULL值得列，这个WHERE子句就是IS NULL子句。其语法如下：</p>
-<blockquote>
-<p>输入：SELECT prod_name FROM products WHERE pro_price IS NULL;<br>分析： 这条语句返回没有价格（空prod_price字段，不是价格为0）的所有产品，由于表中没有这样的行，所以没有返回数据。</p>
-</blockquote>
-<pre><code>    NULL与不匹配：在通过过滤选择出不具有特定值得行时，你希望返回具有NULL值得行。但是，不行。因为未知具有特殊的含义，数据库不知道他们是否匹配，所以在匹配过滤或不匹配过滤时不返回它们。  
-    因此，在过滤时，一定要验证返回数据中确实给出了被过滤列具有NULL的行。        </code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2022/07/12/%E7%AC%AC6%E7%AB%A0%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE/" data-id="cl7yucsgz000ph87e47xo4mxr" data-title="第6章过滤数据" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-第5章排序检索数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/07/06/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" class="article-date">
-  <time class="dt-published" datetime="2022-07-06T15:11:35.000Z" itemprop="datePublished">2022-07-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/07/06/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/">第5章排序检索数据</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="第5章：排序检索数据"><a href="#第5章：排序检索数据" class="headerlink" title="第5章：排序检索数据"></a><center>第5章：排序检索数据</center></h1><h2 id="5-1-排序数据"><a href="#5-1-排序数据" class="headerlink" title="5.1 排序数据"></a>5.1 排序数据</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;关系数据库设计理论认为，如果不明确规定排序顺序，则不应该嘉定检索出的数据的顺序有意义。  </p>
-<pre><code>    子句（clause）：SQL语句由子句构成，有些子句是必需的，而有的是可选的。一个子句通常由一个关键字和所提供的数据组成。子句的例子有SELECT语句的FROM子句。  </code></pre>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;为了明确地拍用SELECT语句检索出的数据，可使用ORDER BY子句。ORDER BY子句取一个或多个列的名字，据此对输出进行排序。  </p>
-<blockquote>
-<p>输入：SELECT prod_name FROm products ORDER BY prod_name;<br>分析：这条语句除了指示MySQL对prod_name列以字母顺序排序数据的ORDER BY子句外，与前面的语句相同。  </p>
-</blockquote>
-<pre><code>    通过非选择列进行排序：通常，ORDER BY子句中使用的列将是为显示所选择的列。但是，实际上并不是一定要这样，用非检索的列排序数据是完全合法的。</code></pre>
-<h2 id="5-2-按多个列排序"><a href="#5-2-按多个列排序" class="headerlink" title="5.2 按多个列排序"></a>5.2 按多个列排序</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;经常需要按不止一个列进行数据排序。为了按多个列进行排序，只要指定列名，列名之间用逗号分隔开即可（就像选择多个列时所做的那样）。  </p>
-<blockquote>
-<p>输入：SELECT prod_id,prod_price,prod_name FROM products ORDER BY prod_price,prod_name;<br>分析：重要的是理解在按多个列排序时，排序完全按所规定的顺序进行。换句话说，对于上述例子中的输出，仅在多个行具有相同的prod_id值时才对产品按prod_name进行排序。如果prod_price列中所有的值都是唯一的，则不会按prod_name排序。</p>
-</blockquote>
-<h2 id="5-3-指定排序方向"><a href="#5-3-指定排序方向" class="headerlink" title="5.3 指定排序方向"></a>5.3 指定排序方向</h2><p>&nbsp; &nbsp;&nbsp; &nbsp;数据排序不限于升序排序（从A到Z）。这知识默认的排序顺序，还可以使用ORDER BY子句以降序（从Z到A）顺序排序。为了进行降序排序必须指定DESC关键字。                  descend—–下降，下来  </p>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;下面的例子铵价格以降序排序产品（最贵的排在最前面）：</p>
-<blockquote>
-<p>输入：SELECT prod_id,prod_price,prod_name FORM products ORDER BY prod_price DESC;  </p>
-</blockquote>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;但是，如果打算用多个列排序怎么办？下面的例子以降序排序产品（最贵的在前面），然后再对产品排序：</p>
-<blockquote>
-<p>输入：SELECT prod_id,prod_price,prod_name FROM prducts ORDER BY prod_price DESC,prod_name;<br>分析：DESC关键字只应用到直接位于其前面的列名。在上例中，支队prod_price列指定DESC，对prod_name列不指定。因此，prod_price列以降序排序，而prod_name列（在每个价格内）仍然按照标准的升序排序。  </p>
-</blockquote>
-<pre><code>    在多个列上降序排序：如果想在多个列上进行降序排序，必须对每个列指定DESC关键字。这一点要与DISTINCT关键字区别。</code></pre>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;与DESC相反的关键字是ASC（ASCENDING），在肾虚时可以指定它。但时间上，ASC没多大用处，因为升序是默认的（如果既不指定ASC也不指定DESC，则假定为ASC）。</p>
-<pre><code>    区分大小写和排序顺序：在对文本型的数据进行排序时，A与a相同吗？a位于B之前还是位于Z之后？这些问题不是理论问题，其答案取决于数据库如何设置。  
-    在字典（dictionary）排序顺序中，A被视为与a相同，这是MySQL（和大多数数据库管理系统）的默认行为（如果你的数据库包含大量外语字符，可能必须这样做）。  
-    这里，关键的问题是，如果确实需要改变这种排序顺序，用简单的ORDER BY子句做不到。你必须请求数据库管理员的帮助。  </code></pre>
-<p>&nbsp; &nbsp;&nbsp; &nbsp;使用ORDER BY和LIMIT的组合，能够找出一个列中最高和最低的值。如何找出最昂贵物品的值：  </p>
-<blockquote>
-<p>输入:SELECT prod_price FROM products ORDER BY prod_price DESC LIMIT 1;<br>分析：prod_price DESC保证行是按照由最昂贵到最便宜检索的，而LIMIT 1告诉MySQL仅返回一行。  </p>
-</blockquote>
-<pre><code>    ORDER BY子句的位置：再给出ORDDER BY子句时，应该保证它位于FROm子句之后。如果使用LIMIT，它必须位于ORDER BY之后。使用子句的次序不对将产生错误消息。</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2022/07/06/%E7%AC%AC5%E7%AB%A0%E6%8E%92%E5%BA%8F%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE/" data-id="cl7yucsgy000lh87e6imr8xdn" data-title="第5章排序检索数据" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1880,7 +1805,7 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" rel="tag">MySQL必知必会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9C%8B%E6%96%87%E7%8C%AE/" rel="tag">看文献</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
     </div>
   </div>
 
@@ -1890,7 +1815,7 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" style="font-size: 20px;">MySQL必知必会</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
+      <a href="/tags/MySQL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" style="font-size: 20px;">MySQL必知必会</a> <a href="/tags/%E7%9C%8B%E6%96%87%E7%8C%AE/" style="font-size: 10px;">看文献</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a>
     </div>
   </div>
 
@@ -1912,6 +1837,14 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
       <ul>
         
           <li>
+            <a href="/2022/09/29/%E5%9F%BA%E4%BA%8E-%E7%9B%B8%E4%BC%BC%E5%BA%A6-%E7%9A%84%E6%89%8B%E5%86%99%E6%B1%89%E5%AD%97%E8%AF%86%E5%88%AB%E4%B8%8E%E7%BE%8E%E6%84%9F%E8%AF%84%E5%88%86%E5%8C%97%E9%82%AE2019/">基于_相似度_的手写汉字识别与美感评分北邮2019</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/29/%E7%9C%8B%E6%96%87%E7%8C%AE%E5%BA%94%E8%AF%A5%E5%81%9A%E4%BB%80%E4%B9%88/">看文献应该做什么</a>
+          </li>
+        
+          <li>
             <a href="/2022/09/11/morris%E9%81%8D%E5%8E%86/">morris遍历</a>
           </li>
         
@@ -1921,14 +1854,6 @@ public void addPath(List&lt;Integer&gt; res, TreeNode node) &#123;
         
           <li>
             <a href="/2022/07/17/%E7%AC%AC12%E7%AB%A0%E6%B1%87%E6%80%BB%E6%95%B0%E6%8D%AE/">第12章汇总数据</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/16/%E7%AC%AC11%E7%AB%A0%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0/">第11章使用数据处理函数</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/16/%E7%AC%AC10%E7%AB%A0%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5/">第10章创建计算字段</a>
           </li>
         
       </ul>
