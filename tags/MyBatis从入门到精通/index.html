@@ -4,17 +4,15 @@
   <meta charset="utf-8">
   
   
-  <title>认识flyway | Mw&#39;s Hexo</title>
+  <title>Tag: MyBatis从入门到精通 | Mw&#39;s Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Flyway简介和SpringBoot集成FlywayFlayway简介FLYway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。 流程1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway">
-<meta property="og:type" content="article">
-<meta property="og:title" content="认识flyway">
-<meta property="og:url" content="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/index.html">
+  <meta name="description" content="静静的来，静静的去，静静的前行，静静的收获。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mw&#39;s Hexo">
+<meta property="og:url" content="http://example/tags/MyBatis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A/index.html">
 <meta property="og:site_name" content="Mw&#39;s Hexo">
-<meta property="og:description" content="Flyway简介和SpringBoot集成FlywayFlayway简介FLYway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。 流程1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway">
+<meta property="og:description" content="静静的来，静静的去，静静的前行，静静的收获。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-14T12:53:21.000Z">
-<meta property="article:modified_time" content="2021-03-14T13:30:02.831Z">
 <meta property="article:author" content="mawan">
 <meta name="twitter:card" content="summary">
   
@@ -73,70 +71,39 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-认识flyway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" class="article-date">
-  <time class="dt-published" datetime="2021-03-14T12:53:21.000Z" itemprop="datePublished">2021-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      认识flyway
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2023/02/06/MyBatis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E7%AC%AC1%E7%AB%A0/" class="archive-article-date">
+  <time class="dt-published" datetime="2023-02-05T16:00:00.000Z" itemprop="datePublished">Feb 6</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/02/06/MyBatis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E7%AC%AC1%E7%AB%A0/">第1章：MyBatis入门</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Flyway简介和SpringBoot集成Flyway"><a href="#Flyway简介和SpringBoot集成Flyway" class="headerlink" title="Flyway简介和SpringBoot集成Flyway"></a>Flyway简介和SpringBoot集成Flyway</h1><h2 id="Flayway简介"><a href="#Flayway简介" class="headerlink" title="Flayway简介"></a>Flayway简介</h2><p>FLYway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>1、首先配置好flyway的基本信息后，运行项目，会在数据库表中默认新建一个数据表用于存储flyway的运行信息，默认的数据库名：flyway_schema_history</p>
-<p>2、紧接着flyway将开始扫描文件系统或引用程序的类路径进行迁移。然后，flyway的数据将基于对sql脚本的版本号进行排序，并按顺序应用：可以看到执行数据库表后在checksum中储存一个数值，用于在之后运行过程中对比sql文件执行是否有变化。</p>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>flyway在执行脚本时，会在源数据表中检查checksum值，并确定上次运行到哪一个脚本文件，本次执行时从下一条脚本文件开始执行。所以编写脚本的时候不要去修改原有的脚本内容，并且新的脚本号要继续。</p>
-<h2 id="集成SpringBoot"><a href="#集成SpringBoot" class="headerlink" title="集成SpringBoot"></a>集成SpringBoot</h2><p>1.添加依赖和插件<br><a><font color="red"><br>注意：spring boot 2.2.x supplies flyway version 6. This version does not support mysql 5.5. You could try to override the flyway version to 5.2.4<br></font></a></p>
-<p>2.命名规范<br>sql脚本存放目录：src/main/resources/db/migration<br>对应一个程序版本的多个脚本，从1开始，比如1.0.9版本，有多个任务：张三负责a任务（tapd号为1111111），李四负责b任务（tapd号为222222），他们的任务都涉及到db更新他们会分别创建两个脚本：<br>V1.0.9.0.1__1111111.sql<br>V1.0.9.0.2__222222.sql<br>说明：V大写，中间是两个下划线（__)</p>
-<p>常见问题<br>1、可以基于环境变量，实现不同的环境，做不同的初始化脚本吗？<br> 基于我们的配置中 心，可以对flyway.locations配置进行修改，不同环境的初始化脚本可以放到不同的目录下。</p>
-<p>2、初始化数据过程会发生错误回滚？<br> 每 一个sql 文件会有 一个单独的事物，如果单个文件中发 生错误，单个文件的操作会回滚， 比如有1、2、3个 文件，第 二个文件发生错误，第二个文件所有操作将会回滚，第三个文件不会执行。但： Unfortunately, today only DB2, PostgreSQL, Derby, EnterpriseDB and to a certain extent SQL Server support DDL statements  inside a transaction。 所以，建议不要把ddl 文件和dml语句句放到同 一个文件 里，避免不必要的麻烦。</p>
-<p>3、多个节点能够并行执行migration吗？<br> 当然可以！Flyway使用数据库锁机制（locking technology of your database）来协调多个节点，从而保证多套应用程序可同时执行migration，而且集群控制也可做配置。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example/2021/03/14/%E8%AE%A4%E8%AF%86flyway/" data-id="clemvoh84001a7s7ealyw10vd" data-title="认识flyway" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/02/14/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E5%8D%87%E5%A4%A9%E8%AF%8D/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          二分搜索升天词
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/02/04/testIMG/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">testIMG</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>
